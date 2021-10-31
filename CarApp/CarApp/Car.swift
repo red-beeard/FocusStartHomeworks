@@ -7,17 +7,9 @@
 
 struct Car: CustomStringConvertible {
     
-    enum Body: String {
-        case hatchback = "Хэтчбек"
-        case sedan = "Седан"
-        case cabriolet = "Кабриолет"
-        case roadster = "Родстер"
-        case unknown = "Неизвестный"
-    }
-    
     let manufacturer: String
     let model: String
-    let body: Body
+    let body: CarBody
     let yearOfIssue: Int?
     let carNumber: String?
     
