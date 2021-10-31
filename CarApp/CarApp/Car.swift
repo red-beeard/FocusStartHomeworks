@@ -5,7 +5,7 @@
 //  Created by Red Beard on 31.10.2021.
 //
 
-struct Car {
+struct Car: CustomStringConvertible {
     
     enum Body: String {
         case hatchback = "Хэтчбек"
@@ -22,13 +22,15 @@ struct Car {
     let carNumber: String?
     
     var description: String {
-        var description = "Производитель: \(manufacturer)\n" +
-        "Модель: \(model)\n" +
-        "Тип кузова: \(body)\n" +
-        "Год выпуска: \(yearOfIssue?.description ?? "-")\n"
+        var description = """
+            Производитель: \(manufacturer)
+            Модель: \(model)
+            Тип кузова: \(body)
+            Год выпуска: \(yearOfIssue?.description ?? "-")
+        """
         
         if let carNumber = carNumber {
-            description += "Гос. номер: \(carNumber)"
+            description += "\n\tГос. номер: \(carNumber)"
         }
         
         return description
