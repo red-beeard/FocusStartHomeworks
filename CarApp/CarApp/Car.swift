@@ -17,7 +17,7 @@ struct Car: CustomStringConvertible {
         var description = """
             Производитель: \(manufacturer)
             Модель: \(model)
-            Тип кузова: \(body)
+            Тип кузова: \(body.rawValue)
             Год выпуска: \(yearOfIssue?.description ?? "-")
         """
         
