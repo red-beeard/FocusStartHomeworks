@@ -20,7 +20,7 @@ func strongReadLine(with text: String) -> String {
 func weakReadLine(with text: String) -> String? {
     print(text, terminator: "")
     let input = readLine()
-        
+    
     if let input = input, input.isEmpty == false {
         return input
     }
@@ -94,12 +94,9 @@ func showAddingCars(from cars: [Car], withBody: Bool = false) {
     let body = withBody == true ? getCarBody() : nil
     
     print()
-    for car in cars {
-        if withBody && car.body != body {
-            continue
-        }
-        print(car)
-    }
+    cars.filter {
+        body == nil || $0.body == body
+    }.forEach { print($0) }
 }
 
 func run() {
