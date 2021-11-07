@@ -29,5 +29,3 @@ queue.async(group: group) {
 group.wait()
 print(integers.count)
 
-var array = [1]
-array.remove(at: 1)
