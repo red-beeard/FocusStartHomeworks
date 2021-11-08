@@ -32,11 +32,11 @@ struct ThreadSafeArray<Element: Hashable> {
     }
     
     mutating func remove(at index: Int) {
+        semaphore.wait()
         if 0 <= index && index < count {
-            semaphore.wait()
             array.remove(at: index)
-            semaphore.signal()
         }
+        semaphore.signal()
     }
     
     subscript(index: Int) -> Element {
