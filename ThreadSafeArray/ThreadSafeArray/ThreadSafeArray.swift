@@ -12,11 +12,17 @@ struct ThreadSafeArray<Element: Hashable> {
     private let semaphore = DispatchSemaphore(value: 1)
     
     var isEmpty: Bool {
-        array.isEmpty
+        semaphore.wait()
+        let result = array.isEmpty
+        semaphore.signal()
+        return result
     }
     
     var count: Int {
-        array.count
+        semaphore.wait()
+        let result = array.count
+        semaphore.signal()
+        return result
     }
     
     mutating func append(_ item: Element) {
@@ -34,10 +40,16 @@ struct ThreadSafeArray<Element: Hashable> {
     }
     
     subscript(index: Int) -> Element {
-        array[index]
+        semaphore.wait()
+        let result = array[index]
+        semaphore.signal()
+        return result
     }
     
     func contains(_ element: Element) -> Bool {
-        array.contains(element)
+        semaphore.wait()
+        let result = array.contains(element)
+        semaphore.signal()
+        return result
     }
 }
