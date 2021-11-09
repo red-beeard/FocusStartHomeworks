@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ThreadSafeArray<Element: Hashable> {
+struct ThreadSafeArray<Element: Comparable> {
     private var array: Array<Element> = []
     private let semaphore = DispatchSemaphore(value: 1)
     
