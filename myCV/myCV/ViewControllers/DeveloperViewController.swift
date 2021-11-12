@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DeveloperViewController.swift
 //  myCV
 //
 //  Created by Red Beard on 12.11.2021.
@@ -7,13 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class DeveloperViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
     }
 
-
 }
-
