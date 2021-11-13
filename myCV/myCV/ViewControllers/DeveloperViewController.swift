@@ -9,6 +9,8 @@ import UIKit
 
 class DeveloperViewController: UIViewController {
     
+    var person: Person!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

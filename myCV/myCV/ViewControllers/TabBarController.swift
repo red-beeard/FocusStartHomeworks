@@ -16,7 +16,10 @@ class TabBarController: UITabBarController {
     }
     
     private func configurationTabBar() {
+        let person = Person.getPerson()
+
         let aboutMeVC = AboutMeViewController()
+        aboutMeVC.person = person
         aboutMeVC.tabBarItem = UITabBarItem(
             title: "About me",
             image: UIImage(systemName: "person"),
