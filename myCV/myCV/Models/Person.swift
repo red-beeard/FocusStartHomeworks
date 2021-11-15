@@ -29,39 +29,3 @@ struct Person {
     }
     
 }
-
-struct Skill {
-    let language: String
-    let description: String
-    
-    static func getSkills() -> [Skill] {
-        [
-            Skill(language: "Swift", description: "Изучаю для работы"),
-            Skill(language: "Python", description: "Учил в рамках универа")
-        ]
-    }
-}
-
-struct Concert {
-    let artist: String
-    let year: Int
-    let city: String
-    
-    var nameImage: String {
-        "\(artist) - \(city) (\(year))"
-    }
-    
-    var info: String {
-        "\(city), \(year)"
-    }
-    
-    static func getConcerts() -> [Concert] {
-        [
-            Concert(artist: "Макс Корж", year: 2018, city: "Ростов-на-Дону"),
-            Concert(artist: "Макс Корж", year: 2019, city: "Пенза"),
-            Concert(artist: "ATL", year: 2017, city: "Ростов-на-Дону"),
-            Concert(artist: "Loqiemean", year: 2018, city: "Ростов-на-Дону")
-        ]
-    }
-    
-}

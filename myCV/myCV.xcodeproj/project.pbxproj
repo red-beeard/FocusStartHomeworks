@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8118E11F2742C6E600D465B8 /* ConcertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8118E11E2742C6E600D465B8 /* ConcertView.swift */; };
+		8118E1212742EAFF00D465B8 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8118E1202742EAFF00D465B8 /* Skill.swift */; };
+		8118E1232742EB1500D465B8 /* Concert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8118E1222742EB1500D465B8 /* Concert.swift */; };
 		81E520B0273EDD46005848AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E520AF273EDD46005848AE /* AppDelegate.swift */; };
 		81E520B2273EDD46005848AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E520B1273EDD46005848AE /* SceneDelegate.swift */; };
 		81E520B4273EDD46005848AE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E520B3273EDD46005848AE /* TabBarController.swift */; };
@@ -22,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		8118E11E2742C6E600D465B8 /* ConcertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertView.swift; sourceTree = "<group>"; };
+		8118E1202742EAFF00D465B8 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		8118E1222742EB1500D465B8 /* Concert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concert.swift; sourceTree = "<group>"; };
 		81E520AC273EDD46005848AE /* myCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E520AF273EDD46005848AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81E520B1273EDD46005848AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				81E520FD27400341005848AE /* Person.swift */,
+				8118E1202742EAFF00D465B8 /* Skill.swift */,
+				8118E1222742EB1500D465B8 /* Concert.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,9 +210,11 @@
 				81E520B0273EDD46005848AE /* AppDelegate.swift in Sources */,
 				81E520CC273EF92E005848AE /* DeveloperViewController.swift in Sources */,
 				81E520CE273EF976005848AE /* HobbyViewController.swift in Sources */,
+				8118E1232742EB1500D465B8 /* Concert.swift in Sources */,
 				81E5210127419E74005848AE /* SkillView.swift in Sources */,
 				8118E11F2742C6E600D465B8 /* ConcertView.swift in Sources */,
 				81E520FE27400341005848AE /* Person.swift in Sources */,
+				8118E1212742EAFF00D465B8 /* Skill.swift in Sources */,
 				81E520CA273EF857005848AE /* AboutMeViewController.swift in Sources */,
 				81E520B2273EDD46005848AE /* SceneDelegate.swift in Sources */,
 			);
