@@ -19,8 +19,8 @@ class AboutMeViewController: UIViewController {
         super.viewDidLoad()
         
         configuireAvatar()
-        configureFullnameLabel()
-        configureAboutMeLabel()
+        configuireFullnameLabel()
+        configuireAboutMeLabel()
         configuireLayout()
     }
     
@@ -31,14 +31,14 @@ class AboutMeViewController: UIViewController {
         avatarImageView.contentMode = .scaleAspectFit
     }
     
-    private func configureFullnameLabel() {
+    private func configuireFullnameLabel() {
         fullnameLabel = UILabel()
         fullnameLabel.translatesAutoresizingMaskIntoConstraints = false
         fullnameLabel.font = UIFont.boldSystemFont(ofSize: 30)
         fullnameLabel.text = "\(person.name) \(person.surname)"
     }
     
-    private func configureAboutMeLabel() {
+    private func configuireAboutMeLabel() {
         aboutMeLabel = UILabel()
         aboutMeLabel.translatesAutoresizingMaskIntoConstraints = false
         aboutMeLabel.numberOfLines = 0
