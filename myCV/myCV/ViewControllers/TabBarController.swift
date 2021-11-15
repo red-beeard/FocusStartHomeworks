@@ -34,14 +34,19 @@ class TabBarController: UITabBarController {
             selectedImage: UIImage(systemName: "macpro.gen2.fill")
         )
 
+        
         let hobbyVC = HobbyViewController()
-        hobbyVC.tabBarItem = UITabBarItem(
+        hobbyVC.concerts = person.concerts
+        hobbyVC.title = "Концерты"
+        let navigationHobbyVC = UINavigationController(rootViewController: hobbyVC)
+        navigationHobbyVC.navigationBar.prefersLargeTitles = true
+        navigationHobbyVC.tabBarItem = UITabBarItem(
             title: "Hobby",
             image: UIImage(systemName: "gamecontroller"),
             selectedImage: UIImage(systemName: "gamecontroller.fill")
         )
         
-        setViewControllers([aboutMeVC, developerVC, hobbyVC], animated: false)
+        setViewControllers([aboutMeVC, developerVC, navigationHobbyVC], animated: false)
     }
 
 }

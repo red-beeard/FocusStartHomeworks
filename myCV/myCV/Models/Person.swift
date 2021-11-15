@@ -6,12 +6,12 @@
 //
 
 struct Person {
-    
     let name: String
     let surname: String
     let avatar: String
     let aboutMe: String
     let skills: [Skill]
+    let concerts: [Concert]
     
     static func getPerson() -> Person {
         Person(
@@ -23,7 +23,8 @@ struct Person {
                     
                     Окончил бакалавриат по направлению "Прикладная математика и информатика". Надеюсь в ЦФТ получить прикладные знания для работы и саму работу))
                     """,
-            skills: Skill.getSkills()
+            skills: Skill.getSkills(),
+            concerts: Concert.getConcerts()
         )
     }
     
@@ -39,4 +40,28 @@ struct Skill {
             Skill(language: "Python", description: "Учил в рамках универа")
         ]
     }
+}
+
+struct Concert {
+    let artist: String
+    let year: Int
+    let city: String
+    
+    var nameImage: String {
+        "\(artist) - \(city) (\(year))"
+    }
+    
+    var info: String {
+        "\(city), \(year)"
+    }
+    
+    static func getConcerts() -> [Concert] {
+        [
+            Concert(artist: "Макс Корж", year: 2018, city: "Ростов-на-Дону"),
+            Concert(artist: "Макс Корж", year: 2019, city: "Пенза"),
+            Concert(artist: "ATL", year: 2017, city: "Ростов-на-Дону"),
+            Concert(artist: "Loqiemean", year: 2018, city: "Ростов-на-Дону")
+        ]
+    }
+    
 }
