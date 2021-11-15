@@ -11,7 +11,7 @@ struct Person {
     let surname: String
     let avatar: String
     let aboutMe: String
-    let skills: [String]
+    let skills: [Skill]
     
     static func getPerson() -> Person {
         Person(
@@ -23,9 +23,20 @@ struct Person {
                     
                     Окончил бакалавриат по направлению "Прикладная математика и информатика". Надеюсь в ЦФТ получить прикладные знания для работы и саму работу))
                     """,
-            skills: []
+            skills: Skill.getSkills()
         )
-        
     }
     
+}
+
+struct Skill {
+    let language: String
+    let description: String
+    
+    static func getSkills() -> [Skill] {
+        [
+            Skill(language: "Swift", description: "Изучаю для работы"),
+            Skill(language: "Python", description: "Учил в рамках универа")
+        ]
+    }
 }
