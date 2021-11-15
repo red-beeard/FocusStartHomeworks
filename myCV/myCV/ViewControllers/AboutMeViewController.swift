@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AboutMeViewController: UIViewController {
+final class AboutMeViewController: UIViewController {
     
     var person: Person!
     

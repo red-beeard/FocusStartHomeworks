@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SkillView: UIView {
+final class SkillView: UIView {
     
     var imageView = UIImageView()
     var titleLabel = UILabel()

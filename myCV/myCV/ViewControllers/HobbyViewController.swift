@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HobbyViewController: UIViewController, UIScrollViewDelegate {
+final class HobbyViewController: UIViewController, UIScrollViewDelegate {
     
     var concerts: [Concert]!
     

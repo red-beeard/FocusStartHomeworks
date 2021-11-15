@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DeveloperViewController: UIViewController {
+final class DeveloperViewController: UIViewController {
     
     var person: Person!
     

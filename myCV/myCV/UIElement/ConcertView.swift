@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ConcertView: UIView {
+final class ConcertView: UIView {
 
     var imageView = UIImageView()
     var artistLabel = UILabel()
