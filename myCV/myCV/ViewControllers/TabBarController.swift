@@ -27,6 +27,7 @@ class TabBarController: UITabBarController {
         )
 
         let developerVC = DeveloperViewController()
+        developerVC.person = person
         developerVC.tabBarItem = UITabBarItem(
             title: "Developer",
             image: UIImage(systemName: "macpro.gen2"),

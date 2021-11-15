@@ -16,6 +16,7 @@
 		81E520CC273EF92E005848AE /* DeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E520CB273EF92E005848AE /* DeveloperViewController.swift */; };
 		81E520CE273EF976005848AE /* HobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E520CD273EF976005848AE /* HobbyViewController.swift */; };
 		81E520FE27400341005848AE /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E520FD27400341005848AE /* Person.swift */; };
+		81E5210127419E74005848AE /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E5210027419E74005848AE /* SkillView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		81E520CB273EF92E005848AE /* DeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperViewController.swift; sourceTree = "<group>"; };
 		81E520CD273EF976005848AE /* HobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyViewController.swift; sourceTree = "<group>"; };
 		81E520FD27400341005848AE /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		81E5210027419E74005848AE /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		81E520AE273EDD46005848AE /* myCV */ = {
 			isa = PBXGroup;
 			children = (
+				81E520FF27419E56005848AE /* UIElement */,
 				81E520FC27400326005848AE /* Models */,
 				81E520C6273EDF13005848AE /* ViewControllers */,
 				81E520C5273EDEDE005848AE /* Resources */,
@@ -114,6 +117,14 @@
 				81E520FD27400341005848AE /* Person.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		81E520FF27419E56005848AE /* UIElement */ = {
+			isa = PBXGroup;
+			children = (
+				81E5210027419E74005848AE /* SkillView.swift */,
+			);
+			path = UIElement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +201,7 @@
 				81E520B0273EDD46005848AE /* AppDelegate.swift in Sources */,
 				81E520CC273EF92E005848AE /* DeveloperViewController.swift in Sources */,
 				81E520CE273EF976005848AE /* HobbyViewController.swift in Sources */,
+				81E5210127419E74005848AE /* SkillView.swift in Sources */,
 				81E520FE27400341005848AE /* Person.swift in Sources */,
 				81E520CA273EF857005848AE /* AboutMeViewController.swift in Sources */,
 				81E520B2273EDD46005848AE /* SceneDelegate.swift in Sources */,
