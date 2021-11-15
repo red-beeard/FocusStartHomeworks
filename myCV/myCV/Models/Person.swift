@@ -27,5 +27,4 @@ struct Person {
             concerts: Concert.getConcerts()
         )
     }
-    
 }
