@@ -37,11 +37,7 @@ final class DeveloperViewController: UIViewController {
     }
     
     private func configuireSkillViews() {
-        skillViews = []
-        
-        for skill in person.skills {
-            skillViews.append(SkillView(skill: skill))
-        }
+        skillViews = person.skills.map { SkillView(skill: $0) }
     }
     
     private func configuireLayout() {
