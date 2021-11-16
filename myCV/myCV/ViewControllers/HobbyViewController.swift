@@ -91,12 +91,7 @@ final class HobbyViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func createConcertSlides() -> [ConcertView] {
-        var result: [ConcertView] = []
-        
-        for concert in concerts {
-            result.append(ConcertView(concert: concert))
-        }
-        return result
+        concerts.map { ConcertView(concert: $0) }
     }
 
 }
