@@ -9,6 +9,16 @@ import UIKit
 
 final class SkillView: UIView {
     
+    private enum Metrics {
+        static let smallIndent = CGFloat(10)
+        static let mediumIndent = CGFloat(20)
+        
+        static let sizeImageView = CGFloat(80)
+        
+        static let titleLabelFontSize = CGFloat(20)
+        static let decriptionFontSize = CGFloat(10)
+    }
+    
     var imageView = UIImageView()
     var titleLabel = UILabel()
     var descriptionLabel = UILabel()
@@ -49,13 +59,13 @@ final class SkillView: UIView {
     
     private func configuireTitleLabel(with title: String) {
         titleLabel.text = title
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: Metrics.titleLabelFontSize)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func configuireDescriptionLabel(with description: String) {
         descriptionLabel.text = description
-        descriptionLabel.font = UIFont.systemFont(ofSize: 10, weight: .regular)
+        descriptionLabel.font = UIFont.systemFont(ofSize: Metrics.decriptionFontSize, weight: .regular)
         descriptionLabel.textColor = .systemGray
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -70,15 +80,15 @@ final class SkillView: UIView {
         self.addSubview(vStack)
         
         NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(equalToConstant: 80),
-            imageView.widthAnchor.constraint(equalToConstant: 80),
-            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10)
+            imageView.heightAnchor.constraint(equalToConstant: Metrics.sizeImageView),
+            imageView.widthAnchor.constraint(equalToConstant: Metrics.sizeImageView),
+            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metrics.smallIndent),
+            imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: Metrics.smallIndent)
         ])
         
         NSLayoutConstraint.activate([
-            vStack.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 20),
-            vStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            vStack.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: Metrics.mediumIndent),
+            vStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Metrics.mediumIndent),
             vStack.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }

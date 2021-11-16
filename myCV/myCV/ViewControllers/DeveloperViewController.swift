@@ -9,6 +9,13 @@ import UIKit
 
 final class DeveloperViewController: UIViewController {
     
+    private enum Metrics {
+        static let mediumIndent = CGFloat(20)
+        static let largeIndent = CGFloat(40)
+        
+        static let heightSkillView = CGFloat(100)
+    }
+    
     var person: Person!
     
     private var titleLabel: UILabel!
@@ -46,17 +53,17 @@ final class DeveloperViewController: UIViewController {
         }
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Metrics.largeIndent),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         var prevView: UIView = titleLabel
         for skillView in skillViews {
             NSLayoutConstraint.activate([
-                skillView.topAnchor.constraint(equalTo: prevView.bottomAnchor, constant: 20),
-                skillView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-                skillView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-                skillView.heightAnchor.constraint(equalToConstant: 100),
+                skillView.topAnchor.constraint(equalTo: prevView.bottomAnchor, constant: Metrics.mediumIndent),
+                skillView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Metrics.mediumIndent),
+                skillView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Metrics.mediumIndent),
+                skillView.heightAnchor.constraint(equalToConstant: Metrics.heightSkillView),
             ])
             
             prevView = skillView

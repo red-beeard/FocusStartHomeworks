@@ -9,6 +9,14 @@ import UIKit
 
 final class AboutMeViewController: UIViewController {
     
+    private enum Metrics {
+        static let smallIndent = CGFloat(10)
+        static let mediumIndent = CGFloat(20)
+        static let largeIndent = CGFloat(30)
+        
+        static let fullnameLabelFontSize = CGFloat(30)
+    }
+    
     var person: Person!
     
     private var avatarImageView: UIImageView!
@@ -34,7 +42,7 @@ final class AboutMeViewController: UIViewController {
     private func configuireFullnameLabel() {
         fullnameLabel = UILabel()
         fullnameLabel.translatesAutoresizingMaskIntoConstraints = false
-        fullnameLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        fullnameLabel.font = UIFont.boldSystemFont(ofSize: Metrics.fullnameLabelFontSize)
         fullnameLabel.text = "\(person.name) \(person.surname)"
     }
     
@@ -54,21 +62,21 @@ final class AboutMeViewController: UIViewController {
         view.addSubview(aboutMeLabel)
         
         NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Metrics.mediumIndent),
             avatarImageView.heightAnchor.constraint(equalToConstant: screenSize.height / 3),
             avatarImageView.widthAnchor.constraint(equalToConstant: screenSize.width * 0.8),
             avatarImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            fullnameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 30),
+            fullnameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: Metrics.largeIndent),
             fullnameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            aboutMeLabel.topAnchor.constraint(equalTo: fullnameLabel.bottomAnchor, constant: 10),
-            aboutMeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            aboutMeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            aboutMeLabel.topAnchor.constraint(equalTo: fullnameLabel.bottomAnchor, constant: Metrics.smallIndent),
+            aboutMeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Metrics.mediumIndent),
+            aboutMeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Metrics.mediumIndent)
         ])
     }
 }
