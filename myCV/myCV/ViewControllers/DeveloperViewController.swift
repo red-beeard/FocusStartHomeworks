@@ -16,10 +16,10 @@ final class DeveloperViewController: UIViewController {
         static let heightSkillView = CGFloat(100)
     }
     
-    var person: Person!
+    private let skills = Skill.getSkills()
     
-    private var titleLabel: UILabel!
-    private var skillViews: [SkillView]!
+    private let titleLabel = UILabel()
+    private var skillViews = [SkillView]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +30,13 @@ final class DeveloperViewController: UIViewController {
     }
     
     private func configuireTitleLabel() {
-        titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = "Мои скиллы"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
     }
     
     private func configuireSkillViews() {
-        skillViews = person.skills.map { SkillView(skill: $0) }
+        skillViews = skills.map { SkillView(skill: $0) }
     }
     
     private func configuireLayout() {

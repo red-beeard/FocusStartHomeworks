@@ -16,10 +16,7 @@ final class TabBarController: UITabBarController {
     }
     
     private func configurationTabBar() {
-        let person = Person.getPerson()
-
         let aboutMeVC = AboutMeViewController()
-        aboutMeVC.person = person
         aboutMeVC.tabBarItem = UITabBarItem(
             title: "About me",
             image: UIImage(systemName: "person"),
@@ -27,7 +24,6 @@ final class TabBarController: UITabBarController {
         )
 
         let developerVC = DeveloperViewController()
-        developerVC.person = person
         developerVC.tabBarItem = UITabBarItem(
             title: "Developer",
             image: UIImage(systemName: "macpro.gen2"),
@@ -36,7 +32,6 @@ final class TabBarController: UITabBarController {
 
         
         let hobbyVC = HobbyViewController()
-        hobbyVC.concerts = person.concerts
         hobbyVC.title = "Концерты"
         let navigationHobbyVC = UINavigationController(rootViewController: hobbyVC)
         navigationHobbyVC.navigationBar.prefersLargeTitles = true

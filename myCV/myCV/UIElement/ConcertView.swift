@@ -16,9 +16,9 @@ final class ConcertView: UIView {
         static let smallIndent = CGFloat(10)
     }
 
-    var imageView = UIImageView()
-    var artistLabel = UILabel()
-    var infoLabel = UILabel()
+    private let imageView = UIImageView()
+    private let artistLabel = UILabel()
+    private let infoLabel = UILabel()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)

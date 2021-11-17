@@ -9,10 +9,10 @@ import UIKit
 
 final class HobbyViewController: UIViewController, UIScrollViewDelegate {
     
-    var concerts: [Concert]!
+    private let concerts = Concert.getConcerts()
     
-    private var scrollView: UIScrollView!
-    private var pageControl: UIPageControl!
+    private let scrollView = UIScrollView()
+    private let pageControl = UIPageControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,6 @@ final class HobbyViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func configuireScrollView() {
-        scrollView = UIScrollView()
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
@@ -43,7 +42,6 @@ final class HobbyViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func configuirePageControl() {
-        pageControl = UIPageControl()
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .darkGray
         pageControl.translatesAutoresizingMaskIntoConstraints = false

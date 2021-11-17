@@ -19,9 +19,9 @@ final class SkillView: UIView {
         static let decriptionFontSize = CGFloat(10)
     }
     
-    var imageView = UIImageView()
-    var titleLabel = UILabel()
-    var descriptionLabel = UILabel()
+    private let imageView = UIImageView()
+    private let titleLabel = UILabel()
+    private let descriptionLabel = UILabel()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
