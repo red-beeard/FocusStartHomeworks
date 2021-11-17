@@ -11,7 +11,7 @@ struct Image {
     let author: String
     let filename: String
     
-    static getImages() -> [Image] {
+    static func getImages() -> [Image] {
         DataManager.shared.images.map { (key, value) in
             Image(author: key, filename: value)
         }
