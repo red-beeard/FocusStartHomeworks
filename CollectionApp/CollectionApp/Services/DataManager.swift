@@ -19,7 +19,7 @@ class DataManager {
         "natanja-grun-X2s8GhnQmds-unsplash.jpg" : "Natanja Grun",
         "mgg-vitchakorn-frJqgIoK61g-unsplash.jpg" : "Mgg Vitchakorn",
         "lefteris-kallergis-QsmdVT5pTMw-unsplash.jpg" : "Lefteris Kallergis",
-        "joshua-rawson-harris-bMMOBVp6KQU-uns" : "Joshua Rawson Harris",
+        "joshua-rawson-harris-bMMOBVp6KQU-unsplash.jpg" : "Joshua Rawson Harris",
         "jayson-hinrichsen-qRwfk661DnE-unsplash.jpg" : "Jayson Hinrichsen",
         "jack-dong-2DDGgrJPIjk-unsplash.jpg" : "Jack Dong",
         "hrihorii-sheldunov-9_H3ss1ko4c-unsplash.jpg" : "Hrihorii Sheldunov",
@@ -34,6 +34,5 @@ class DataManager {
         "aidan-hancock-OuxSTrA1Z6M-unsplash.jpg" : "Aidan Hancock",
     ]
 
-    
     private init() { }
 }
