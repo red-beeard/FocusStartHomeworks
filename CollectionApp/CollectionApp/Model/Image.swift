@@ -8,12 +8,14 @@
 import Foundation
 
 struct Image {
+    
     let author: String
     let filename: String
     
     static func getImages() -> [Image] {
         DataManager.shared.images.map { (key, value) in
-            Image(author: key, filename: value)
+            Image(author: value, filename: key)
         }
     }
+    
 }
