@@ -32,8 +32,6 @@ class PhotoCell: UICollectionViewCell {
         }
     }
     
-    
-    
     private let imageView = UIImageView()
     private let titleLabel = UILabel()
     
@@ -44,8 +42,8 @@ class PhotoCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        configuireCell()
-        configuireLayout()
+        self.configuireCell()
+        self.configuireLayout()
     }
     
     private func configuireCell() {
