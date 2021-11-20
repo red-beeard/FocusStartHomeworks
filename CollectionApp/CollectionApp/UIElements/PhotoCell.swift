@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhotoCell: UICollectionViewCell {
+class PhotoCell: UITableViewCell {
     
     private enum Metrics {
         static let cornerRadius = CGFloat(15)
@@ -24,57 +24,52 @@ class PhotoCell: UICollectionViewCell {
         }
     }
     
-    var image: Image? {
+    var imageData: Image? {
         didSet {
-            guard let image = image else { return }
-            self.imageView.image = UIImage(named: image.filename)
-            self.titleLabel.text = image.author
+            guard let imageData = imageData else { return }
+            self.photoImageView.image = UIImage(named: imageData.filename)
+            self.titleLabel.text = imageData.author
         }
     }
     
-    private let imageView = UIImageView()
+    private let photoImageView = UIImageView()
     private let titleLabel = UILabel()
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.configuireCell()
         self.configuireLayout()
     }
     
     private func configuireCell() {
-        self.imageView.translatesAutoresizingMaskIntoConstraints = false
-        self.imageView.layer.cornerRadius = Metrics.cornerRadius
-        self.imageView.contentMode = .scaleAspectFill
-        self.imageView.clipsToBounds = true
+        self.photoImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.photoImageView.layer.cornerRadius = Metrics.cornerRadius
+        self.photoImageView.contentMode = .scaleAspectFill
+        self.photoImageView.clipsToBounds = true
         
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.titleLabel.textAlignment = .center
         self.titleLabel.adjustsFontSizeToFitWidth = true
         self.titleLabel.minimumScaleFactor = 0.5
-        
-        self.backgroundColor = .systemFill
-        self.layer.cornerRadius = Metrics.cornerRadius
     }
     
     private func configuireLayout() {
-        self.addSubview(self.imageView)
+        self.addSubview(self.photoImageView)
         self.addSubview(self.titleLabel)
         
         NSLayoutConstraint.activate([
-            self.imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: Metrics.smallIndent),
-            self.imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metrics.smallIndent),
-            self.imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Metrics.smallIndent),
-            self.imageView.heightAnchor.constraint(equalTo: self.imageView.widthAnchor)
+            self.photoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: Metrics.smallIndent),
+            self.photoImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metrics.smallIndent),
+            self.photoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Metrics.smallIndent),
+            self.photoImageView.widthAnchor.constraint(equalTo: self.photoImageView.heightAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            self.titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: self.frame.height * 0.4),
-            self.titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metrics.smallIndent),
+            self.titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.titleLabel.leadingAnchor.constraint(equalTo: self.photoImageView.trailingAnchor, constant: Metrics.smallIndent),
             self.titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Metrics.smallIndent)
         ])
     }
