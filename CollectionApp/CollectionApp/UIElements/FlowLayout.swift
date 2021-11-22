@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FlowLayout: UICollectionViewFlowLayout {
+final class FlowLayout: UICollectionViewFlowLayout {
     
     private enum Metrics {
         static let portraitNumberColumns = 2

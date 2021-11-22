@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhotoViewController: UIViewController {
+final class PhotoViewController: UIViewController {
     
     private enum Metrics {
         static let cornerRadius = CGFloat(15)

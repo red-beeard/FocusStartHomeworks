@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+final class DetailsViewController: UIViewController {
     
     private enum Metrics {
         static let titleLabelFontSize = CGFloat(20)

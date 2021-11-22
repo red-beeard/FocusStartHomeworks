@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhotoCell: UICollectionViewCell {
+final class PhotoCell: UICollectionViewCell {
     
     private enum Metrics {
         static let cornerRadius = CGFloat(15)
