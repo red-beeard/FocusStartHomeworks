@@ -12,6 +12,7 @@ final class DetailsViewController: UIViewController {
     private enum Metrics {
         static let titleLabelFontSize = CGFloat(20)
         static let smallIndent = CGFloat(20)
+        static let stackViewSpacing = CGFloat(8)
     }
     
     var image: Image!
@@ -39,7 +40,7 @@ final class DetailsViewController: UIViewController {
     
     private func configurationStackView() {
         self.stackView.translatesAutoresizingMaskIntoConstraints = false
-        self.stackView.spacing = 8
+        self.stackView.spacing = Metrics.stackViewSpacing
         self.stackView.axis = .vertical
         self.stackView.alignment = .center
         
