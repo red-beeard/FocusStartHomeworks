@@ -25,7 +25,7 @@ final class PhotoViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        presenter.loadView(controller: self, view: customView)
+        self.presenter.loadView(controller: self, view: self.customView)
     }
     
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ final class PhotoViewController: UIViewController {
     
     private func configuireCustomView() {
         self.customView.configuireView()
-        self.view.addSubview(customView)
+        self.view.addSubview(self.customView)
         self.customView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([

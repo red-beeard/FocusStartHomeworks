@@ -33,8 +33,8 @@ final class CollectionView: UIView {
     }
     
     private func configuireView() {
-        configuireCollectionView()
-        configurationLayout()
+        self.configuireCollectionView()
+        self.configurationLayout()
     }
     
     private func configuireCollectionView() {

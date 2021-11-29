@@ -24,7 +24,7 @@ final class PhotoPresenter {
         self.controller = controller
         self.view = view
         
-        guard let image = model.getImage(with: self.id) else { return }
+        guard let image = self.model.getImage(with: self.id) else { return }
         self.view?.setImageData(image: image)
         
         self.setHandlers()

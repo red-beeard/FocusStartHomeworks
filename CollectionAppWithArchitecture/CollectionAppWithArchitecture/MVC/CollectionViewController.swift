@@ -25,8 +25,8 @@ final class CollectionViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        customView.loadView(controller: self)
-        customView.setImages(images: model.getImages())
+        self.customView.loadView(controller: self)
+        self.customView.setImages(images: model.getImages())
     }
     
     override func viewDidLoad() {
@@ -44,7 +44,7 @@ final class CollectionViewController: UIViewController {
     }
     
     private func configuireCustomView() {
-        self.view.addSubview(customView)
+        self.view.addSubview(self.customView)
         self.customView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([

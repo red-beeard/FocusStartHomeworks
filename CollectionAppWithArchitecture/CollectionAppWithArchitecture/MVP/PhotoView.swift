@@ -75,7 +75,7 @@ final class PhotoView: UIView {
         self.detailsButton.translatesAutoresizingMaskIntoConstraints = false
         self.detailsButton.setTitleColor(.systemBlue, for: .normal)
         self.detailsButton.setTitle("Show Details", for: .normal)
-        self.detailsButton.addTarget(self, action: #selector(detailsButtonTapped), for: .touchUpInside)
+        self.detailsButton.addTarget(self, action: #selector(self.detailsButtonTapped), for: .touchUpInside)
     }
     
     private func configurationStackView() {
@@ -87,8 +87,8 @@ final class PhotoView: UIView {
     }
     
     private func configuireLayout() {
-        self.addSubview(imageView)
-        self.addSubview(stackView)
+        self.addSubview(self.imageView)
+        self.addSubview(self.stackView)
         
         self.createPortraitConstraints()
         self.createLandscapeConstraints()
