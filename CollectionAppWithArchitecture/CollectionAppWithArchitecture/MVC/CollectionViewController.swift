@@ -7,25 +7,25 @@
 
 import UIKit
 
-class CollectionViewController: UIViewController {
+final class CollectionViewController: UIViewController {
     
-    private let customView: CollectionView!
-    private let images: [Image]?
+    private let customView: CollectionView
+    private let model: ImageModel
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init() {
-        self.customView = CollectionView(frame: UIScreen.main.bounds)
-        self.images = Image.getImages()
+    init(model: ImageModel) {
+        self.customView = CollectionView(frame: .zero)
+        self.model = model
         super.init(nibName: nil, bundle: nil)
     }
     
     override func loadView() {
         super.loadView()
         customView.loadView(controller: self)
-        customView.setImages(images: self.images)
+        customView.setImages(images: model.getImages())
     }
     
     override func viewDidLoad() {
@@ -34,20 +34,25 @@ class CollectionViewController: UIViewController {
         self.title = "Фотографии"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
+        self.configuireCustomView()
+    }
+    
+    private func configuireCustomView() {
         self.view.addSubview(customView)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        self.customView.translatesAutoresizingMaskIntoConstraints = false
         
-        self.customView.configuireView()
+        NSLayoutConstraint.activate([
+            self.customView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.customView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.customView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.customView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
     }
     
-    func cellPressed(with image: Image) {
-        //        let photoVC = PhotoViewController()
-        //        photoVC.image = self.images[indexPath.item]
-        //        self.navigationController?.pushViewController(photoVC, animated: true)
+    func cellPressed(with id: UUID) {
+        let photoVC = PhotoAssembly.build(id: id)
+        self.navigationController?.pushViewController(photoVC, animated: true)
     }
-
+    
 }
 

@@ -15,15 +15,24 @@ final class CollectionView: UIView {
     
     private var images: [Image]?
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.configuireView()
+    }
+    
     func loadView(controller: CollectionViewController) {
         self.controller = controller
     }
     
-    func setImages(images: [Image]?) {
+    func setImages(images: [Image]) {
         self.images = images
     }
     
-    func configuireView() {
+    private func configuireView() {
         configuireCollectionView()
         configurationLayout()
     }
@@ -82,7 +91,7 @@ extension CollectionView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let image = self.images?[indexPath.item] {
-            self.controller.cellPressed(with: image)
+            self.controller.cellPressed(with: image.id)
         }
     }
     
