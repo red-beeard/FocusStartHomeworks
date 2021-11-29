@@ -24,7 +24,7 @@ final class PhotoView: UIView {
     private var portraitConstraints = [NSLayoutConstraint]()
     private var landscapeConstraints = [NSLayoutConstraint]()
     
-    private var image: Image?
+    var detailsButtonOnTouched: (() -> Void)?
     
     func configuireView() {
         self.configurationImageView()
@@ -120,10 +120,7 @@ final class PhotoView: UIView {
     }
     
     @objc private func detailsButtonTapped() {
-//        let detailsVC = DetailsViewController()
-//        detailsVC.image = self.image
-//        let navigationVC = UINavigationController(rootViewController: detailsVC)
-//        self.present(navigationVC, animated: true)
+        self.detailsButtonOnTouched?()
     }
     
 }

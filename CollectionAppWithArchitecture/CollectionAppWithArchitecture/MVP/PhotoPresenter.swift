@@ -15,7 +15,6 @@ final class PhotoPresenter {
     private var view: PhotoView?
     private var controller: PhotoViewController?
     
-    
     init(model: ImageModel, id: UUID) {
         self.model = model
         self.id = id
@@ -27,6 +26,18 @@ final class PhotoPresenter {
         
         guard let image = model.getImage(with: self.id) else { return }
         self.view?.setImageData(image: image)
+        
+        self.setHandlers()
+    }
+    
+    private func detailsButtonOnTouched() {
+        self.controller?.present(DetailsAssembly.build(id: self.id), animated: true)
+    }
+    
+    private func setHandlers() {
+        self.view?.detailsButtonOnTouched = { [weak self] in
+            self?.detailsButtonOnTouched()
+        }
     }
     
 }

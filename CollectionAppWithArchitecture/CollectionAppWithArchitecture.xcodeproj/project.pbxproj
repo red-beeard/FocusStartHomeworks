@@ -22,6 +22,9 @@
 		81B3662C2753BFA50076D61B /* CollectionAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3662B2753BFA50076D61B /* CollectionAssembly.swift */; };
 		81B3662E2753C07E0076D61B /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3662D2753C07E0076D61B /* ImageModel.swift */; };
 		81B366302753C37A0076D61B /* PhotoAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3662F2753C37A0076D61B /* PhotoAssembly.swift */; };
+		81B3663327554C740076D61B /* DetailsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3663227554C740076D61B /* DetailsAssembly.swift */; };
+		81B3663527554F010076D61B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3663427554F010076D61B /* DetailsViewController.swift */; };
+		81B3663727554F830076D61B /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3663627554F830076D61B /* DetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		81B3662B2753BFA50076D61B /* CollectionAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAssembly.swift; sourceTree = "<group>"; };
 		81B3662D2753C07E0076D61B /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		81B3662F2753C37A0076D61B /* PhotoAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAssembly.swift; sourceTree = "<group>"; };
+		81B3663227554C740076D61B /* DetailsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsAssembly.swift; sourceTree = "<group>"; };
+		81B3663427554F010076D61B /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		81B3663627554F830076D61B /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,7 @@
 				81B3661B27512D5D0076D61B /* Models */,
 				81B3661A27512D500076D61B /* MVC */,
 				81B3662427513F530076D61B /* MVP */,
+				81B3663127554C570076D61B /* MVVM */,
 				81B3661727512D250076D61B /* Supports */,
 				81B3661827512D370076D61B /* Resources */,
 				81B3661927512D430076D61B /* Storyboards */,
@@ -140,6 +147,16 @@
 				81B3662F2753C37A0076D61B /* PhotoAssembly.swift */,
 			);
 			path = MVP;
+			sourceTree = "<group>";
+		};
+		81B3663127554C570076D61B /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				81B3663227554C740076D61B /* DetailsAssembly.swift */,
+				81B3663427554F010076D61B /* DetailsViewController.swift */,
+				81B3663627554F830076D61B /* DetailsViewModel.swift */,
+			);
+			path = MVVM;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,16 +232,19 @@
 				818895DD2751296B009128B9 /* CollectionViewController.swift in Sources */,
 				81B3661D27512DB00076D61B /* Image.swift in Sources */,
 				81B36623275131510076D61B /* CollectionView.swift in Sources */,
+				81B3663727554F830076D61B /* DetailsViewModel.swift in Sources */,
 				81B3662827514FB40076D61B /* PhotoView.swift in Sources */,
 				81B3661F27512FD50076D61B /* FlowLayout.swift in Sources */,
 				81B3662A275234000076D61B /* PhotoPresenter.swift in Sources */,
 				818895D92751296B009128B9 /* AppDelegate.swift in Sources */,
 				81B3662E2753C07E0076D61B /* ImageModel.swift in Sources */,
+				81B3663327554C740076D61B /* DetailsAssembly.swift in Sources */,
 				81B3662627514C8E0076D61B /* PhotoViewController.swift in Sources */,
 				81B366302753C37A0076D61B /* PhotoAssembly.swift in Sources */,
 				81B3662C2753BFA50076D61B /* CollectionAssembly.swift in Sources */,
 				81B3662127512FF90076D61B /* PhotoCell.swift in Sources */,
 				818895DB2751296B009128B9 /* SceneDelegate.swift in Sources */,
+				81B3663527554F010076D61B /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
