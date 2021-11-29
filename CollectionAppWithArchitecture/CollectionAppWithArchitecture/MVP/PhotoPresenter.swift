@@ -9,8 +9,8 @@ import Foundation
 
 final class PhotoPresenter {
     
-    private var view: PhotoView?
-    private var controller: PhotoViewController?
+    private weak var view: PhotoView?
+    private weak var controller: PhotoViewController?
     
     private let id: UUID
     private let model: ImageModel
