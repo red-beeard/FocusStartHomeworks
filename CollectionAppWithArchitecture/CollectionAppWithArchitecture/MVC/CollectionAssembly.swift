@@ -8,9 +8,11 @@
 import UIKit
 
 final class CollectionAssembly {
+    
     static func build() -> UIViewController {
         let model = ImageModel.shared
         let controller = CollectionViewController(model: model)
         return controller
     }
+    
 }

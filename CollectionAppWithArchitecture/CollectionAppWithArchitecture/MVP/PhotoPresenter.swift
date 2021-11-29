@@ -9,11 +9,11 @@ import Foundation
 
 final class PhotoPresenter {
     
-    private let id: UUID
-    
-    private let model: ImageModel
     private var view: PhotoView?
     private var controller: PhotoViewController?
+    
+    private let id: UUID
+    private let model: ImageModel
     
     init(model: ImageModel, id: UUID) {
         self.model = model

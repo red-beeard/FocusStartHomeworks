@@ -16,6 +16,9 @@ final class PhotoCell: UICollectionViewCell {
     
     static let identifier = "photoCell"
     
+    private let imageView = UIImageView()
+    private let titleLabel = UILabel()
+    
     override var isHighlighted: Bool {
         didSet {
             UIView.animate(withDuration: 0.5) {
@@ -31,9 +34,6 @@ final class PhotoCell: UICollectionViewCell {
             self.titleLabel.text = image.author
         }
     }
-    
-    private let imageView = UIImageView()
-    private let titleLabel = UILabel()
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

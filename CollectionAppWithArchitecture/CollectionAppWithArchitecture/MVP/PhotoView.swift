@@ -21,10 +21,24 @@ final class PhotoView: UIView {
     private let detailsButton = UIButton()
     private let stackView = UIStackView()
     
+    var detailsButtonOnTouched: (() -> Void)?
+    
     private var portraitConstraints = [NSLayoutConstraint]()
     private var landscapeConstraints = [NSLayoutConstraint]()
     
-    var detailsButtonOnTouched: (() -> Void)?
+    override func updateConstraints() {
+        super.updateConstraints()
+        
+        let orientation = UIDevice.current.orientation
+        
+        if orientation == .portrait {
+            NSLayoutConstraint.deactivate(self.landscapeConstraints)
+            NSLayoutConstraint.activate(self.portraitConstraints)
+        } else {
+            NSLayoutConstraint.deactivate(self.portraitConstraints)
+            NSLayoutConstraint.activate(self.landscapeConstraints)
+        }
+    }
     
     func configuireView() {
         self.configurationImageView()
@@ -40,20 +54,6 @@ final class PhotoView: UIView {
     func setImageData(image: Image) {
         self.imageView.image = UIImage(named: image.filename)
         self.titleLabel.text = image.author
-    }
-    
-    override func updateConstraints() {
-        super.updateConstraints()
-        
-        let orientation = UIDevice.current.orientation
-        
-        if orientation == .portrait {
-            NSLayoutConstraint.deactivate(self.landscapeConstraints)
-            NSLayoutConstraint.activate(self.portraitConstraints)
-        } else {
-            NSLayoutConstraint.deactivate(self.portraitConstraints)
-            NSLayoutConstraint.activate(self.landscapeConstraints)
-        }
     }
     
     private func configurationImageView() {

@@ -10,6 +10,7 @@ import UIKit
 final class CollectionViewController: UIViewController {
     
     private let customView: CollectionView
+    
     private let model: ImageModel
     
     required init?(coder: NSCoder) {
@@ -37,6 +38,11 @@ final class CollectionViewController: UIViewController {
         self.configuireCustomView()
     }
     
+    func cellPressed(with id: UUID) {
+        let photoVC = PhotoAssembly.build(id: id)
+        self.navigationController?.pushViewController(photoVC, animated: true)
+    }
+    
     private func configuireCustomView() {
         self.view.addSubview(customView)
         self.customView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,11 +53,6 @@ final class CollectionViewController: UIViewController {
             self.customView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             self.customView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
-    }
-    
-    func cellPressed(with id: UUID) {
-        let photoVC = PhotoAssembly.build(id: id)
-        self.navigationController?.pushViewController(photoVC, animated: true)
     }
     
 }

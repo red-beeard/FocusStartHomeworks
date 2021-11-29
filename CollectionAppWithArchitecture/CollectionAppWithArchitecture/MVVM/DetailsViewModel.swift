@@ -8,6 +8,7 @@
 import UIKit
 
 final class Observable<T> {
+    
     var data: T {
         didSet {
             self.notify?(self.data)
@@ -24,9 +25,11 @@ final class Observable<T> {
         self.notify = notify
         self.notify?(self.data)
     }
+    
 }
 
 final class DetailsViewModel {
+    
     private let model: ImageModel
     private let id: UUID
     
@@ -40,7 +43,6 @@ final class DetailsViewModel {
     
     func updateModel() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) { [weak self] in
-            //            DispatchQueue.main.async { [weak self] in
             guard let id = self?.id else { return }
             guard let image = self?.model.getImage(with: id) else { return }
             
@@ -52,9 +54,9 @@ final class DetailsViewModel {
                 let text = "\(height) x \(width)"
                 self?.data.data = text
             }
-            //            }
         }
     }
+    
 }
 
 

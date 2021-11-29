@@ -8,7 +8,7 @@
 import UIKit
 
 final class CollectionView: UIView {
-
+    
     private var collectionView: UICollectionView!
     
     private weak var controller: CollectionViewController!

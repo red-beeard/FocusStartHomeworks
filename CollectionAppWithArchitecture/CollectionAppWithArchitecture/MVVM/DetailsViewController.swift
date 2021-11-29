@@ -15,6 +15,9 @@ final class DetailsViewController: UIViewController {
         static let stackViewSpacing = CGFloat(8)
     }
     
+    private let stackView = UIStackView()
+    private let descriptionLabel = UILabel()
+    
     let viewModel: DetailsViewModel
     
     required init?(coder: NSCoder) {
@@ -25,9 +28,6 @@ final class DetailsViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
-    private let stackView = UIStackView()
-    private let descriptionLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

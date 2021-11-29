@@ -10,6 +10,7 @@ import UIKit
 final class PhotoViewController: UIViewController {
   
     private let customView: PhotoView
+    
     private let presenter: PhotoPresenter
     
     required init?(coder: NSCoder) {
