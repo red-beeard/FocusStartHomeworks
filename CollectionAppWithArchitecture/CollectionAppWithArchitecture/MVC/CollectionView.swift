@@ -13,8 +13,6 @@ final class CollectionView: UIView {
     
     private weak var controller: CollectionViewController!
     
-    private var images: [Image]?
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -28,8 +26,9 @@ final class CollectionView: UIView {
         self.controller = controller
     }
     
-    func setImages(images: [Image]) {
-        self.images = images
+    func setDelegate(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
+        self.collectionView.delegate = delegate
+        self.collectionView.dataSource = dataSource
     }
     
     private func configuireView() {
@@ -44,8 +43,6 @@ final class CollectionView: UIView {
         self.collectionView.backgroundColor = .systemBackground
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView.showsVerticalScrollIndicator = false
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
     }
     
     private func configurationLayout() {
@@ -60,41 +57,3 @@ final class CollectionView: UIView {
     }
 
 }
-
-// MARK: - UICollectionViewDataSource
-
-extension CollectionView: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.images?.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as! PhotoCell
-        
-        if let image = self.images?[indexPath.item] {
-            cell.image = image
-        }
-        
-        return cell
-    }
-    
-}
-
-// MARK: - UICollectionViewDelegate
-
-extension CollectionView: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let image = self.images?[indexPath.item] {
-            self.controller.cellPressed(with: image.id)
-        }
-    }
-    
-}
-
-

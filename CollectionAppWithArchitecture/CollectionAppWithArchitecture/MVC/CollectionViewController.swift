@@ -12,6 +12,7 @@ final class CollectionViewController: UIViewController {
     private let customView: CollectionView
     
     private let model: ImageModel
+    private let images: [Image]
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -20,13 +21,14 @@ final class CollectionViewController: UIViewController {
     init(model: ImageModel) {
         self.customView = CollectionView(frame: .zero)
         self.model = model
+        self.images = model.getImages()
         super.init(nibName: nil, bundle: nil)
     }
     
     override func loadView() {
         super.loadView()
         self.customView.loadView(controller: self)
-        self.customView.setImages(images: model.getImages())
+        self.customView.setDelegate(delegate: self, dataSource: self)
     }
     
     override func viewDidLoad() {
@@ -36,11 +38,6 @@ final class CollectionViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
         self.configuireCustomView()
-    }
-    
-    func cellPressed(with id: UUID) {
-        let photoVC = PhotoAssembly.build(id: id)
-        self.navigationController?.pushViewController(photoVC, animated: true)
     }
     
     private func configuireCustomView() {
@@ -56,4 +53,41 @@ final class CollectionViewController: UIViewController {
     }
     
 }
+
+// MARK: - UICollectionViewDataSource
+
+extension CollectionViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.identifier, for: indexPath) as! PhotoCell
+        
+        cell.image = self.images[indexPath.item]
+        
+        return cell
+    }
+    
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension CollectionViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let id = self.images[indexPath.item].id
+        let photoVC = PhotoAssembly.build(id: id)
+        self.navigationController?.pushViewController(photoVC, animated: true)
+    }
+    
+}
+
+
+
 
