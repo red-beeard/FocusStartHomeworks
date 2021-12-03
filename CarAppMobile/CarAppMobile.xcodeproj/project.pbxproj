@@ -19,6 +19,7 @@
 		81B967B0275A4E2300BDBC86 /* SelectBrandPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B967AF275A4E2300BDBC86 /* SelectBrandPresenter.swift */; };
 		81B967B2275A4F5C00BDBC86 /* SelectBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B967B1275A4F5C00BDBC86 /* SelectBrandViewController.swift */; };
 		81B967B4275A530400BDBC86 /* SelectBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B967B3275A530400BDBC86 /* SelectBrandView.swift */; };
+		81B967B6275A615C00BDBC86 /* CarBrandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B967B5275A615C00BDBC86 /* CarBrandCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		81B967AF275A4E2300BDBC86 /* SelectBrandPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandPresenter.swift; sourceTree = "<group>"; };
 		81B967B1275A4F5C00BDBC86 /* SelectBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandViewController.swift; sourceTree = "<group>"; };
 		81B967B3275A530400BDBC86 /* SelectBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandView.swift; sourceTree = "<group>"; };
+		81B967B5275A615C00BDBC86 /* CarBrandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarBrandCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				81B967AF275A4E2300BDBC86 /* SelectBrandPresenter.swift */,
 				81B967B1275A4F5C00BDBC86 /* SelectBrandViewController.swift */,
 				81B967B3275A530400BDBC86 /* SelectBrandView.swift */,
+				81B967B5275A615C00BDBC86 /* CarBrandCell.swift */,
 			);
 			path = SelectBrandScreen;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				81B967B2275A4F5C00BDBC86 /* SelectBrandViewController.swift in Sources */,
 				815630AC2759362F008D0231 /* CarBrand.swift in Sources */,
 				81B967B0275A4E2300BDBC86 /* SelectBrandPresenter.swift in Sources */,
+				81B967B6275A615C00BDBC86 /* CarBrandCell.swift in Sources */,
 				815630A6275934E9008D0231 /* CarModel.swift in Sources */,
 				815630AA2759353E008D0231 /* CarBody.swift in Sources */,
 				815630A82759350B008D0231 /* Car.swift in Sources */,
