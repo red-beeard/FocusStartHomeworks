@@ -15,7 +15,7 @@ final class CarBrandCell: UITableViewCell {
     
     private enum Metrics {
         static let greenViewSize = CGFloat(16)
-        static let green = UIColor(red: 93, green: 176, blue: 117, alpha: 1)
+        static let green = UIColor(red: 93/255, green: 176/255, blue: 117/255, alpha: 1)
         
         static let mediumIndent = CGFloat(16)
     }
@@ -61,7 +61,9 @@ final class CarBrandCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             self.greenPoint.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metrics.mediumIndent),
-            self.greenPoint.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            self.greenPoint.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.greenPoint.heightAnchor.constraint(equalToConstant: Metrics.greenViewSize),
+            self.greenPoint.widthAnchor.constraint(equalToConstant: Metrics.greenViewSize)
         ])
         
         NSLayoutConstraint.activate([
@@ -70,8 +72,8 @@ final class CarBrandCell: UITableViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            self.greenPoint.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: Metrics.mediumIndent),
-            self.greenPoint.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            self.selectLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Metrics.mediumIndent),
+            self.selectLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
     
