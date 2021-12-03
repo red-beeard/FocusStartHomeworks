@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ISelectBrandView {
+protocol ISelectBrandView: UIView {
     
 }
 
@@ -15,10 +15,11 @@ final class SelectBrandView: UIView {
     
     private enum Metrics {
         static let selectLabelFontSize = CGFloat(30)
-        static let selectLabelFontWeight = UIFont.Weight(rawValue: 600)
+        static let selectLabelTop = CGFloat(20)
         
         static let brandCarLabelFontSize = CGFloat(24)
-        static let brandCarLabelFontWeight = UIFont.Weight(rawValue: 500)
+        static let brandCarLabelTop = CGFloat(40)
+        static let brandCarLabelLTIndent = CGFloat(16)
     }
     
     private let selectLabel = UILabel()
@@ -32,28 +33,44 @@ final class SelectBrandView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configuireView()
+        self.configuireLayout()
     }
     
     private func configuireView() {
         self.configuireSelectLabel()
+        self.configuireBrandCarLabel()
     }
     
     private func configuireSelectLabel() {
-        selectLabel.translatesAutoresizingMaskIntoConstraints = false
-        selectLabel.text = "Выберите"
-        selectLabel.font = UIFont.systemFont(ofSize: Metrics.selectLabelFontSize,
-                                             weight: Metrics.selectLabelFontWeight)
+        self.selectLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.selectLabel.text = "Выберите"
+        self.selectLabel.font = UIFont.systemFont(ofSize: Metrics.selectLabelFontSize, weight: .semibold)
     }
     
     private func configuireBrandCarLabel() {
-        brandCarLabel.translatesAutoresizingMaskIntoConstraints = false
-        brandCarLabel.text = "Марку машины"
-        brandCarLabel.font = UIFont.systemFont(ofSize: Metrics.brandCarLabelFontSize,
-                                               weight: Metrics.brandCarLabelFontWeight)
+        self.brandCarLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.brandCarLabel.text = "Марку машины"
+        self.brandCarLabel.font = UIFont.systemFont(ofSize: Metrics.brandCarLabelFontSize, weight: .medium)
+    }
+    
+    private func configuireLayout() {
+        self.addSubview(selectLabel)
+        self.addSubview(brandCarLabel)
+        
+        NSLayoutConstraint.activate([
+            self.selectLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: Metrics.selectLabelTop),
+            self.selectLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            self.brandCarLabel.topAnchor.constraint(equalTo: self.selectLabel.bottomAnchor, constant: Metrics.brandCarLabelTop),
+            self.brandCarLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metrics.brandCarLabelLTIndent),
+            self.brandCarLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: Metrics.brandCarLabelLTIndent)
+        ])
     }
     
 }
 
-extension SelectBrandView: ISelectBrandView{
+extension SelectBrandView: ISelectBrandView {
     
 }

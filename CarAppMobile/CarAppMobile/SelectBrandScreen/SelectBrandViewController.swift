@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ISelectBrandViewController {
+protocol ISelectBrandViewController: AnyObject {
     
 }
 
@@ -33,7 +33,20 @@ final class SelectBrandViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .systemBackground
+        self.configuireView()
+    }
+    
+    private func configuireView() {
+        self.selectBrandView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(selectBrandView)
+        
+        NSLayoutConstraint.activate([
+            self.selectBrandView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.selectBrandView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.selectBrandView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.selectBrandView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
     }
 
 }

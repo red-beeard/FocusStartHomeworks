@@ -15,8 +15,8 @@ protocol ISelectBrandPresenter {
 final class SelectBrandPresenter {
     
     private let model: ICarModel
-    private var controller: ISelectBrandViewController?
-    private var view: ISelectBrandView?
+    private weak var controller: ISelectBrandViewController?
+    private weak var view: ISelectBrandView?
     
     init(model: ICarModel) {
         self.model = model
