@@ -7,6 +7,12 @@
 
 import Foundation
 
+protocol ICarModel {
+    func getBrands() -> [CarBrand]
+    func getBodys() -> [CarBody]
+    func getCost(brand: CarBrand, body: CarBody) -> Int?
+}
+
 final class CarModel {
     
     static let shared = CarModel()
@@ -26,6 +32,9 @@ final class CarModel {
         
         self.cars = cars
     }
+}
+
+extension CarModel: ICarModel {
     
     func getBrands() -> [CarBrand] {
         return CarBrand.allCases
