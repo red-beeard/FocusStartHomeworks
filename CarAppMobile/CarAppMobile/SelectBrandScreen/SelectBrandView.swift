@@ -8,7 +8,8 @@
 import UIKit
 
 protocol ISelectBrandView: UIView {
-    
+    var getNumberOfRowsInSection: (() -> Int)? { get set }
+    var getTextForCell: ((Int) -> String)? { get set }
 }
 
 final class SelectBrandView: UIView {
@@ -29,6 +30,9 @@ final class SelectBrandView: UIView {
     private let selectLabel = UILabel()
     private let brandCarLabel = UILabel()
     private let tableView = UITableView()
+    
+    var getNumberOfRowsInSection: (() -> Int)?
+    var getTextForCell: ((Int) -> String)?
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -99,13 +103,17 @@ extension SelectBrandView: ISelectBrandView {
 extension SelectBrandView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
+        self.getNumberOfRowsInSection?() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CarBrandCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: CarBrandCell.identifier, for: indexPath) as! ICarBrandCell
+        
+        if let text = self.getTextForCell?(indexPath.row) {
+            cell.setText(name: text)
+        }
+        
         return cell
     }
-    
     
 }

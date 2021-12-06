@@ -7,8 +7,8 @@
 
 import UIKit
 
-protocol ICarBrandCell {
-    func setBrand(name: String)
+protocol ICarBrandCell: UITableViewCell {
+    func setText(name: String)
 }
 
 final class CarBrandCell: UITableViewCell {
@@ -81,7 +81,7 @@ final class CarBrandCell: UITableViewCell {
 
 extension CarBrandCell: ICarBrandCell {
     
-    func setBrand(name: String) {
+    func setText(name: String) {
         self.brandName.text = name
     }
     
