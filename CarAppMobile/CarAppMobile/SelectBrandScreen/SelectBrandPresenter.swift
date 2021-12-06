@@ -14,11 +14,13 @@ protocol ISelectBrandPresenter {
 final class SelectBrandPresenter {
     
     private let model: ICarModel
+    private let router: ISelectBrandRouter
     private weak var controller: ISelectBrandViewController?
     private weak var view: ISelectBrandView?
     
-    init(model: ICarModel) {
+    init(model: ICarModel, router: ISelectBrandRouter) {
         self.model = model
+        self.router = router
     }
     
     private func setHandlers() {

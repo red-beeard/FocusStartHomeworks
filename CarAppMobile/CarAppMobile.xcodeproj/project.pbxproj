@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		814CC339275E7D7D00EB091D /* SelectBrandRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814CC338275E7D7D00EB091D /* SelectBrandRouter.swift */; };
 		8156308E2759305F008D0231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8156308D2759305F008D0231 /* AppDelegate.swift */; };
 		815630902759305F008D0231 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8156308F2759305F008D0231 /* SceneDelegate.swift */; };
 		8156309727593060008D0231 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8156309627593060008D0231 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		814CC338275E7D7D00EB091D /* SelectBrandRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandRouter.swift; sourceTree = "<group>"; };
 		8156308A2759305F008D0231 /* CarAppMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarAppMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8156308D2759305F008D0231 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8156308F2759305F008D0231 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				81B967B1275A4F5C00BDBC86 /* SelectBrandViewController.swift */,
 				81B967B3275A530400BDBC86 /* SelectBrandView.swift */,
 				81B967B5275A615C00BDBC86 /* CarBrandCell.swift */,
+				814CC338275E7D7D00EB091D /* SelectBrandRouter.swift */,
 			);
 			path = SelectBrandScreen;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				815630A82759350B008D0231 /* Car.swift in Sources */,
 				8156308E2759305F008D0231 /* AppDelegate.swift in Sources */,
 				815630902759305F008D0231 /* SceneDelegate.swift in Sources */,
+				814CC339275E7D7D00EB091D /* SelectBrandRouter.swift in Sources */,
 				81B967AE275A4D5600BDBC86 /* SelectBrandAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

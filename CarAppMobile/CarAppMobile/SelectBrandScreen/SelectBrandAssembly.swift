@@ -11,8 +11,13 @@ final class SelectBrandAssembly {
     
     static func build() -> UIViewController {
         let model = CarModel.shared
-        let presenter = SelectBrandPresenter(model: model)
+        let router = SelectBrandRouter()
+        let presenter = SelectBrandPresenter(model: model, router: router)
+        
         let controller = SelectBrandViewController(presenter: presenter)
+        
+        router.setRootController(controller: controller)
+        
         return controller
     }
     
