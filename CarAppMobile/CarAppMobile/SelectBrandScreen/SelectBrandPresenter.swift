@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 protocol ISelectBrandPresenter {
     func loadView(controller: ISelectBrandViewController, view: ISelectBrandView)
