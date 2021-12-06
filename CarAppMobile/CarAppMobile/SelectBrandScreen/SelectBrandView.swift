@@ -100,7 +100,15 @@ extension SelectBrandView: ISelectBrandView {
     
 }
 
-extension SelectBrandView: UITableViewDelegate, UITableViewDataSource {
+extension SelectBrandView: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}
+
+extension SelectBrandView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.getNumberOfRowsInSection?() ?? 0
