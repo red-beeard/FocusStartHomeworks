@@ -31,6 +31,10 @@ final class SelectBrandPresenter {
         self.view?.getTextForCell = { [weak self] index in
             self?.getBrandName(index: index) ?? "No text"
         }
+        
+        self.view?.onTouchedHandler = { [weak self] index in
+            self?.onTouched(index: index)
+        }
     }
     
     private func getNumberOfBrand() -> Int {
@@ -39,6 +43,10 @@ final class SelectBrandPresenter {
     
     private func getBrandName(index: Int) -> String {
         return self.model.getBrands()[index].rawValue
+    }
+    
+    private func onTouched(index: Int) {
+        self.router.next(index: index)
     }
     
 }

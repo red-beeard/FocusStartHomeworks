@@ -13,7 +13,7 @@ protocol ISelectBrandRouter {
     
     func setRootController(controller: UIViewController)
     func setTargetController(controller: UIViewController)
-    func next()
+    func next(index: Int)
 }
 
 final class SelectBrandRouter: ISelectBrandRouter {
@@ -29,7 +29,8 @@ final class SelectBrandRouter: ISelectBrandRouter {
         self.targetController = controller
     }
     
-    func next() {
+    func next(index: Int) {
+        print(index)
         print(#function)
     }
     

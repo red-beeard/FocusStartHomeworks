@@ -10,6 +10,7 @@ import UIKit
 protocol ISelectBrandView: UIView {
     var getNumberOfRowsInSection: (() -> Int)? { get set }
     var getTextForCell: ((Int) -> String)? { get set }
+    var onTouchedHandler: ((Int) -> Void)? { get set }
 }
 
 final class SelectBrandView: UIView {
@@ -33,6 +34,7 @@ final class SelectBrandView: UIView {
     
     var getNumberOfRowsInSection: (() -> Int)?
     var getTextForCell: ((Int) -> String)?
+    var onTouchedHandler: ((Int) -> Void)?
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -103,6 +105,7 @@ extension SelectBrandView: ISelectBrandView {
 extension SelectBrandView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.onTouchedHandler?(indexPath.item)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
