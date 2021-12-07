@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8148B137275FB8D000562766 /* SelectBodyAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148B136275FB8D000562766 /* SelectBodyAssembly.swift */; };
+		8148B139275FBA7500562766 /* SelectBodyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148B138275FBA7500562766 /* SelectBodyViewController.swift */; };
+		8148B13B275FBC0200562766 /* SelectBodyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148B13A275FBC0200562766 /* SelectBodyPresenter.swift */; };
+		8148B13D275FBC7D00562766 /* SelectBodyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148B13C275FBC7D00562766 /* SelectBodyRouter.swift */; };
+		8148B13F275FBEBB00562766 /* SelectBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148B13E275FBEBB00562766 /* SelectBodyView.swift */; };
 		814CC339275E7D7D00EB091D /* SelectBrandRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814CC338275E7D7D00EB091D /* SelectBrandRouter.swift */; };
 		8156308E2759305F008D0231 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8156308D2759305F008D0231 /* AppDelegate.swift */; };
 		815630902759305F008D0231 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8156308F2759305F008D0231 /* SceneDelegate.swift */; };
@@ -24,6 +29,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8148B136275FB8D000562766 /* SelectBodyAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBodyAssembly.swift; sourceTree = "<group>"; };
+		8148B138275FBA7500562766 /* SelectBodyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBodyViewController.swift; sourceTree = "<group>"; };
+		8148B13A275FBC0200562766 /* SelectBodyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBodyPresenter.swift; sourceTree = "<group>"; };
+		8148B13C275FBC7D00562766 /* SelectBodyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBodyRouter.swift; sourceTree = "<group>"; };
+		8148B13E275FBEBB00562766 /* SelectBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBodyView.swift; sourceTree = "<group>"; };
 		814CC338275E7D7D00EB091D /* SelectBrandRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandRouter.swift; sourceTree = "<group>"; };
 		8156308A2759305F008D0231 /* CarAppMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarAppMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8156308D2759305F008D0231 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +63,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8148B135275FB86E00562766 /* SelectBodyScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8148B136275FB8D000562766 /* SelectBodyAssembly.swift */,
+				8148B138275FBA7500562766 /* SelectBodyViewController.swift */,
+				8148B13A275FBC0200562766 /* SelectBodyPresenter.swift */,
+				8148B13C275FBC7D00562766 /* SelectBodyRouter.swift */,
+				8148B13E275FBEBB00562766 /* SelectBodyView.swift */,
+			);
+			path = SelectBodyScreen;
+			sourceTree = "<group>";
+		};
 		815630812759305F008D0231 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +94,7 @@
 		8156308C2759305F008D0231 /* CarAppMobile */ = {
 			isa = PBXGroup;
 			children = (
+				8148B135275FB86E00562766 /* SelectBodyScreen */,
 				81B967AC275A4AC800BDBC86 /* SelectBrandScreen */,
 				815630A4275934D0008D0231 /* Models */,
 				815630A3275931A1008D0231 /* Resources */,
@@ -201,18 +224,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8148B13D275FBC7D00562766 /* SelectBodyRouter.swift in Sources */,
 				81B967B4275A530400BDBC86 /* SelectBrandView.swift in Sources */,
 				81B967B2275A4F5C00BDBC86 /* SelectBrandViewController.swift in Sources */,
 				815630AC2759362F008D0231 /* CarBrand.swift in Sources */,
+				8148B137275FB8D000562766 /* SelectBodyAssembly.swift in Sources */,
 				81B967B0275A4E2300BDBC86 /* SelectBrandPresenter.swift in Sources */,
 				81B967B6275A615C00BDBC86 /* CarBrandCell.swift in Sources */,
 				815630A6275934E9008D0231 /* CarModel.swift in Sources */,
+				8148B13B275FBC0200562766 /* SelectBodyPresenter.swift in Sources */,
 				815630AA2759353E008D0231 /* CarBody.swift in Sources */,
 				815630A82759350B008D0231 /* Car.swift in Sources */,
 				8156308E2759305F008D0231 /* AppDelegate.swift in Sources */,
 				815630902759305F008D0231 /* SceneDelegate.swift in Sources */,
 				814CC339275E7D7D00EB091D /* SelectBrandRouter.swift in Sources */,
+				8148B139275FBA7500562766 /* SelectBodyViewController.swift in Sources */,
 				81B967AE275A4D5600BDBC86 /* SelectBrandAssembly.swift in Sources */,
+				8148B13F275FBEBB00562766 /* SelectBodyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

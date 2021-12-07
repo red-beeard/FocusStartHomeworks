@@ -30,8 +30,11 @@ final class SelectBrandRouter: ISelectBrandRouter {
     }
     
     func next(index: Int) {
-        print(index)
-        print(#function)
+        guard let targetController = targetController else {
+            return
+        }
+
+        self.controller?.navigationController?.pushViewController(targetController, animated: true)
     }
     
 }
