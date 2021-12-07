@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ISelectBodyViewController {
+protocol ISelectBodyViewController: AnyObject {
     
 }
 
@@ -26,10 +26,19 @@ final class SelectBodyViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    override func loadView() {
+        super.loadView()
+        self.presenter.loadView(controller: self, view: self.selectBodyView)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = .white
     }
 
+}
+
+extension SelectBodyViewController: ISelectBodyViewController {
+    
 }

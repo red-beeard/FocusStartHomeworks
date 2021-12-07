@@ -15,9 +15,8 @@ final class SelectBodyPresenter {
     
     private let model: ICarModel
     private let router: ISelectBodyRouter
-    
-    private var controller: ISelectBodyViewController?
-    private var view: ISelectBodyView?
+    private weak var controller: ISelectBodyViewController?
+    private weak var view: ISelectBodyView?
     
     init(model: ICarModel, router: ISelectBodyRouter) {
         self.model = model
