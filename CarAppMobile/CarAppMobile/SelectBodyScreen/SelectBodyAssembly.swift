@@ -15,6 +15,7 @@ final class SelectBodyAssembly {
         let presenter = SelectBodyPresenter(model: model, router: router)
         
         let controller = SelectBodyViewController(presenter: presenter)
+        router.setRootController(controller: controller)
         
         return controller
     }
