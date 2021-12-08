@@ -13,6 +13,10 @@ protocol ISelectBodyViewController: AnyObject {
 
 final class SelectBodyViewController: UIViewController {
     
+    private enum Metrics {
+        static let green = UIColor(red: 93/255, green: 176/255, blue: 117/255, alpha: 1)
+    }
+    
     let selectBodyView: ISelectBodyView
     let presenter: ISelectBodyPresenter
     
@@ -34,7 +38,21 @@ final class SelectBodyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .systemBackground
+        self.navigationController?.navigationBar.tintColor = Metrics.green
+        self.configuireView()
+    }
+    
+    private func configuireView() {
+        self.selectBodyView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.selectBodyView)
+        
+        NSLayoutConstraint.activate([
+            self.selectBodyView.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor),
+            self.selectBodyView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.selectBodyView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.selectBodyView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
     }
 
 }
