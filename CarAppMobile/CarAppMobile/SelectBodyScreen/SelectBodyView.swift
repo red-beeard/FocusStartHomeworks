@@ -29,6 +29,7 @@ class SelectBodyView: UIView {
     private let costLabel = UILabel()
     private let selectBodyLabel = UILabel()
     private let tableView = UITableView()
+    private let scrollView = UIScrollView()
     private let calculateCostButton = UIButton()
     
     required init?(coder: NSCoder) {
@@ -53,6 +54,7 @@ extension SelectBodyView {
         self.configuireSelectBodyLabel()
         self.configuireTableView()
         self.configuireCalculateCostButton()
+        self.configuireScrollView()
     }
     
     private func configuireImageView() {
@@ -94,6 +96,11 @@ extension SelectBodyView {
         self.calculateCostButton.layer.cornerRadius = Metrics.calculateCostButtonHeight / 2
     }
     
+    private func configuireScrollView() {
+        self.scrollView.translatesAutoresizingMaskIntoConstraints = false
+        self.scrollView.showsVerticalScrollIndicator = false
+    }
+    
 }
 
 // MARK: Configuire layout
@@ -101,21 +108,35 @@ extension SelectBodyView {
 extension SelectBodyView {
     
     private func configuireLayout() {
+        self.configuireLayoutCalculateCostButton()
+        self.configuireLayoutScrollView()
+    }
+    
+    private func configuireLayoutScrollView() {
+        self.addSubview(self.scrollView)
+        
+        NSLayoutConstraint.activate([
+            self.scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            self.scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: Metrics.horizontalSpacing),
+            self.scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -Metrics.horizontalSpacing),
+            self.scrollView.bottomAnchor.constraint(equalTo: self.calculateCostButton.topAnchor)
+        ])
+        
         self.configuireLayoutCarImageView()
         self.configuireLayoutCost()
         self.configuireLayoutSelectBodyLabel()
-        self.configuireLayoutCalculateCostButton()
         self.configuireLayoutTableView()
     }
     
     private func configuireLayoutCarImageView() {
-        self.addSubview(self.carImageView)
+        self.scrollView.addSubview(self.carImageView)
         
         NSLayoutConstraint.activate([
-            self.carImageView.topAnchor.constraint(equalTo: self.topAnchor),
-            self.carImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: Metrics.horizontalSpacing),
-            self.carImageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -Metrics.horizontalSpacing),
-            self.carImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1 / 3)
+            self.carImageView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
+            self.carImageView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
+            self.carImageView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
+            self.carImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1 / 3),
+            self.carImageView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
         ])
     }
     
@@ -125,33 +146,36 @@ extension SelectBodyView {
         vStack.spacing = Metrics.smallVertivalSpacing
         vStack.axis = .vertical
         vStack.alignment = .leading
-        self.addSubview(vStack)
+        self.scrollView.addSubview(vStack)
         
         NSLayoutConstraint.activate([
             vStack.topAnchor.constraint(equalTo: self.carImageView.bottomAnchor, constant: Metrics.mediumVertivalSpacing),
-            vStack.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: Metrics.horizontalSpacing),
-            vStack.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -Metrics.horizontalSpacing),
+            vStack.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
+            vStack.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
+            vStack.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
         ])
     }
     
     private func configuireLayoutSelectBodyLabel() {
-        self.addSubview(self.selectBodyLabel)
+        self.scrollView.addSubview(self.selectBodyLabel)
         
         NSLayoutConstraint.activate([
             self.selectBodyLabel.topAnchor.constraint(equalTo: self.costLabel.bottomAnchor, constant: Metrics.mediumVertivalSpacing),
-            self.selectBodyLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: Metrics.horizontalSpacing),
-            self.selectBodyLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -Metrics.horizontalSpacing)
+            self.selectBodyLabel.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
+            self.selectBodyLabel.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
+            self.selectBodyLabel.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
         ])
     }
     
     private func configuireLayoutTableView() {
-        self.addSubview(self.tableView)
+        self.scrollView.addSubview(self.tableView)
 
         NSLayoutConstraint.activate([
             self.tableView.topAnchor.constraint(equalTo: self.selectBodyLabel.bottomAnchor),
-            self.tableView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: Metrics.horizontalSpacing),
-            self.tableView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -Metrics.horizontalSpacing),
-            self.tableView.bottomAnchor.constraint(equalTo: self.calculateCostButton.topAnchor)
+            self.tableView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
+            self.tableView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
+            self.tableView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor),
+            self.tableView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
         ])
     }
     
