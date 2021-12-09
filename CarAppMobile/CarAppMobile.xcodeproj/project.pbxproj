@@ -10,7 +10,6 @@
 		8148B137275FB8D000562766 /* SelectBodyAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148B136275FB8D000562766 /* SelectBodyAssembly.swift */; };
 		8148B139275FBA7500562766 /* SelectBodyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148B138275FBA7500562766 /* SelectBodyViewController.swift */; };
 		8148B13B275FBC0200562766 /* SelectBodyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148B13A275FBC0200562766 /* SelectBodyPresenter.swift */; };
-		8148B13D275FBC7D00562766 /* SelectBodyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148B13C275FBC7D00562766 /* SelectBodyRouter.swift */; };
 		8148B13F275FBEBB00562766 /* SelectBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148B13E275FBEBB00562766 /* SelectBodyView.swift */; };
 		8148B144276139D300562766 /* CarBodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148B143276139D300562766 /* CarBodyCell.swift */; };
 		8148B14627613C2E00562766 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148B14527613C2E00562766 /* CheckBox.swift */; };
@@ -34,7 +33,6 @@
 		8148B136275FB8D000562766 /* SelectBodyAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBodyAssembly.swift; sourceTree = "<group>"; };
 		8148B138275FBA7500562766 /* SelectBodyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBodyViewController.swift; sourceTree = "<group>"; };
 		8148B13A275FBC0200562766 /* SelectBodyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBodyPresenter.swift; sourceTree = "<group>"; };
-		8148B13C275FBC7D00562766 /* SelectBodyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBodyRouter.swift; sourceTree = "<group>"; };
 		8148B13E275FBEBB00562766 /* SelectBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBodyView.swift; sourceTree = "<group>"; };
 		8148B143276139D300562766 /* CarBodyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarBodyCell.swift; sourceTree = "<group>"; };
 		8148B14527613C2E00562766 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
@@ -73,7 +71,6 @@
 				8148B136275FB8D000562766 /* SelectBodyAssembly.swift */,
 				8148B138275FBA7500562766 /* SelectBodyViewController.swift */,
 				8148B13A275FBC0200562766 /* SelectBodyPresenter.swift */,
-				8148B13C275FBC7D00562766 /* SelectBodyRouter.swift */,
 				8148B13E275FBEBB00562766 /* SelectBodyView.swift */,
 				8148B143276139D300562766 /* CarBodyCell.swift */,
 				8148B14527613C2E00562766 /* CheckBox.swift */,
@@ -230,7 +227,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8148B13D275FBC7D00562766 /* SelectBodyRouter.swift in Sources */,
 				81B967B4275A530400BDBC86 /* SelectBrandView.swift in Sources */,
 				81B967B2275A4F5C00BDBC86 /* SelectBrandViewController.swift in Sources */,
 				815630AC2759362F008D0231 /* CarBrand.swift in Sources */,
