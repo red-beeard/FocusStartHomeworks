@@ -9,7 +9,7 @@ import UIKit
 
 final class SelectBrandAssembly {
     
-    static func build() -> UIViewController {
+    static func build() -> ISelectBrandViewController {
         let model = CarModel.shared
         let router = SelectBrandRouter()
         let presenter = SelectBrandPresenter(model: model, router: router)

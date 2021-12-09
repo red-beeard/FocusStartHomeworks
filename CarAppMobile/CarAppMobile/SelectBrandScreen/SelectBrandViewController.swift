@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ISelectBrandViewController: AnyObject {
+protocol ISelectBrandViewController: UIViewController {
     
 }
 

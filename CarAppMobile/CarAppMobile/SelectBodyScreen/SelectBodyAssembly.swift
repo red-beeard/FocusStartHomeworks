@@ -9,7 +9,7 @@ import UIKit
 
 final class SelectBodyAssembly {
     
-    static func build() -> UIViewController {
+    static func build() -> ISelectBodyViewController {
         let model = CarModel.shared
         let router = SelectBodyRouter()
         let presenter = SelectBodyPresenter(model: model, router: router)

@@ -8,32 +8,33 @@
 import UIKit
 
 protocol ISelectBrandRouter {
-    var controller: UIViewController? { get set }
-    var targetController: UIViewController? { get set }
+    var controller: ISelectBrandViewController? { get set }
+    var targetController: ISelectBodyViewController? { get set }
     
-    func setRootController(controller: UIViewController)
-    func setTargetController(controller: UIViewController)
+    func setRootController(controller: ISelectBrandViewController)
+    func setTargetController(controller: ISelectBodyViewController)
     func next(index: Int)
 }
 
 final class SelectBrandRouter: ISelectBrandRouter {
     
-    var controller: UIViewController?
-    var targetController: UIViewController?
+    var controller: ISelectBrandViewController?
+    var targetController: ISelectBodyViewController?
     
-    func setRootController(controller: UIViewController) {
+    func setRootController(controller: ISelectBrandViewController) {
         self.controller = controller
     }
     
-    func setTargetController(controller: UIViewController) {
+    func setTargetController(controller: ISelectBodyViewController) {
         self.targetController = controller
     }
     
     func next(index: Int) {
-        guard let targetController = targetController else {
+        guard let targetController = self.targetController else {
             return
         }
-
+        
+        self.targetController?.setCarBrand(index: index)
         self.controller?.navigationController?.pushViewController(targetController, animated: true)
     }
     

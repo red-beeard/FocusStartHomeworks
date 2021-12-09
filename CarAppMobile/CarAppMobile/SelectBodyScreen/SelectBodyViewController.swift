@@ -7,8 +7,8 @@
 
 import UIKit
 
-protocol ISelectBodyViewController: AnyObject {
-    
+protocol ISelectBodyViewController: UIViewController {
+    func setCarBrand(index: Int)
 }
 
 final class SelectBodyViewController: UIViewController {
@@ -58,5 +58,9 @@ final class SelectBodyViewController: UIViewController {
 }
 
 extension SelectBodyViewController: ISelectBodyViewController {
+    
+    func setCarBrand(index: Int) {
+        self.presenter.setCarBrand(index: index)
+    }
     
 }
