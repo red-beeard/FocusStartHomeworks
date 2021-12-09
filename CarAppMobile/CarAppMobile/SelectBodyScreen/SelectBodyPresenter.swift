@@ -15,14 +15,12 @@ protocol ISelectBodyPresenter {
 final class SelectBodyPresenter {
     
     private let model: ICarModel
-    private let router: ISelectBodyRouter
     private var carBrandIndex: Int?
     private weak var controller: ISelectBodyViewController?
     private weak var view: ISelectBodyView?
     
-    init(model: ICarModel, router: ISelectBodyRouter) {
+    init(model: ICarModel) {
         self.model = model
-        self.router = router
     }
     
     private func loadData() {
@@ -88,13 +86,16 @@ extension SelectBodyPresenter: ISelectBodyPresenter {
     
     func setCarBrand(index: Int) {
         self.carBrandIndex = index
-        self.loadData()
+        if let _ = view {
+            self.loadData()
+        }
     }
     
     func loadView(controller: ISelectBodyViewController, view: ISelectBodyView) {
         self.controller = controller
         self.view = view
         
+        self.loadData()
         self.setHandlers()
     }
     

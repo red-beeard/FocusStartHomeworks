@@ -11,11 +11,9 @@ final class SelectBodyAssembly {
     
     static func build() -> ISelectBodyViewController {
         let model = CarModel.shared
-        let router = SelectBodyRouter()
-        let presenter = SelectBodyPresenter(model: model, router: router)
+        let presenter = SelectBodyPresenter(model: model)
         
         let controller = SelectBodyViewController(presenter: presenter)
-        router.setRootController(controller: controller)
         
         return controller
     }
