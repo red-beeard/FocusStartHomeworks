@@ -11,4 +11,5 @@ enum CarBody: String, CaseIterable {
     case sedan = "Седан"
     case van = "Фургон"
     case stationWagon = "Универсал"
+    case hatchback = "Хэтчбек"
 }

@@ -11,4 +11,8 @@ struct Car {
     let brand: CarBrand
     let body: CarBody
     let cost: Int
+    
+    var filename: String {
+        "\(brand.rawValue) \(body.rawValue)"
+    }
 }

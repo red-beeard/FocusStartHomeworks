@@ -12,4 +12,5 @@ enum CarBrand: String, CaseIterable {
     case audi = "Audi"
     case ford = "Ford"
     case honda = "Honda"
+    case volkswagen = "Volkswagen"
 }

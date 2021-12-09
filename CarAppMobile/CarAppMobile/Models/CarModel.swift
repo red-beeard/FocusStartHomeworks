@@ -11,6 +11,7 @@ protocol ICarModel {
     func getBrands() -> [CarBrand]
     func getBodys() -> [CarBody]
     func getCost(brand: CarBrand, body: CarBody) -> Int?
+    func getCar(for index: Int) -> Car
 }
 
 final class CarModel {
@@ -46,6 +47,10 @@ extension CarModel: ICarModel {
     
     func getCost(brand: CarBrand, body: CarBody) -> Int? {
         return self.cars.first { $0.brand == brand && $0.body == body }?.cost
+    }
+    
+    func getCar(for index: Int) -> Car {
+        return self.cars[index]
     }
     
 }
