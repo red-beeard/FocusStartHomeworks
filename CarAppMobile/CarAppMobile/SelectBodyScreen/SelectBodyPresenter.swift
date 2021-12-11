@@ -16,12 +16,14 @@ protocol ISelectBodyPresenter {
 final class SelectBodyPresenter {
     
     private let model: ICarModel
+    private let router: ISelectBodyRouter
     private var carBrandIndex: Int?
     private weak var controller: ISelectBodyViewController?
     private weak var view: ISelectBodyScreenView?
     
-    init(model: ICarModel) {
+    init(model: ICarModel, router: ISelectBodyRouter) {
         self.model = model
+        self.router = router
     }
     
     private func setDataToTableView(numberOfRowsInSection: Int, strings: [String]) {
@@ -40,7 +42,7 @@ final class SelectBodyPresenter {
         }
         
         self.controller?.backButtonTouchedHandler = { [weak self] in
-            self?.controller?.navigationController?.popToRootViewController(animated: true)
+            self?.router.toRootVC()
         }
     }
     

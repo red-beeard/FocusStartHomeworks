@@ -15,10 +15,8 @@ final class SelectBrandAssembly {
         let presenter = SelectBrandPresenter(model: model, router: router)
         
         let controller = SelectBrandViewController(presenter: presenter)
-        let targetController = SelectBodyAssembly.build()
         
         router.setRootController(controller: controller)
-        router.setTargetController(controller: targetController)
         
         return controller
     }

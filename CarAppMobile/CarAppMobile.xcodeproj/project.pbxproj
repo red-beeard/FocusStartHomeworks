@@ -24,6 +24,7 @@
 		815630AC2759362F008D0231 /* CarBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815630AB2759362F008D0231 /* CarBrand.swift */; };
 		81865FD4276483E7005938D3 /* CarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81865FD3276483E7005938D3 /* CarView.swift */; };
 		81865FD62764913A005938D3 /* SelectBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81865FD52764913A005938D3 /* SelectBodyView.swift */; };
+		81865FDA2764BBB8005938D3 /* SelectBodyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81865FD92764BBB8005938D3 /* SelectBodyRouter.swift */; };
 		81B967AE275A4D5600BDBC86 /* SelectBrandAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B967AD275A4D5600BDBC86 /* SelectBrandAssembly.swift */; };
 		81B967B0275A4E2300BDBC86 /* SelectBrandPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B967AF275A4E2300BDBC86 /* SelectBrandPresenter.swift */; };
 		81B967B2275A4F5C00BDBC86 /* SelectBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B967B1275A4F5C00BDBC86 /* SelectBrandViewController.swift */; };
@@ -51,6 +52,7 @@
 		815630AB2759362F008D0231 /* CarBrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarBrand.swift; sourceTree = "<group>"; };
 		81865FD3276483E7005938D3 /* CarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarView.swift; sourceTree = "<group>"; };
 		81865FD52764913A005938D3 /* SelectBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBodyView.swift; sourceTree = "<group>"; };
+		81865FD92764BBB8005938D3 /* SelectBodyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBodyRouter.swift; sourceTree = "<group>"; };
 		81B967AD275A4D5600BDBC86 /* SelectBrandAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandAssembly.swift; sourceTree = "<group>"; };
 		81B967AF275A4E2300BDBC86 /* SelectBrandPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandPresenter.swift; sourceTree = "<group>"; };
 		81B967B1275A4F5C00BDBC86 /* SelectBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				8148B143276139D300562766 /* CarBodyCell.swift */,
 				8148B14527613C2E00562766 /* CheckBox.swift */,
 				81865FD3276483E7005938D3 /* CarView.swift */,
+				81865FD92764BBB8005938D3 /* SelectBodyRouter.swift */,
 			);
 			path = SelectBodyScreen;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				81865FD4276483E7005938D3 /* CarView.swift in Sources */,
 				8148B137275FB8D000562766 /* SelectBodyAssembly.swift in Sources */,
 				8148B14627613C2E00562766 /* CheckBox.swift in Sources */,
+				81865FDA2764BBB8005938D3 /* SelectBodyRouter.swift in Sources */,
 				81B967B0275A4E2300BDBC86 /* SelectBrandPresenter.swift in Sources */,
 				81B967B6275A615C00BDBC86 /* CarBrandCell.swift in Sources */,
 				81865FD62764913A005938D3 /* SelectBodyView.swift in Sources */,
