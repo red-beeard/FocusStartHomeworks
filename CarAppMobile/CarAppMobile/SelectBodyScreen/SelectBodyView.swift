@@ -26,7 +26,6 @@ final class SelectBodyView: UIView {
     private enum Metrics {
         static let largeFontSize = CGFloat(24)
         static let mediumVertivalSpacing = CGFloat(20)
-        static let smallVertivalSpacing = CGFloat(8)
         static let horizontalSpacing = CGFloat(20)
         
         static let tableViewRowHeight = CGFloat(60)
@@ -36,9 +35,7 @@ final class SelectBodyView: UIView {
         static let green = UIColor(red: 93/255, green: 176/255, blue: 117/255, alpha: 1)
     }
 
-    private let carImageView = UIImageView()
-    private let costTitleLabel = UILabel()
-    private let costLabel = UILabel()
+    private let carView: ICarView = CarView()
     private let selectBodyLabel = UILabel()
     private let tableView = UITableView()
     private let scrollView = UIScrollView()
@@ -102,9 +99,7 @@ final class SelectBodyView: UIView {
 extension SelectBodyView {
     
     private func configuireView() {
-        self.configuireImageView()
-        self.configuireCostTitleLabel()
-        self.configuireCostLabel()
+        self.configuireCarView()
         self.configuireSelectBodyLabel()
         self.configuireTableView()
         self.configuireCalculateCostButton()
@@ -112,24 +107,8 @@ extension SelectBodyView {
         self.configuireActivityIndicator()
     }
     
-    private func configuireImageView() {
-        self.carImageView.translatesAutoresizingMaskIntoConstraints = false
-        self.carImageView.contentMode = .scaleAspectFill
-        self.carImageView.clipsToBounds = true
-        
-        self.carImageView.backgroundColor = .green
-    }
-    
-    private func configuireCostTitleLabel() {
-        self.costTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.costTitleLabel.font = UIFont.systemFont(ofSize: Metrics.largeFontSize)
-        self.costTitleLabel.text = "Цена"
-    }
-    
-    private func configuireCostLabel() {
-        self.costLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.costLabel.font = UIFont.systemFont(ofSize: UIFont.labelFontSize, weight: .semibold)
-        self.costLabel.text = "Нет данных"
+    private func configuireCarView() {
+        self.carView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func configuireSelectBodyLabel() {
@@ -189,37 +168,19 @@ extension SelectBodyView {
             self.scrollView.bottomAnchor.constraint(equalTo: self.calculateCostButton.topAnchor)
         ])
         
-        self.configuireLayoutCarImageView()
-        self.configuireLayoutCost()
+        self.configuireLayoutCarView()
         self.configuireLayoutSelectBodyLabel()
         self.configuireLayoutTableView()
     }
     
-    private func configuireLayoutCarImageView() {
-        self.scrollView.addSubview(self.carImageView)
+    private func configuireLayoutCarView() {
+        self.scrollView.addSubview(self.carView)
         
         NSLayoutConstraint.activate([
-            self.carImageView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
-            self.carImageView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
-            self.carImageView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
-            self.carImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1 / 3),
-            self.carImageView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
-        ])
-    }
-    
-    private func configuireLayoutCost() {
-        let vStack = UIStackView(arrangedSubviews: [self.costTitleLabel, self.costLabel])
-        vStack.translatesAutoresizingMaskIntoConstraints = false
-        vStack.spacing = Metrics.smallVertivalSpacing
-        vStack.axis = .vertical
-        vStack.alignment = .leading
-        self.scrollView.addSubview(vStack)
-        
-        NSLayoutConstraint.activate([
-            vStack.topAnchor.constraint(equalTo: self.carImageView.bottomAnchor, constant: Metrics.mediumVertivalSpacing),
-            vStack.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
-            vStack.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
-            vStack.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
+            self.carView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
+            self.carView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
+            self.carView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
+            self.carView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
         ])
     }
     
@@ -227,7 +188,7 @@ extension SelectBodyView {
         self.scrollView.addSubview(self.selectBodyLabel)
         
         NSLayoutConstraint.activate([
-            self.selectBodyLabel.topAnchor.constraint(equalTo: self.costLabel.bottomAnchor, constant: Metrics.mediumVertivalSpacing),
+            self.selectBodyLabel.topAnchor.constraint(equalTo: self.carView.bottomAnchor, constant: Metrics.mediumVertivalSpacing),
             self.selectBodyLabel.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
             self.selectBodyLabel.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
             self.selectBodyLabel.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor)
@@ -320,11 +281,11 @@ extension SelectBodyView: ISelectBodyView {
     }
     
     func setTextInCostLabel(_ string: String) {
-        self.costLabel.text = string
+        self.carView.setTextInCostLabel(string)
     }
     
     func setImage(name: String) {
-        self.carImageView.image = UIImage(named: name)
+        self.carView.setImage(name: name)
     }
     
     func showActivityIndicator(_ show: Bool) {
