@@ -16,6 +16,7 @@ protocol ISelectBodyView: UIView {
     func setNumberOfRowsInSection(_ number: Int)
     func setChecked(for index: Int)
     func setTextInCells(_ strings: [String])
+    
     func setTextInCostLabel(_ string: String)
     func setImage(name: String)
     
