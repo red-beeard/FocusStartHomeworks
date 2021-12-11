@@ -68,8 +68,8 @@ extension SelectBodyView {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.rowHeight = Metrics.tableViewRowHeight
         self.tableView.bounces = false
-//        self.tableView.dataSource = self
-//        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
     }
     
 }
