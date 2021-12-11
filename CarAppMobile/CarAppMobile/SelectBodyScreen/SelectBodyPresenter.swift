@@ -52,18 +52,22 @@ final class SelectBodyPresenter {
         self.changeCostLabel(indexBody: index)
     }
     
-    private func changeCostLabel(indexBody: Int) {
+    private func getCarWith(indexBody: Int, comletion: ((Car) -> Void)) {
         guard let carBrandIndex = self.carBrandIndex else { return }
         let car = self.model.getCar(for: carBrandIndex, and: indexBody)
         if let car = car {
+            comletion(car)
+        }
+    }
+    
+    private func changeCostLabel(indexBody: Int) {
+        self.getCarWith(indexBody: indexBody) { car in
             self.view?.setTextInCostLabel("\(car.cost)$")
         }
     }
     
     private func changeImageView(indexBody: Int) {
-        guard let carBrandIndex = self.carBrandIndex else { return }
-        let car = self.model.getCar(for: carBrandIndex, and: indexBody)
-        if let car = car {
+        self.getCarWith(indexBody: indexBody) { car in
             self.view?.setImage(name: car.filename)
         }
     }
