@@ -11,7 +11,7 @@ protocol ISelectBodyScreenView: UIView {
     
     var calculateCostHandler: ((Int) -> Void)? { get set }
     
-    func showActivityIndicator(_ show: Bool)
+    func setHideAllSubviews(_ hide: Bool)
     
     func setNumberOfRowsInSection(_ number: Int)
     func setChangeBodyHandler(_ handler: @escaping ((Int) -> Void))
@@ -41,7 +41,6 @@ final class SelectBodyScreenView: UIView {
     private let selectBodyView: ISelectBodyView = SelectBodyView()
     private let scrollView = UIScrollView()
     private let calculateCostButton = UIButton()
-    private let activityIndicator = UIActivityIndicatorView(style: .large)
     
     var changeBodyHandler: ((Int) -> Void)?
     var calculateCostHandler: ((Int) -> Void)?
@@ -71,7 +70,6 @@ extension SelectBodyScreenView {
         self.configuireSelectBodyView()
         self.configuireCalculateCostButton()
         self.configuireScrollView()
-        self.configuireActivityIndicator()
     }
     
     private func configuireCarView() {
@@ -96,10 +94,6 @@ extension SelectBodyScreenView {
         self.scrollView.showsVerticalScrollIndicator = false
     }
     
-    private func configuireActivityIndicator() {
-        self.activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
 }
 
 // MARK: Configuire layout
@@ -108,7 +102,6 @@ extension SelectBodyScreenView {
     
     private func configuireLayout() {
         self.configuireLayoutCalculateCostButton()
-        self.configuireLayoutActivityIndicator()
         self.configuireLayoutScrollView()
     }
     
@@ -159,15 +152,6 @@ extension SelectBodyScreenView {
             self.calculateCostButton.heightAnchor.constraint(equalToConstant: Metrics.calculateCostButtonHeight)
         ])
     }
-    
-    private func configuireLayoutActivityIndicator() {
-        self.addSubview(self.activityIndicator)
-        
-        NSLayoutConstraint.activate([
-            self.activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-        ])
-    }
 
 }
 
@@ -200,12 +184,8 @@ extension SelectBodyScreenView: ISelectBodyScreenView {
         self.carView.setImage(name: name)
     }
     
-    func showActivityIndicator(_ show: Bool) {
-        self.subviews.forEach { $0.isHidden = show }
-        
-        show == true
-            ? self.activityIndicator.startAnimating()
-            : self.activityIndicator.stopAnimating()
+    func setHideAllSubviews(_ hide: Bool) {
+        self.subviews.forEach { $0.isHidden = hide }
     }
     
 }

@@ -9,6 +9,7 @@ import Foundation
 
 protocol ISelectBodyPresenter {
     func loadView(controller: ISelectBodyViewController, view: ISelectBodyScreenView)
+    func loadData()
     func setCarBrand(index: Int)
 }
 
@@ -21,23 +22,6 @@ final class SelectBodyPresenter {
     
     init(model: ICarModel) {
         self.model = model
-    }
-    
-    private func loadData() {
-        self.view?.showActivityIndicator(true)
-        
-        DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: DispatchTime.now() + 5) {
-            let carBodys = self.model.getBodys()
-            
-            DispatchQueue.main.async {
-                self.setDataToTableView(numberOfRowsInSection: carBodys.count,
-                                        strings: carBodys.map { $0.rawValue })
-                self.changeCostLabel(indexBody: .zero)
-                self.changeImageView(indexBody: .zero)
-                self.view?.showActivityIndicator(false)
-            }
-            
-        }
     }
     
     private func setDataToTableView(numberOfRowsInSection: Int, strings: [String]) {
@@ -53,6 +37,10 @@ final class SelectBodyPresenter {
         
         self.view?.calculateCostHandler = { [weak self] index in
             self?.showCostInLabel(to: index)
+        }
+        
+        self.controller?.backButtonTouchedHandler = { [weak self] in
+            self?.controller?.navigationController?.popToRootViewController(animated: true)
         }
     }
     
@@ -80,23 +68,40 @@ final class SelectBodyPresenter {
         }
     }
     
+    private func showActivityIndicator(_ show: Bool) {
+        self.controller?.showActivityIndicator(show)
+        self.view?.setHideAllSubviews(show)
+    }
+    
 }
 
 extension SelectBodyPresenter: ISelectBodyPresenter {
     
     func setCarBrand(index: Int) {
         self.carBrandIndex = index
-        if let _ = view {
-            self.loadData()
-        }
     }
     
     func loadView(controller: ISelectBodyViewController, view: ISelectBodyScreenView) {
         self.controller = controller
         self.view = view
         
-        self.loadData()
         self.setHandlers()
+    }
+    
+    func loadData() {
+        self.showActivityIndicator(true)
+        
+        DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: DispatchTime.now() + 5) {
+            let carBodys = self.model.getBodys()
+            
+            DispatchQueue.main.async {
+                self.setDataToTableView(numberOfRowsInSection: carBodys.count,
+                                        strings: carBodys.map { $0.rawValue })
+                self.changeCostLabel(indexBody: .zero)
+                self.changeImageView(indexBody: .zero)
+                self.showActivityIndicator(false)
+            }
+        }
     }
     
 }
