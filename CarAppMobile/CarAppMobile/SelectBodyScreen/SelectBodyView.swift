@@ -21,7 +21,7 @@ protocol ISelectBodyView: UIView {
     
 }
 
-class SelectBodyView: UIView {
+final class SelectBodyView: UIView {
     
     private enum Metrics {
         static let largeFontSize = CGFloat(24)
