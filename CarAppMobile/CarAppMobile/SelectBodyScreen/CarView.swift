@@ -16,6 +16,7 @@ final class CarView: UIView {
     
     private enum Metrics {
         static let largeFontSize = CGFloat(24)
+        static let imageViewCornerRadius = CGFloat(10)
         static let smallVertivalSpacing = CGFloat(8)
         static let mediumVertivalSpacing = CGFloat(20)
     }
@@ -48,6 +49,7 @@ extension CarView {
     private func configuireImageView() {
         self.carImageView.translatesAutoresizingMaskIntoConstraints = false
         self.carImageView.contentMode = .scaleAspectFill
+        self.carImageView.layer.cornerRadius = Metrics.imageViewCornerRadius
         self.carImageView.clipsToBounds = true
         self.carImageView.backgroundColor = .systemFill
     }
