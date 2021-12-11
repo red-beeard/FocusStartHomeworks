@@ -17,7 +17,7 @@ final class SelectBodyViewController: UIViewController {
         static let green = UIColor(red: 93/255, green: 176/255, blue: 117/255, alpha: 1)
     }
     
-    let selectBodyView: ISelectBodyView
+    let selectBodyView: ISelectBodyScreenView
     let presenter: ISelectBodyPresenter
     
     required init?(coder: NSCoder) {
@@ -26,7 +26,7 @@ final class SelectBodyViewController: UIViewController {
     
     init(presenter: ISelectBodyPresenter) {
         self.presenter = presenter
-        self.selectBodyView = SelectBodyView(frame: .zero)
+        self.selectBodyView = SelectBodyScreenView(frame: .zero)
         super.init(nibName: nil, bundle: nil)
     }
     

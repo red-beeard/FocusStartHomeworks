@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ISelectBodyPresenter {
-    func loadView(controller: ISelectBodyViewController, view: ISelectBodyView)
+    func loadView(controller: ISelectBodyViewController, view: ISelectBodyScreenView)
     func setCarBrand(index: Int)
 }
 
@@ -17,7 +17,7 @@ final class SelectBodyPresenter {
     private let model: ICarModel
     private var carBrandIndex: Int?
     private weak var controller: ISelectBodyViewController?
-    private weak var view: ISelectBodyView?
+    private weak var view: ISelectBodyScreenView?
     
     init(model: ICarModel) {
         self.model = model
@@ -47,7 +47,7 @@ final class SelectBodyPresenter {
     }
     
     private func setHandlers() {
-        self.view?.changeBodyHandler = { [weak self] index in
+        self.view?.setChangeBodyHandler { [weak self] index in
             self?.changeCarBody(to: index)
         }
         
@@ -91,7 +91,7 @@ extension SelectBodyPresenter: ISelectBodyPresenter {
         }
     }
     
-    func loadView(controller: ISelectBodyViewController, view: ISelectBodyView) {
+    func loadView(controller: ISelectBodyViewController, view: ISelectBodyScreenView) {
         self.controller = controller
         self.view = view
         
