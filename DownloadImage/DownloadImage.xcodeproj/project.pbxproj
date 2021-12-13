@@ -14,6 +14,7 @@
 		815DC77327664EFE00130ADE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 815DC77127664EFE00130ADE /* LaunchScreen.storyboard */; };
 		815DC77F2766522400130ADE /* DownloadListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815DC77E2766522400130ADE /* DownloadListAssembly.swift */; };
 		815DC781276659A600130ADE /* DownloadListScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815DC780276659A600130ADE /* DownloadListScreenView.swift */; };
+		815DC78327665D4200130ADE /* DownloadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815DC78227665D4200130ADE /* DownloadCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		815DC77427664EFE00130ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		815DC77E2766522400130ADE /* DownloadListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListAssembly.swift; sourceTree = "<group>"; };
 		815DC780276659A600130ADE /* DownloadListScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListScreenView.swift; sourceTree = "<group>"; };
+		815DC78227665D4200130ADE /* DownloadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				815DC76A27664EFD00130ADE /* DownloadListViewController.swift */,
 				815DC77E2766522400130ADE /* DownloadListAssembly.swift */,
 				815DC780276659A600130ADE /* DownloadListScreenView.swift */,
+				815DC78227665D4200130ADE /* DownloadCell.swift */,
 			);
 			path = DownloadListScreen;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				815DC781276659A600130ADE /* DownloadListScreenView.swift in Sources */,
 				815DC76727664EFD00130ADE /* AppDelegate.swift in Sources */,
 				815DC76927664EFD00130ADE /* SceneDelegate.swift in Sources */,
+				815DC78327665D4200130ADE /* DownloadCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

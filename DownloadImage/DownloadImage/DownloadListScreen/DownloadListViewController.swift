@@ -15,7 +15,7 @@ final class DownloadListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemBackground
+        self.view = DownloadListScreenView()
         
         self.title = "Загрузки"
         self.navigationController?.navigationBar.prefersLargeTitles = true
