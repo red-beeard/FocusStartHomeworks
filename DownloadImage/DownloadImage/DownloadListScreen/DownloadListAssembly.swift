@@ -8,7 +8,10 @@
 final class DownloadListAssembly {
     
     static func build() -> IDownloadListViewController {
-        return DownloadListViewController()
+        let networkService = NetworkService()
+        let presenter = DownloadListPresenter(service: networkService)
+        
+        return DownloadListViewController(presenter: presenter)
     }
     
 }
