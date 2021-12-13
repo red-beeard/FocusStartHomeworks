@@ -8,12 +8,14 @@
 import UIKit
 
 protocol IDownloadListScreenView: UIView {
-    
+    var searchHandler: ((String) -> Void)? { get set }
 }
 
 final class DownloadListScreenView: UIView {
     
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
+    var searchHandler: ((String) -> Void)?
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

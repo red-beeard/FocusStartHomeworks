@@ -13,7 +13,6 @@ protocol IDownloadListViewController: UIViewController {
 
 final class DownloadListViewController: UIViewController {
     
-    private let searchController = UISearchController()
     private let screenView: IDownloadListScreenView = DownloadListScreenView(frame: .zero)
     
     private let presenter: IDownloadListPresenter
@@ -42,16 +41,11 @@ final class DownloadListViewController: UIViewController {
         self.title = "Загрузки"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        self.configureSearchController()
-        self.configuireLayout()
+        self.configuireScreenView()
     }
     
-    private func configureSearchController() {
-        self.searchController.searchBar.placeholder = "Введите URL"
-        self.navigationItem.searchController = self.searchController
-    }
-    
-    private func configuireLayout() {
+    private func configuireScreenView() {
+        self.screenView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.screenView)
         
         NSLayoutConstraint.activate([
