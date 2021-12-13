@@ -39,6 +39,11 @@ final class DownloadListScreenView: UIView {
         addGestureRecognizer(tapGesture)
     }
     
+}
+
+// MARK: IDownloadListScreenView
+extension DownloadListScreenView {
+    
     private func configuireView() {
         self.backgroundColor = .systemBackground
         self.configuireSearchTextField()
@@ -58,6 +63,11 @@ final class DownloadListScreenView: UIView {
         self.searchTextField.returnKeyType = .done
         self.searchTextField.delegate = self
     }
+    
+}
+
+// MARK: DownloadListScreenView + Configuire layout
+extension DownloadListScreenView {
     
     private func configuireLayout() {
         self.configuireSearchTextFieldLayout()
@@ -88,10 +98,12 @@ final class DownloadListScreenView: UIView {
     
 }
 
+// MARK: IDownloadListScreenView
 extension DownloadListScreenView: IDownloadListScreenView {
     
 }
 
+// MARK: UITextFieldDelegate
 extension DownloadListScreenView: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
