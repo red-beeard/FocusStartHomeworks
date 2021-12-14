@@ -18,9 +18,13 @@ protocol INetworkService: AnyObject {
 
 final class NetworkService: NSObject {
     
-    private lazy var session = URLSession(configuration: .default,
-                                          delegate: self,
-                                          delegateQueue: nil)
+    private lazy var session: URLSession  = {
+        let configuration = URLSessionConfiguration.background(withIdentifier: "Alex-Nifontov.DownloadImage")
+        configuration.shouldUseExtendedBackgroundIdleMode = true
+        configuration.waitsForConnectivity = true
+
+        return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+    }()
     
     private var downloadTaskInfoList = [DownloadTaskInfo]() {
         didSet {
