@@ -9,6 +9,8 @@ import UIKit
 
 protocol IDownloadListScreenView: UIView {
     var searchHandler: ((String) -> Void)? { get set }
+    
+    func applyNewDownloadInfo(downloadInfoList: [DownloadInfo], animatingDifferences: Bool)
 }
 
 final class DownloadListScreenView: UIView {
@@ -16,9 +18,11 @@ final class DownloadListScreenView: UIView {
     private enum Metrics {
         static let searchTFHeight = CGFloat(35)
         static let verticalSpacing = CGFloat(10)
+        static let cellHeight = CGFloat(75)
     }
     
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private var dataSource: UICollectionViewDiffableDataSource<Int, DownloadInfo>?
     private let searchTextField = UISearchTextField()
     
     var searchHandler: ((String) -> Void)?
@@ -54,7 +58,8 @@ extension DownloadListScreenView {
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView.register(DownloadCell.self, forCellWithReuseIdentifier: DownloadCell.identifier)
         
-        self.collectionView.dataSource = self
+        self.dataSource = self.makeDataSource()
+        self.collectionView.dataSource = self.dataSource
         self.collectionView.delegate = self
     }
     
@@ -102,6 +107,12 @@ extension DownloadListScreenView {
 // MARK: IDownloadListScreenView
 extension DownloadListScreenView: IDownloadListScreenView {
     
+    func applyNewDownloadInfo(downloadInfoList: [DownloadInfo], animatingDifferences: Bool) {
+        self.applySnapshot(downloadInfoList: downloadInfoList, animatingDifferences: animatingDifferences)
+    }
+    
+    
+    
 }
 
 // MARK: UITextFieldDelegate
@@ -121,25 +132,40 @@ extension DownloadListScreenView: UITextFieldDelegate {
     
 }
 
+// MARK: UICollectionViewDelegateFlowLayout
 extension DownloadListScreenView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = CGFloat(70)
+        let height = Metrics.cellHeight
         let width = collectionView.bounds.width
         return CGSize(width: width, height: height)
     }
     
 }
 
-extension DownloadListScreenView: UICollectionViewDataSource {
+// MARK: Work with diffableDataSource
+extension DownloadListScreenView {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
+    private func makeDataSource() -> UICollectionViewDiffableDataSource<Int, DownloadInfo> {
+        let dataSource = UICollectionViewDiffableDataSource<Int, DownloadInfo>(collectionView: self.collectionView) { collectionView, indexPath, downloadInfo in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DownloadCell.identifier, for: indexPath) as? IDownloadCell
+            
+            cell?.setFilename(downloadInfo.name)
+            cell?.setProgressLabel(downloadInfo.progressString)
+            cell?.setProgress(downloadInfo.progress)
+            cell?.setDownloadIsOver(downloadInfo.downloadIsOver)
+            cell?.setImage(downloadInfo.url)
+            return cell
+        }
+        
+        return dataSource
     }
     
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.dequeueReusableCell(withReuseIdentifier: DownloadCell.identifier, for: indexPath)
+    private func applySnapshot(downloadInfoList: [DownloadInfo], animatingDifferences: Bool = true) {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, DownloadInfo>()
+        snapshot.appendSections([.zero])
+        snapshot.appendItems(downloadInfoList)
+        self.dataSource?.apply(snapshot, animatingDifferences: animatingDifferences)
     }
     
 }

@@ -33,13 +33,27 @@ final class DownloadListPresenter {
             }
         }
         
-        self.networkService.completionDownloadTaskInfoUpdate = { downloadsList in
-            print("update")
+        self.networkService.completionDownloadTaskInfoUpdate = { [weak self] downloadsList, changeCount in
+            let downloads = downloadsList.map { taskInfo -> DownloadInfo in
+                let totalMegaBytesWritten = Float(taskInfo.totalBytesWritten ?? 0) / 1024 / 1024
+                let totalMegaBytesExpectedToWrite = Float(taskInfo.totalBytesExpectedToWrite ?? 0) / 1024 / 1024
+                let progressString = String(format: "%.2f МБ из %.2f МБ", totalMegaBytesWritten, totalMegaBytesExpectedToWrite)
+                
+                return DownloadInfo(id: taskInfo.id,
+                                    name: taskInfo.name,
+                                    url: taskInfo.url,
+                                    progressString: progressString,
+                                    progress: taskInfo.progress,
+                                    downloadIsOver: taskInfo.downloadIsOver)
+            }
+            DispatchQueue.main.async {
+                self?.view?.applyNewDownloadInfo(downloadInfoList: downloads, animatingDifferences: changeCount)
+            }
         }
     }
     
     private func searchURL(_ string: String) {
-        networkService.loadImageFrom(url: string)
+        self.networkService.loadImageFrom(url: string)
     }
     
 }

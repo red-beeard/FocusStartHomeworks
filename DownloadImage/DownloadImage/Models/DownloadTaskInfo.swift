@@ -8,7 +8,7 @@
 import Foundation
 
 final class DownloadTaskInfo {
-    
+    let id = UUID()
     let name: String
     let downloadTask: URLSessionDownloadTask
     
@@ -17,10 +17,7 @@ final class DownloadTaskInfo {
     var totalBytesWritten: Int64?
     var totalBytesExpectedToWrite: Int64?
     var progress: Float = 0
-    var isDownload = true
-    var downloadIsOver: Bool {
-        totalBytesWritten == totalBytesExpectedToWrite
-    }
+    var downloadIsOver = false
     
     init(name: String, downloadTask: URLSessionDownloadTask) {
         self.name = name

@@ -13,7 +13,13 @@ protocol IDownloadCell: UICollectionViewCell {
     
     func setFilename(_ string: String)
     
+    func setProgress(_ value: Float)
+    
+    func setDownloadIsOver(_ value: Bool)
+    
     func setProgressLabel(_ string: String)
+    
+    func setImage(_ url: URL?)
     
 }
 
@@ -21,17 +27,22 @@ final class DownloadCell: UICollectionViewCell {
     
     private enum Metrics {
         static let spacing = CGFloat(10)
-        static let stackViewSpacing = CGFloat(8)
+        static let stackViewSpacing = CGFloat(5)
         static let cornerRadius = CGFloat(10)
         
         static let progressLabelFontSize = CGFloat(12)
+        
+        static let photoImage = UIImage(systemName: "photo")
     }
     
     static let identifier = "DownloadCell"
     
+    private let imageView = UIImageView()
     private let filenameLabel = UILabel()
     private let progressView = UIProgressView(progressViewStyle: .default)
     private let progressLabel = UILabel()
+    
+    private var downloadIsOver: Bool?
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -47,9 +58,18 @@ final class DownloadCell: UICollectionViewCell {
         self.layer.cornerRadius = Metrics.cornerRadius
         self.backgroundColor = .systemFill
         
+        self.configuireImageView()
         self.configuireFilenameLabel()
         self.configuireProgressView()
         self.configuireProgressLabel()
+    }
+    
+    private func configuireImageView() {
+        self.imageView.translatesAutoresizingMaskIntoConstraints = false
+        self.imageView.layer.cornerRadius = Metrics.cornerRadius
+        self.imageView.clipsToBounds = true
+        self.imageView.contentMode = .scaleAspectFit
+        self.imageView.image = Metrics.photoImage
     }
     
     private func configuireFilenameLabel() {
@@ -72,6 +92,21 @@ final class DownloadCell: UICollectionViewCell {
     }
     
     private func configurationLayout() {
+        self.configuireImageViewLayout()
+        self.configuireStackViewLayout()
+    }
+    
+    private func configuireImageViewLayout() {
+        self.addSubview(self.imageView)
+        NSLayoutConstraint.activate([
+            self.imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: Metrics.spacing),
+            self.imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metrics.spacing),
+            self.imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Metrics.spacing),
+            self.imageView.widthAnchor.constraint(equalTo: self.imageView.heightAnchor),
+        ])
+    }
+    
+    private func configuireStackViewLayout() {
         let vStack = UIStackView()
         vStack.translatesAutoresizingMaskIntoConstraints = false
         vStack.addArrangedSubview(self.filenameLabel)
@@ -79,16 +114,20 @@ final class DownloadCell: UICollectionViewCell {
         vStack.addArrangedSubview(self.progressLabel)
         vStack.spacing = Metrics.stackViewSpacing
         vStack.axis = .vertical
+        vStack.distribution = .fill
         vStack.alignment = .fill
         
         self.addSubview(vStack)
         
         NSLayoutConstraint.activate([
-            vStack.topAnchor.constraint(equalTo: self.topAnchor, constant: Metrics.spacing),
-            vStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metrics.spacing),
+            vStack.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            vStack.leadingAnchor.constraint(equalTo: self.imageView.trailingAnchor, constant: Metrics.spacing),
             vStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Metrics.spacing),
-            vStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Metrics.spacing)
         ])
+    }
+    
+    private func downloadIsOverHandler() {
+        self.progressView.isHidden = true
     }
     
 }
@@ -99,8 +138,27 @@ extension DownloadCell: IDownloadCell {
         self.filenameLabel.text = string
     }
     
+    func setProgress(_ value: Float) {
+        self.progressView.setProgress(value, animated: true)
+    }
+    
+    func setDownloadIsOver(_ value: Bool) {
+        self.downloadIsOver = value
+        if value == true {
+            self.downloadIsOverHandler()
+        }
+    }
+    
     func setProgressLabel(_ string: String) {
         self.progressLabel.text = string
+    }
+    
+    func setImage(_ url: URL?) {
+        guard let url = url, let data = try? Data(contentsOf: url) else {
+            return
+        }
+
+        self.imageView.image = UIImage(data: data)
     }
     
 }
