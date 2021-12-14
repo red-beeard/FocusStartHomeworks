@@ -19,6 +19,7 @@
 		815DC78C27673E1500130ADE /* DownloadListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815DC78B27673E1500130ADE /* DownloadListPresenter.swift */; };
 		815DC7902767940F00130ADE /* DownloadTaskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815DC78F2767940F00130ADE /* DownloadTaskInfo.swift */; };
 		815DC7922767A48000130ADE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815DC7912767A48000130ADE /* NetworkError.swift */; };
+		815DC79827688D8B00130ADE /* DownloadInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815DC79727688D8B00130ADE /* DownloadInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		815DC78B27673E1500130ADE /* DownloadListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListPresenter.swift; sourceTree = "<group>"; };
 		815DC78F2767940F00130ADE /* DownloadTaskInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTaskInfo.swift; sourceTree = "<group>"; };
 		815DC7912767A48000130ADE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		815DC79727688D8B00130ADE /* DownloadInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			children = (
 				815DC78F2767940F00130ADE /* DownloadTaskInfo.swift */,
 				815DC7912767A48000130ADE /* NetworkError.swift */,
+				815DC79727688D8B00130ADE /* DownloadInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				815DC79827688D8B00130ADE /* DownloadInfo.swift in Sources */,
 				815DC76B27664EFD00130ADE /* DownloadListViewController.swift in Sources */,
 				815DC77F2766522400130ADE /* DownloadListAssembly.swift in Sources */,
 				815DC78C27673E1500130ADE /* DownloadListPresenter.swift in Sources */,

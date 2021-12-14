@@ -32,6 +32,10 @@ final class DownloadListPresenter {
                 self?.controller?.showAlert(title: "Ошибка😔", message: error.localizedDescription)
             }
         }
+        
+        self.networkService.completionDownloadTaskInfoUpdate = { downloadsList in
+            print("update")
+        }
     }
     
     private func searchURL(_ string: String) {

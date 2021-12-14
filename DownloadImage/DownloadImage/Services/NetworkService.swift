@@ -10,6 +10,7 @@ import Foundation
 protocol INetworkService: AnyObject {
     
     var completionFailure: ((Error) -> Void)? { get set }
+    var completionDownloadTaskInfoUpdate: (([DownloadTaskInfo]) -> Void)? { get set }
     
     func loadImageFrom(url: String)
     
@@ -21,17 +22,14 @@ final class NetworkService: NSObject {
                                           delegate: self,
                                           delegateQueue: nil)
     
-    private var downloadTaskInfoList = [DownloadTaskInfo]() {
-        didSet {
-            print("didSet")
-        }
-    }
-    
+    private var downloadTaskInfoList = [DownloadTaskInfo]()
     var completionFailure: ((Error) -> Void)?
+    var completionDownloadTaskInfoUpdate: (([DownloadTaskInfo]) -> Void)?
     
     private func addDownloadTaskInfo(name: String, task: URLSessionDownloadTask) {
         let downloadTaskInfo = DownloadTaskInfo(name: name, downloadTask: task)
-        downloadTaskInfoList.append(downloadTaskInfo)
+        self.downloadTaskInfoList.append(downloadTaskInfo)
+        self.completionDownloadTaskInfoUpdate?(self.downloadTaskInfoList)
     }
     
 }
@@ -54,7 +52,7 @@ extension NetworkService: INetworkService {
 extension NetworkService: URLSessionDownloadDelegate {
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        let downloadTaskInfo = downloadTaskInfoList.first { downloadTask === $0.downloadTask }
+        let downloadTaskInfo = self.downloadTaskInfoList.first { downloadTask === $0.downloadTask }
         downloadTaskInfo?.isDownload = false
         
         do {
@@ -67,17 +65,20 @@ extension NetworkService: URLSessionDownloadDelegate {
             
             downloadTaskInfo?.url = savedURL
         } catch {
+            self.downloadTaskInfoList.removeAll { downloadTask === $0.downloadTask }
             self.completionFailure?(error)
         }
+        self.completionDownloadTaskInfoUpdate?(self.downloadTaskInfoList)
     }
     
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-        let downloadTaskInfo = downloadTaskInfoList.first { downloadTask === $0.downloadTask }
+        let downloadTaskInfo = self.downloadTaskInfoList.first { downloadTask === $0.downloadTask }
         
         downloadTaskInfo?.totalBytesWritten = totalBytesWritten
         downloadTaskInfo?.totalBytesExpectedToWrite = totalBytesExpectedToWrite
         downloadTaskInfo?.progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
+        self.completionDownloadTaskInfoUpdate?(self.downloadTaskInfoList)
     }
     
     func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?) {
@@ -89,6 +90,9 @@ extension NetworkService: URLSessionDownloadDelegate {
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        self.downloadTaskInfoList.removeAll { task === $0.downloadTask }
+        self.completionDownloadTaskInfoUpdate?(self.downloadTaskInfoList)
+        
         if let error = error {
             self.completionFailure?(error)
         } else {
