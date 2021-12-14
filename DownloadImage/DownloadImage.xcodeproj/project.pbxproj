@@ -17,6 +17,8 @@
 		815DC78327665D4200130ADE /* DownloadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815DC78227665D4200130ADE /* DownloadCell.swift */; };
 		815DC78A27673D8500130ADE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815DC78927673D8500130ADE /* NetworkService.swift */; };
 		815DC78C27673E1500130ADE /* DownloadListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815DC78B27673E1500130ADE /* DownloadListPresenter.swift */; };
+		815DC7902767940F00130ADE /* DownloadTaskInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815DC78F2767940F00130ADE /* DownloadTaskInfo.swift */; };
+		815DC7922767A48000130ADE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815DC7912767A48000130ADE /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		815DC78227665D4200130ADE /* DownloadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadCell.swift; sourceTree = "<group>"; };
 		815DC78927673D8500130ADE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		815DC78B27673E1500130ADE /* DownloadListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadListPresenter.swift; sourceTree = "<group>"; };
+		815DC78F2767940F00130ADE /* DownloadTaskInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTaskInfo.swift; sourceTree = "<group>"; };
+		815DC7912767A48000130ADE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 		815DC76527664EFD00130ADE /* DownloadImage */ = {
 			isa = PBXGroup;
 			children = (
+				815DC79627688CB400130ADE /* Models */,
 				815DC78827673D6E00130ADE /* Services */,
 				815DC77D276651F300130ADE /* DownloadListScreen */,
 				815DC77A2766506E00130ADE /* Supports */,
@@ -117,6 +122,15 @@
 				815DC78927673D8500130ADE /* NetworkService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		815DC79627688CB400130ADE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				815DC78F2767940F00130ADE /* DownloadTaskInfo.swift */,
+				815DC7912767A48000130ADE /* NetworkError.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,9 +208,11 @@
 				815DC78C27673E1500130ADE /* DownloadListPresenter.swift in Sources */,
 				815DC781276659A600130ADE /* DownloadListScreenView.swift in Sources */,
 				815DC76727664EFD00130ADE /* AppDelegate.swift in Sources */,
+				815DC7902767940F00130ADE /* DownloadTaskInfo.swift in Sources */,
 				815DC76927664EFD00130ADE /* SceneDelegate.swift in Sources */,
 				815DC78327665D4200130ADE /* DownloadCell.swift in Sources */,
 				815DC78A27673D8500130ADE /* NetworkService.swift in Sources */,
+				815DC7922767A48000130ADE /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

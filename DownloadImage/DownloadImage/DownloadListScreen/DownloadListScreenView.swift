@@ -54,7 +54,8 @@ extension DownloadListScreenView {
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView.register(DownloadCell.self, forCellWithReuseIdentifier: DownloadCell.identifier)
         
-        self.collectionView.backgroundColor = .brown
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
     }
     
     private func configuireSearchTextField() {
@@ -116,6 +117,29 @@ extension DownloadListScreenView: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text else { return }
         self.searchHandler?(text)
+    }
+    
+}
+
+extension DownloadListScreenView: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height = CGFloat(70)
+        let width = collectionView.bounds.width
+        return CGSize(width: width, height: height)
+    }
+    
+}
+
+extension DownloadListScreenView: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        4
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        collectionView.dequeueReusableCell(withReuseIdentifier: DownloadCell.identifier, for: indexPath)
     }
     
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol IDownloadListViewController: UIViewController {
-    
+    func showAlert(title: String?, message: String?)
 }
 
 final class DownloadListViewController: UIViewController {
@@ -55,9 +55,20 @@ final class DownloadListViewController: UIViewController {
             self.screenView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
         ])
     }
-
+    
 }
 
 extension DownloadListViewController: IDownloadListViewController {
+    
+    func showAlert(title: String?, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let actionOk = UIAlertAction(title: "Ок", style: .default) { action in
+            self.dismiss(animated: true)
+        }
+        alertController.addAction(actionOk)
+        
+        self.present(alertController, animated: true)
+    }
     
 }

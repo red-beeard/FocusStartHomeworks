@@ -5,6 +5,8 @@
 //  Created by Red Beard on 13.12.2021.
 //
 
+import Foundation
+
 protocol IDownloadListPresenter {
     func loadView(controller: IDownloadListViewController, view: IDownloadListScreenView)
 }
@@ -23,10 +25,17 @@ final class DownloadListPresenter {
         self.view?.searchHandler = { [weak self] string in
             self?.searchURL(string)
         }
+        
+        self.networkService.completionFailure = { [weak self] error in
+            print("[NETWORK] error is: \(error)")
+            DispatchQueue.main.async {
+                self?.controller?.showAlert(title: "Ошибка😔", message: error.localizedDescription)
+            }
+        }
     }
     
     private func searchURL(_ string: String) {
-        print(string)
+        networkService.loadImageFrom(url: string)
     }
     
 }
