@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:CompaniesEmployees/CompaniesEmployees.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:DownloadImage/DownloadImage.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:CollectionAppWithArchitecture/CollectionAppWithArchitecture.xcodeproj">
    </FileRef>
    <FileRef
