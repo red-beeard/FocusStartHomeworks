@@ -16,6 +16,11 @@
 		81148944276CAAF700667D49 /* CompanyListScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148943276CAAF700667D49 /* CompanyListScreenPresenter.swift */; };
 		81148947276CAD0C00667D49 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148946276CAD0C00667D49 /* DataManager.swift */; };
 		81148949276CB01F00667D49 /* CompanyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148948276CB01F00667D49 /* CompanyListView.swift */; };
+		81148973276CC01300667D49 /* CompaniesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81148971276CC01300667D49 /* CompaniesModel.xcdatamodeld */; };
+		81148975276CC46500667D49 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148974276CC46500667D49 /* CoreDataManager.swift */; };
+		81148977276CF49700667D49 /* CompanyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148976276CF49600667D49 /* CompanyDTO.swift */; };
+		8114897A276E573400667D49 /* Companies.json in Resources */ = {isa = PBXBuildFile; fileRef = 81148979276E573400667D49 /* Companies.json */; };
+		8114898F276E59A000667D49 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114898E276E59A000667D49 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		81148943276CAAF700667D49 /* CompanyListScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListScreenPresenter.swift; sourceTree = "<group>"; };
 		81148946276CAD0C00667D49 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		81148948276CB01F00667D49 /* CompanyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListView.swift; sourceTree = "<group>"; };
+		81148972276CC01300667D49 /* CompaniesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CompaniesModel.xcdatamodel; sourceTree = "<group>"; };
+		81148974276CC46500667D49 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		81148976276CF49600667D49 /* CompanyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDTO.swift; sourceTree = "<group>"; };
+		81148979276E573400667D49 /* Companies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Companies.json; sourceTree = "<group>"; };
+		8114898E276E59A000667D49 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +72,7 @@
 		81148928276CA19A00667D49 /* CompaniesEmployees */ = {
 			isa = PBXGroup;
 			children = (
+				81148978276E56FF00667D49 /* JSONData */,
 				81148970276CBF6C00667D49 /* Models */,
 				81148945276CACCF00667D49 /* Services */,
 				81148940276CA94600667D49 /* CompanyListScreen */,
@@ -113,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				81148946276CAD0C00667D49 /* DataManager.swift */,
+				81148974276CC46500667D49 /* CoreDataManager.swift */,
+				8114898E276E59A000667D49 /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -120,8 +133,18 @@
 		81148970276CBF6C00667D49 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				81148971276CC01300667D49 /* CompaniesModel.xcdatamodeld */,
+				81148976276CF49600667D49 /* CompanyDTO.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		81148978276E56FF00667D49 /* JSONData */ = {
+			isa = PBXGroup;
+			children = (
+				81148979276E573400667D49 /* Companies.json */,
+			);
+			path = JSONData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +207,7 @@
 			files = (
 				81148936276CA19B00667D49 /* LaunchScreen.storyboard in Resources */,
 				81148933276CA19B00667D49 /* Assets.xcassets in Resources */,
+				8114897A276E573400667D49 /* Companies.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,11 +218,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8114898F276E59A000667D49 /* NetworkService.swift in Sources */,
 				8114892E276CA19A00667D49 /* CompanyListViewController.swift in Sources */,
 				81148947276CAD0C00667D49 /* DataManager.swift in Sources */,
 				81148949276CB01F00667D49 /* CompanyListView.swift in Sources */,
+				81148973276CC01300667D49 /* CompaniesModel.xcdatamodeld in Sources */,
 				81148942276CA97900667D49 /* CompanyListScreenAssembly.swift in Sources */,
 				8114892A276CA19A00667D49 /* AppDelegate.swift in Sources */,
+				81148975276CC46500667D49 /* CoreDataManager.swift in Sources */,
+				81148977276CF49700667D49 /* CompanyDTO.swift in Sources */,
 				81148944276CAAF700667D49 /* CompanyListScreenPresenter.swift in Sources */,
 				8114892C276CA19A00667D49 /* SceneDelegate.swift in Sources */,
 			);
@@ -410,6 +438,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		81148971276CC01300667D49 /* CompaniesModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				81148972276CC01300667D49 /* CompaniesModel.xcdatamodel */,
+			);
+			currentVersion = 81148972276CC01300667D49 /* CompaniesModel.xcdatamodel */;
+			path = CompaniesModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8114891E276CA19A00667D49 /* Project object */;
 }
