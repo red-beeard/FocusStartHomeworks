@@ -39,6 +39,8 @@ extension CompaniesScreenTableAdapter: ICompaniesScreenTableAdapter {
     
     func update(companies: [CompaniesScreenViewModel]) {
         self.companies = companies
+        
+        self.tableView?.backgroundView?.isHidden = companies.count != 0
         self.tableView?.reloadData()
     }
     
