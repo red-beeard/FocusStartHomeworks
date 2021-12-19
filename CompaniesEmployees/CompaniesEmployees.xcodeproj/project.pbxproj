@@ -9,49 +9,49 @@
 /* Begin PBXBuildFile section */
 		8114892A276CA19A00667D49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148929276CA19A00667D49 /* AppDelegate.swift */; };
 		8114892C276CA19A00667D49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114892B276CA19A00667D49 /* SceneDelegate.swift */; };
-		8114892E276CA19A00667D49 /* CompaniesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114892D276CA19A00667D49 /* CompaniesViewController.swift */; };
+		8114892E276CA19A00667D49 /* CompaniesScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114892D276CA19A00667D49 /* CompaniesScreenViewController.swift */; };
 		81148933276CA19B00667D49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81148932276CA19B00667D49 /* Assets.xcassets */; };
 		81148936276CA19B00667D49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81148934276CA19B00667D49 /* LaunchScreen.storyboard */; };
 		81148942276CA97900667D49 /* CompaniesScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148941276CA97900667D49 /* CompaniesScreenAssembly.swift */; };
 		81148944276CAAF700667D49 /* CompaniesScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148943276CAAF700667D49 /* CompaniesScreenPresenter.swift */; };
 		81148947276CAD0C00667D49 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148946276CAD0C00667D49 /* DataManager.swift */; };
-		81148949276CB01F00667D49 /* CompaniesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148948276CB01F00667D49 /* CompaniesView.swift */; };
+		81148949276CB01F00667D49 /* CompaniesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148948276CB01F00667D49 /* CompaniesScreenView.swift */; };
 		81148973276CC01300667D49 /* CompaniesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81148971276CC01300667D49 /* CompaniesModel.xcdatamodeld */; };
 		81148975276CC46500667D49 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148974276CC46500667D49 /* CoreDataManager.swift */; };
 		81148977276CF49700667D49 /* CompanyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148976276CF49600667D49 /* CompanyDTO.swift */; };
 		8114897A276E573400667D49 /* Companies.json in Resources */ = {isa = PBXBuildFile; fileRef = 81148979276E573400667D49 /* Companies.json */; };
 		8114898F276E59A000667D49 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114898E276E59A000667D49 /* NetworkService.swift */; };
-		818E4722276F38F50022A9C7 /* CompaniesTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4721276F38F50022A9C7 /* CompaniesTableAdapter.swift */; };
-		818E4724276F39790022A9C7 /* CompaniesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4723276F39790022A9C7 /* CompaniesViewModel.swift */; };
-		818E4728276F4C0D0022A9C7 /* EmployeesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4727276F4C0D0022A9C7 /* EmployeesAssembly.swift */; };
-		818E472A276F4CD80022A9C7 /* EmployeesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4729276F4CD80022A9C7 /* EmployeesPresenter.swift */; };
-		818E472C276F4D630022A9C7 /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E472B276F4D630022A9C7 /* EmployeesViewController.swift */; };
-		818E472E276F4EFD0022A9C7 /* EmployeesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E472D276F4EFD0022A9C7 /* EmployeesView.swift */; };
+		818E4722276F38F50022A9C7 /* CompaniesScreenTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4721276F38F50022A9C7 /* CompaniesScreenTableAdapter.swift */; };
+		818E4724276F39790022A9C7 /* CompaniesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4723276F39790022A9C7 /* CompaniesScreenViewModel.swift */; };
+		818E4728276F4C0D0022A9C7 /* EmployeesScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4727276F4C0D0022A9C7 /* EmployeesScreenAssembly.swift */; };
+		818E472A276F4CD80022A9C7 /* EmployeesScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4729276F4CD80022A9C7 /* EmployeesScreenPresenter.swift */; };
+		818E472C276F4D630022A9C7 /* EmployeesScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E472B276F4D630022A9C7 /* EmployeesScreenViewController.swift */; };
+		818E472E276F4EFD0022A9C7 /* EmployeesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E472D276F4EFD0022A9C7 /* EmployeesScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		81148926276CA19A00667D49 /* CompaniesEmployees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompaniesEmployees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81148929276CA19A00667D49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8114892B276CA19A00667D49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8114892D276CA19A00667D49 /* CompaniesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesViewController.swift; sourceTree = "<group>"; };
+		8114892D276CA19A00667D49 /* CompaniesScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesScreenViewController.swift; sourceTree = "<group>"; };
 		81148932276CA19B00667D49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81148935276CA19B00667D49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81148937276CA19B00667D49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81148941276CA97900667D49 /* CompaniesScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesScreenAssembly.swift; sourceTree = "<group>"; };
 		81148943276CAAF700667D49 /* CompaniesScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesScreenPresenter.swift; sourceTree = "<group>"; };
 		81148946276CAD0C00667D49 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		81148948276CB01F00667D49 /* CompaniesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesView.swift; sourceTree = "<group>"; };
+		81148948276CB01F00667D49 /* CompaniesScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesScreenView.swift; sourceTree = "<group>"; };
 		81148972276CC01300667D49 /* CompaniesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CompaniesModel.xcdatamodel; sourceTree = "<group>"; };
 		81148974276CC46500667D49 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		81148976276CF49600667D49 /* CompanyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDTO.swift; sourceTree = "<group>"; };
 		81148979276E573400667D49 /* Companies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Companies.json; sourceTree = "<group>"; };
 		8114898E276E59A000667D49 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		818E4721276F38F50022A9C7 /* CompaniesTableAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesTableAdapter.swift; sourceTree = "<group>"; };
-		818E4723276F39790022A9C7 /* CompaniesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesViewModel.swift; sourceTree = "<group>"; };
-		818E4727276F4C0D0022A9C7 /* EmployeesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesAssembly.swift; sourceTree = "<group>"; };
-		818E4729276F4CD80022A9C7 /* EmployeesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesPresenter.swift; sourceTree = "<group>"; };
-		818E472B276F4D630022A9C7 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
-		818E472D276F4EFD0022A9C7 /* EmployeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesView.swift; sourceTree = "<group>"; };
+		818E4721276F38F50022A9C7 /* CompaniesScreenTableAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesScreenTableAdapter.swift; sourceTree = "<group>"; };
+		818E4723276F39790022A9C7 /* CompaniesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesScreenViewModel.swift; sourceTree = "<group>"; };
+		818E4727276F4C0D0022A9C7 /* EmployeesScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesScreenAssembly.swift; sourceTree = "<group>"; };
+		818E4729276F4CD80022A9C7 /* EmployeesScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesScreenPresenter.swift; sourceTree = "<group>"; };
+		818E472B276F4D630022A9C7 /* EmployeesScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesScreenViewController.swift; sourceTree = "<group>"; };
+		818E472D276F4EFD0022A9C7 /* EmployeesScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,12 +125,12 @@
 		81148940276CA94600667D49 /* CompaniesScreen */ = {
 			isa = PBXGroup;
 			children = (
-				8114892D276CA19A00667D49 /* CompaniesViewController.swift */,
+				8114892D276CA19A00667D49 /* CompaniesScreenViewController.swift */,
 				81148941276CA97900667D49 /* CompaniesScreenAssembly.swift */,
 				81148943276CAAF700667D49 /* CompaniesScreenPresenter.swift */,
-				81148948276CB01F00667D49 /* CompaniesView.swift */,
-				818E4721276F38F50022A9C7 /* CompaniesTableAdapter.swift */,
-				818E4723276F39790022A9C7 /* CompaniesViewModel.swift */,
+				81148948276CB01F00667D49 /* CompaniesScreenView.swift */,
+				818E4721276F38F50022A9C7 /* CompaniesScreenTableAdapter.swift */,
+				818E4723276F39790022A9C7 /* CompaniesScreenViewModel.swift */,
 			);
 			path = CompaniesScreen;
 			sourceTree = "<group>";
@@ -165,10 +165,10 @@
 		818E4726276F4BBD0022A9C7 /* EmployeesScreen */ = {
 			isa = PBXGroup;
 			children = (
-				818E4727276F4C0D0022A9C7 /* EmployeesAssembly.swift */,
-				818E4729276F4CD80022A9C7 /* EmployeesPresenter.swift */,
-				818E472B276F4D630022A9C7 /* EmployeesViewController.swift */,
-				818E472D276F4EFD0022A9C7 /* EmployeesView.swift */,
+				818E4727276F4C0D0022A9C7 /* EmployeesScreenAssembly.swift */,
+				818E4729276F4CD80022A9C7 /* EmployeesScreenPresenter.swift */,
+				818E472B276F4D630022A9C7 /* EmployeesScreenViewController.swift */,
+				818E472D276F4EFD0022A9C7 /* EmployeesScreenView.swift */,
 			);
 			path = EmployeesScreen;
 			sourceTree = "<group>";
@@ -245,21 +245,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				8114898F276E59A000667D49 /* NetworkService.swift in Sources */,
-				8114892E276CA19A00667D49 /* CompaniesViewController.swift in Sources */,
+				8114892E276CA19A00667D49 /* CompaniesScreenViewController.swift in Sources */,
 				81148947276CAD0C00667D49 /* DataManager.swift in Sources */,
-				81148949276CB01F00667D49 /* CompaniesView.swift in Sources */,
+				81148949276CB01F00667D49 /* CompaniesScreenView.swift in Sources */,
 				81148973276CC01300667D49 /* CompaniesModel.xcdatamodeld in Sources */,
-				818E472E276F4EFD0022A9C7 /* EmployeesView.swift in Sources */,
+				818E472E276F4EFD0022A9C7 /* EmployeesScreenView.swift in Sources */,
 				81148942276CA97900667D49 /* CompaniesScreenAssembly.swift in Sources */,
 				8114892A276CA19A00667D49 /* AppDelegate.swift in Sources */,
-				818E4724276F39790022A9C7 /* CompaniesViewModel.swift in Sources */,
+				818E4724276F39790022A9C7 /* CompaniesScreenViewModel.swift in Sources */,
 				81148975276CC46500667D49 /* CoreDataManager.swift in Sources */,
-				818E4728276F4C0D0022A9C7 /* EmployeesAssembly.swift in Sources */,
-				818E472C276F4D630022A9C7 /* EmployeesViewController.swift in Sources */,
-				818E4722276F38F50022A9C7 /* CompaniesTableAdapter.swift in Sources */,
+				818E4728276F4C0D0022A9C7 /* EmployeesScreenAssembly.swift in Sources */,
+				818E472C276F4D630022A9C7 /* EmployeesScreenViewController.swift in Sources */,
+				818E4722276F38F50022A9C7 /* CompaniesScreenTableAdapter.swift in Sources */,
 				81148977276CF49700667D49 /* CompanyDTO.swift in Sources */,
 				81148944276CAAF700667D49 /* CompaniesScreenPresenter.swift in Sources */,
-				818E472A276F4CD80022A9C7 /* EmployeesPresenter.swift in Sources */,
+				818E472A276F4CD80022A9C7 /* EmployeesScreenPresenter.swift in Sources */,
 				8114892C276CA19A00667D49 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  CompanyListTableAdapter.swift
+//  CompaniesScreenTableAdapter.swift
 //  CompaniesEmployees
 //
 //  Created by Red Beard on 19.12.2021.
@@ -7,24 +7,24 @@
 
 import UIKit
 
-protocol ICompaniesTableAdapter: AnyObject {
+protocol ICompaniesScreenTableAdapter: AnyObject {
     var tableView: UITableView? { get set }
-    var delegate: CompaniesTableAdapterDelegate? { get set }
-    func update(companies: [CompaniesViewModel])
+    var delegate: CompaniesScreenTableAdapterDelegate? { get set }
+    func update(companies: [CompaniesScreenViewModel])
 }
 
-protocol CompaniesTableAdapterDelegate: AnyObject {
+protocol CompaniesScreenTableAdapterDelegate: AnyObject {
     func onItemSelect(id: UUID)
 }
 
-final class CompaniesTableAdapter: NSObject {
+final class CompaniesScreenTableAdapter: NSObject {
     
     private enum Constants {
         static let identifier = "cell"
     }
     
-    private var companies = [CompaniesViewModel]()
-    weak var delegate: CompaniesTableAdapterDelegate?
+    private var companies = [CompaniesScreenViewModel]()
+    weak var delegate: CompaniesScreenTableAdapterDelegate?
     weak var tableView: UITableView? {
         didSet {
             self.tableView?.delegate = self
@@ -35,9 +35,9 @@ final class CompaniesTableAdapter: NSObject {
     
 }
 
-extension CompaniesTableAdapter: ICompaniesTableAdapter {
+extension CompaniesScreenTableAdapter: ICompaniesScreenTableAdapter {
     
-    func update(companies: [CompaniesViewModel]) {
+    func update(companies: [CompaniesScreenViewModel]) {
         self.companies = companies
         self.tableView?.reloadData()
     }
@@ -46,7 +46,7 @@ extension CompaniesTableAdapter: ICompaniesTableAdapter {
 
 
 //MARK: UITableViewDelegate
-extension CompaniesTableAdapter: UITableViewDelegate {
+extension CompaniesScreenTableAdapter: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.onItemSelect(id: self.companies[indexPath.row].id)
@@ -56,7 +56,7 @@ extension CompaniesTableAdapter: UITableViewDelegate {
 
 
 //MARK: UITableViewDataSource
-extension CompaniesTableAdapter: UITableViewDataSource {
+extension CompaniesScreenTableAdapter: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.companies.count

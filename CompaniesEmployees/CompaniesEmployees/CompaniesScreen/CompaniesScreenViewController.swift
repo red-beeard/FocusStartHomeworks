@@ -1,5 +1,5 @@
 //
-//  CompanyViewController.swift
+//  CompaniesScreenViewController.swift
 //  CompaniesEmployees
 //
 //  Created by Red Beard on 17.12.2021.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol ICompaniesViewController: UIViewController {
+protocol ICompaniesScreenViewController: UIViewController {
     func showAlert(title: String, message: String)
 }
 
-final class CompaniesViewController: UIViewController {
+final class CompaniesScreenViewController: UIViewController {
     
     private let presenter: ICompaniesScreenPresenter
-    private let companiesView: ICompaniesView = CompaniesView()
+    private let companiesView: ICompaniesScreenView = CompaniesScreenView()
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -40,7 +40,7 @@ final class CompaniesViewController: UIViewController {
 
 }
 
-extension CompaniesViewController: ICompaniesViewController {
+extension CompaniesScreenViewController: ICompaniesScreenViewController {
     
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

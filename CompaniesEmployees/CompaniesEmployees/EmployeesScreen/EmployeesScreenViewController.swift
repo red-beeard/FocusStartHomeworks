@@ -1,5 +1,5 @@
 //
-//  EmployeesViewController.swift
+//  EmployeesScreenViewController.swift
 //  CompaniesEmployees
 //
 //  Created by Red Beard on 19.12.2021.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol IEmployeesViewController: UIViewController {
+protocol IEmployeesScreenViewController: UIViewController {
     
 }
 
-final class EmployeesViewController: UIViewController {
+final class EmployeesScreenViewController: UIViewController {
     
     private let presenter: IEmployeesPresenter
-    private var employeesView: IEmployeesView = EmployeesView()
+    private var employeesView: IEmployeesScreenView = EmployeesScreenView()
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -39,6 +39,6 @@ final class EmployeesViewController: UIViewController {
 
 }
 
-extension EmployeesViewController: IEmployeesViewController {
+extension EmployeesScreenViewController: IEmployeesScreenViewController {
     
 }

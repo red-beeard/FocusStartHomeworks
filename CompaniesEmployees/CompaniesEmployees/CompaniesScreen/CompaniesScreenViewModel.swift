@@ -1,5 +1,5 @@
 //
-//  CompanyListViewModel.swift
+//  CompaniesScreenViewModel.swift
 //  CompaniesEmployees
 //
 //  Created by Red Beard on 19.12.2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CompaniesViewModel {
+struct CompaniesScreenViewModel {
     let name: String
     let id: UUID
     

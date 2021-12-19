@@ -1,17 +1,17 @@
 //
-//  CompanyView.swift
+//  EmployeesScreenView.swift
 //  CompaniesEmployees
 //
-//  Created by Red Beard on 17.12.2021.
+//  Created by Red Beard on 19.12.2021.
 //
 
 import UIKit
 
-protocol ICompaniesView: UIView {
+protocol IEmployeesScreenView: UIView {
     func getTableView() -> UITableView
 }
 
-final class CompaniesView: UIView {
+final class EmployeesScreenView: UIView {
     
     private let tableView = UITableView()
     
@@ -28,7 +28,7 @@ final class CompaniesView: UIView {
 }
 
 // MARK: Configuire view
-extension CompaniesView {
+extension EmployeesScreenView {
     
     private func configuireView() {
         self.backgroundColor = .systemBackground
@@ -53,7 +53,7 @@ extension CompaniesView {
 }
 
 // MARK: Configuire layout view
-extension CompaniesView {
+extension EmployeesScreenView {
     
     private func configuireLayout() {
         self.addSubview(self.tableView)
@@ -68,8 +68,8 @@ extension CompaniesView {
     
 }
     
-//MARK: ICompanyListView
-extension CompaniesView: ICompaniesView {
+//MARK: IEmployeesView
+extension EmployeesScreenView: IEmployeesScreenView {
     
     func getTableView() -> UITableView {
         return self.tableView

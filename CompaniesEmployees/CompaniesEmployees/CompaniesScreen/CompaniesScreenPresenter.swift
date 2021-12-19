@@ -1,5 +1,5 @@
 //
-//  CompanyScreenPresenter.swift
+//  CompaniesScreenPresenter.swift
 //  CompaniesEmployees
 //
 //  Created by Red Beard on 17.12.2021.
@@ -8,19 +8,19 @@
 import Foundation
 
 protocol ICompaniesScreenPresenter {
-    func loadView(controller: ICompaniesViewController, view: ICompaniesView)
+    func loadView(controller: ICompaniesScreenViewController, view: ICompaniesScreenView)
 }
 
 final class CompaniesScreenPresenter {
     
     private let dataManager: IDataManager
-    private let tableAdapter: ICompaniesTableAdapter
-    private weak var controller: ICompaniesViewController?
-    private weak var view: ICompaniesView?
+    private let tableAdapter: ICompaniesScreenTableAdapter
+    private weak var controller: ICompaniesScreenViewController?
+    private weak var view: ICompaniesScreenView?
     
     private var companies = [CompanyDTO]()
     
-    init(dataManager: IDataManager, tableAdapter: ICompaniesTableAdapter) {
+    init(dataManager: IDataManager, tableAdapter: ICompaniesScreenTableAdapter) {
         self.dataManager = dataManager
         self.tableAdapter = tableAdapter
     }
@@ -31,7 +31,7 @@ final class CompaniesScreenPresenter {
             case .success(let companies):
                 DispatchQueue.main.async {
                     self.companies = companies
-                    let companiesViewModel = companies.map { CompaniesViewModel(company: $0) }
+                    let companiesViewModel = companies.map { CompaniesScreenViewModel(company: $0) }
                     self.tableAdapter.update(companies: companiesViewModel)
                 }
             case .failure(let error):
@@ -47,7 +47,7 @@ final class CompaniesScreenPresenter {
 
 extension CompaniesScreenPresenter: ICompaniesScreenPresenter {
     
-    func loadView(controller: ICompaniesViewController, view: ICompaniesView) {
+    func loadView(controller: ICompaniesScreenViewController, view: ICompaniesScreenView) {
         self.controller = controller
         self.view = view
         self.tableAdapter.tableView = self.view?.getTableView()
@@ -58,11 +58,11 @@ extension CompaniesScreenPresenter: ICompaniesScreenPresenter {
     
 }
 
-extension CompaniesScreenPresenter: CompaniesTableAdapterDelegate {
+extension CompaniesScreenPresenter: CompaniesScreenTableAdapterDelegate {
     
     func onItemSelect(id: UUID) {
         guard let company = self.companies.first(where: { id == $0.id })  else { return }
-        let nextController = EmployeesAssembly.build(company: company)
+        let nextController = EmployeesScreenAssembly.build(company: company)
         self.controller?.navigationController?.pushViewController(nextController, animated: true)
     }
     
