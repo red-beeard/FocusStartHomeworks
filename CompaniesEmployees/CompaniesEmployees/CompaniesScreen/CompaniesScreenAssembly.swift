@@ -10,7 +10,7 @@ import UIKit
 final class CompaniesScreenAssembly {
     
     static func build() -> UIViewController {
-        let dataManager = DataManager()
+        let dataManager = DataManager.shared
         let tableAdapter = CompaniesTableAdapter()
         let presenter = CompaniesScreenPresenter(dataManager: dataManager, tableAdapter: tableAdapter)
         let controller = CompaniesViewController(presenter: presenter)

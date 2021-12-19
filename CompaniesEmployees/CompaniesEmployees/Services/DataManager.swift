@@ -13,6 +13,10 @@ protocol IDataManager {
 
 final class DataManager {
     
+    static let shared = DataManager()
+    
+    private init() { }
+    
     private let coreDataManager: ICoreDataManager = CoreDataManager()
     private let networkService: INetworkService = NetworkService()
     
