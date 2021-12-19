@@ -11,7 +11,8 @@ final class CompanyListScreenAssembly {
     
     static func build() -> UIViewController {
         let dataManager = DataManager()
-        let presenter = CompanyListScreenPresenter(dataManager: dataManager)
+        let tableAdapter = CompanyListTableAdapter()
+        let presenter = CompanyListScreenPresenter(dataManager: dataManager, tableAdapter: tableAdapter)
         let controller = CompanyListViewController(presenter: presenter)
         
         return UINavigationController(rootViewController: controller)

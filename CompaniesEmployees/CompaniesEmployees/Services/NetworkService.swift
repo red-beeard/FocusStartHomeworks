@@ -26,7 +26,7 @@ extension NetworkService: INetworkService {
     func getAllCompanies() throws -> [CompanyDTO] {
         if let path = Bundle.main.url(forResource: "Companies", withExtension: "json") {
             let data = try Data(contentsOf: path)
-            self.printJsonData(data)
+//            self.printJsonData(data)
             
             return try JSONDecoder().decode([CompanyDTO].self, from: data)
         }

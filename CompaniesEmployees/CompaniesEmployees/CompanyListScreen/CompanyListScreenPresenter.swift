@@ -14,21 +14,25 @@ protocol ICompanyListScreenPresenter {
 final class CompanyListScreenPresenter {
     
     private let dataManager: IDataManager
-    private var controller: ICompanyListViewController?
-    private var view: ICompanyListView?
+    private let tableAdapter: ICompanyListTableAdapter
+    private weak var controller: ICompanyListViewController?
+    private weak var view: ICompanyListView?
     
-    private var companies: [CompanyDTO]?
+    private var companies = [CompanyDTO]()
     
-    init(dataManager: IDataManager) {
+    init(dataManager: IDataManager, tableAdapter: ICompanyListTableAdapter) {
         self.dataManager = dataManager
+        self.tableAdapter = tableAdapter
     }
     
     private func loadData() {
-        dataManager.getCompanies { result in
+        self.dataManager.getCompanies { result in
             switch result {
             case .success(let companies):
                 DispatchQueue.main.async {
-                    print("Количество \(companies.count)")
+                    self.companies = companies
+                    let companiesViewModel = companies.map { CompanyListViewModel(company: $0) }
+                    self.tableAdapter.update(companies: companiesViewModel)
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
@@ -46,6 +50,7 @@ extension CompanyListScreenPresenter: ICompanyListScreenPresenter {
     func loadView(controller: ICompanyListViewController, view: ICompanyListView) {
         self.controller = controller
         self.view = view
+        self.tableAdapter.tableView = self.view?.getTableView()
         
         self.loadData()
     }

@@ -21,6 +21,8 @@
 		81148977276CF49700667D49 /* CompanyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148976276CF49600667D49 /* CompanyDTO.swift */; };
 		8114897A276E573400667D49 /* Companies.json in Resources */ = {isa = PBXBuildFile; fileRef = 81148979276E573400667D49 /* Companies.json */; };
 		8114898F276E59A000667D49 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114898E276E59A000667D49 /* NetworkService.swift */; };
+		818E4722276F38F50022A9C7 /* CompanyListTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4721276F38F50022A9C7 /* CompanyListTableAdapter.swift */; };
+		818E4724276F39790022A9C7 /* CompanyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4723276F39790022A9C7 /* CompanyListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		81148976276CF49600667D49 /* CompanyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDTO.swift; sourceTree = "<group>"; };
 		81148979276E573400667D49 /* Companies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Companies.json; sourceTree = "<group>"; };
 		8114898E276E59A000667D49 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		818E4721276F38F50022A9C7 /* CompanyListTableAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListTableAdapter.swift; sourceTree = "<group>"; };
+		818E4723276F39790022A9C7 /* CompanyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 				81148941276CA97900667D49 /* CompanyListScreenAssembly.swift */,
 				81148943276CAAF700667D49 /* CompanyListScreenPresenter.swift */,
 				81148948276CB01F00667D49 /* CompanyListView.swift */,
+				818E4721276F38F50022A9C7 /* CompanyListTableAdapter.swift */,
+				818E4723276F39790022A9C7 /* CompanyListViewModel.swift */,
 			);
 			path = CompanyListScreen;
 			sourceTree = "<group>";
@@ -225,7 +231,9 @@
 				81148973276CC01300667D49 /* CompaniesModel.xcdatamodeld in Sources */,
 				81148942276CA97900667D49 /* CompanyListScreenAssembly.swift in Sources */,
 				8114892A276CA19A00667D49 /* AppDelegate.swift in Sources */,
+				818E4724276F39790022A9C7 /* CompanyListViewModel.swift in Sources */,
 				81148975276CC46500667D49 /* CoreDataManager.swift in Sources */,
+				818E4722276F38F50022A9C7 /* CompanyListTableAdapter.swift in Sources */,
 				81148977276CF49700667D49 /* CompanyDTO.swift in Sources */,
 				81148944276CAAF700667D49 /* CompanyListScreenPresenter.swift in Sources */,
 				8114892C276CA19A00667D49 /* SceneDelegate.swift in Sources */,
