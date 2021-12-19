@@ -11,9 +11,12 @@ final class CompaniesScreenAssembly {
     
     static func build() -> UIViewController {
         let dataManager = DataManager.shared
+        let router = CompaniesScreenRouter()
         let tableAdapter = CompaniesScreenTableAdapter()
-        let presenter = CompaniesScreenPresenter(dataManager: dataManager, tableAdapter: tableAdapter)
+        
+        let presenter = CompaniesScreenPresenter(dataManager: dataManager, tableAdapter: tableAdapter, router: router)
         let controller = CompaniesScreenViewController(presenter: presenter)
+        router.controller = controller
         
         return UINavigationController(rootViewController: controller)
     }

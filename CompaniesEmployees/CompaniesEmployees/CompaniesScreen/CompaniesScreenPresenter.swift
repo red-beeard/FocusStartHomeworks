@@ -15,14 +15,16 @@ final class CompaniesScreenPresenter {
     
     private let dataManager: IDataManager
     private let tableAdapter: ICompaniesScreenTableAdapter
+    private let router: ICompaniesScreenRouter
     private weak var controller: ICompaniesScreenViewController?
     private weak var view: ICompaniesScreenView?
     
     private var companies = [CompanyDTO]()
     
-    init(dataManager: IDataManager, tableAdapter: ICompaniesScreenTableAdapter) {
+    init(dataManager: IDataManager, tableAdapter: ICompaniesScreenTableAdapter, router: ICompaniesScreenRouter) {
         self.dataManager = dataManager
         self.tableAdapter = tableAdapter
+        self.router = router
     }
     
     private func loadData() {
@@ -61,9 +63,8 @@ extension CompaniesScreenPresenter: ICompaniesScreenPresenter {
 extension CompaniesScreenPresenter: CompaniesScreenTableAdapterDelegate {
     
     func onItemSelect(id: UUID) {
-        guard let company = self.companies.first(where: { id == $0.id })  else { return }
-        let nextController = EmployeesScreenAssembly.build(company: company)
-        self.controller?.navigationController?.pushViewController(nextController, animated: true)
+        guard let company = self.companies.first(where: { id == $0.id }) else { return }
+        self.router.showEmployees(company: company)
     }
     
 }

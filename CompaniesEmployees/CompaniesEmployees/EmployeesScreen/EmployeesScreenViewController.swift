@@ -13,14 +13,14 @@ protocol IEmployeesScreenViewController: UIViewController {
 
 final class EmployeesScreenViewController: UIViewController {
     
-    private let presenter: IEmployeesPresenter
+    private let presenter: IEmployeesScreenPresenter
     private var employeesView: IEmployeesScreenView = EmployeesScreenView()
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(presenter: IEmployeesPresenter) {
+    init(presenter: IEmployeesScreenPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }

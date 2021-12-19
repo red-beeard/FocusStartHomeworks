@@ -27,6 +27,7 @@
 		818E472A276F4CD80022A9C7 /* EmployeesScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4729276F4CD80022A9C7 /* EmployeesScreenPresenter.swift */; };
 		818E472C276F4D630022A9C7 /* EmployeesScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E472B276F4D630022A9C7 /* EmployeesScreenViewController.swift */; };
 		818E472E276F4EFD0022A9C7 /* EmployeesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E472D276F4EFD0022A9C7 /* EmployeesScreenView.swift */; };
+		818E4730276F803A0022A9C7 /* CompaniesScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E472F276F803A0022A9C7 /* CompaniesScreenRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		818E4729276F4CD80022A9C7 /* EmployeesScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesScreenPresenter.swift; sourceTree = "<group>"; };
 		818E472B276F4D630022A9C7 /* EmployeesScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesScreenViewController.swift; sourceTree = "<group>"; };
 		818E472D276F4EFD0022A9C7 /* EmployeesScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesScreenView.swift; sourceTree = "<group>"; };
+		818E472F276F803A0022A9C7 /* CompaniesScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesScreenRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				81148948276CB01F00667D49 /* CompaniesScreenView.swift */,
 				818E4721276F38F50022A9C7 /* CompaniesScreenTableAdapter.swift */,
 				818E4723276F39790022A9C7 /* CompaniesScreenViewModel.swift */,
+				818E472F276F803A0022A9C7 /* CompaniesScreenRouter.swift */,
 			);
 			path = CompaniesScreen;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				8114892E276CA19A00667D49 /* CompaniesScreenViewController.swift in Sources */,
 				81148947276CAD0C00667D49 /* DataManager.swift in Sources */,
 				81148949276CB01F00667D49 /* CompaniesScreenView.swift in Sources */,
+				818E4730276F803A0022A9C7 /* CompaniesScreenRouter.swift in Sources */,
 				81148973276CC01300667D49 /* CompaniesModel.xcdatamodeld in Sources */,
 				818E472E276F4EFD0022A9C7 /* EmployeesScreenView.swift in Sources */,
 				81148942276CA97900667D49 /* CompaniesScreenAssembly.swift in Sources */,
