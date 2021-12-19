@@ -23,6 +23,10 @@
 		8114898F276E59A000667D49 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114898E276E59A000667D49 /* NetworkService.swift */; };
 		818E4722276F38F50022A9C7 /* CompaniesTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4721276F38F50022A9C7 /* CompaniesTableAdapter.swift */; };
 		818E4724276F39790022A9C7 /* CompaniesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4723276F39790022A9C7 /* CompaniesViewModel.swift */; };
+		818E4728276F4C0D0022A9C7 /* EmployeesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4727276F4C0D0022A9C7 /* EmployeesAssembly.swift */; };
+		818E472A276F4CD80022A9C7 /* EmployeesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4729276F4CD80022A9C7 /* EmployeesPresenter.swift */; };
+		818E472C276F4D630022A9C7 /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E472B276F4D630022A9C7 /* EmployeesViewController.swift */; };
+		818E472E276F4EFD0022A9C7 /* EmployeesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E472D276F4EFD0022A9C7 /* EmployeesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,10 @@
 		8114898E276E59A000667D49 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		818E4721276F38F50022A9C7 /* CompaniesTableAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesTableAdapter.swift; sourceTree = "<group>"; };
 		818E4723276F39790022A9C7 /* CompaniesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesViewModel.swift; sourceTree = "<group>"; };
+		818E4727276F4C0D0022A9C7 /* EmployeesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesAssembly.swift; sourceTree = "<group>"; };
+		818E4729276F4CD80022A9C7 /* EmployeesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesPresenter.swift; sourceTree = "<group>"; };
+		818E472B276F4D630022A9C7 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
+		818E472D276F4EFD0022A9C7 /* EmployeesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +84,11 @@
 		81148928276CA19A00667D49 /* CompaniesEmployees */ = {
 			isa = PBXGroup;
 			children = (
-				81148978276E56FF00667D49 /* JSONData */,
-				81148970276CBF6C00667D49 /* Models */,
-				81148945276CACCF00667D49 /* Services */,
+				818E4726276F4BBD0022A9C7 /* EmployeesScreen */,
 				81148940276CA94600667D49 /* CompaniesScreen */,
+				81148945276CACCF00667D49 /* Services */,
+				81148970276CBF6C00667D49 /* Models */,
+				81148978276E56FF00667D49 /* JSONData */,
 				8114893D276CA68500667D49 /* Supports */,
 				8114893E276CA69700667D49 /* Resources */,
 				8114893F276CA6A100667D49 /* Storyboards */,
@@ -151,6 +160,17 @@
 				81148979276E573400667D49 /* Companies.json */,
 			);
 			path = JSONData;
+			sourceTree = "<group>";
+		};
+		818E4726276F4BBD0022A9C7 /* EmployeesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				818E4727276F4C0D0022A9C7 /* EmployeesAssembly.swift */,
+				818E4729276F4CD80022A9C7 /* EmployeesPresenter.swift */,
+				818E472B276F4D630022A9C7 /* EmployeesViewController.swift */,
+				818E472D276F4EFD0022A9C7 /* EmployeesView.swift */,
+			);
+			path = EmployeesScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,13 +249,17 @@
 				81148947276CAD0C00667D49 /* DataManager.swift in Sources */,
 				81148949276CB01F00667D49 /* CompaniesView.swift in Sources */,
 				81148973276CC01300667D49 /* CompaniesModel.xcdatamodeld in Sources */,
+				818E472E276F4EFD0022A9C7 /* EmployeesView.swift in Sources */,
 				81148942276CA97900667D49 /* CompaniesScreenAssembly.swift in Sources */,
 				8114892A276CA19A00667D49 /* AppDelegate.swift in Sources */,
 				818E4724276F39790022A9C7 /* CompaniesViewModel.swift in Sources */,
 				81148975276CC46500667D49 /* CoreDataManager.swift in Sources */,
+				818E4728276F4C0D0022A9C7 /* EmployeesAssembly.swift in Sources */,
+				818E472C276F4D630022A9C7 /* EmployeesViewController.swift in Sources */,
 				818E4722276F38F50022A9C7 /* CompaniesTableAdapter.swift in Sources */,
 				81148977276CF49700667D49 /* CompanyDTO.swift in Sources */,
 				81148944276CAAF700667D49 /* CompaniesScreenPresenter.swift in Sources */,
+				818E472A276F4CD80022A9C7 /* EmployeesPresenter.swift in Sources */,
 				8114892C276CA19A00667D49 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

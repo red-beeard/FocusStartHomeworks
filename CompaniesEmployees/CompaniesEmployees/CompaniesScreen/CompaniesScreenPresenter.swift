@@ -51,8 +51,19 @@ extension CompaniesScreenPresenter: ICompaniesScreenPresenter {
         self.controller = controller
         self.view = view
         self.tableAdapter.tableView = self.view?.getTableView()
+        self.tableAdapter.delegate = self
         
         self.loadData()
+    }
+    
+}
+
+extension CompaniesScreenPresenter: CompaniesTableAdapterDelegate {
+    
+    func onItemSelect(id: UUID) {
+        guard let company = self.companies.first(where: { id == $0.id })  else { return }
+        let nextController = EmployeesAssembly.build(company: company)
+        self.controller?.navigationController?.pushViewController(nextController, animated: true)
     }
     
 }

@@ -9,7 +9,12 @@ import UIKit
 
 protocol ICompaniesTableAdapter: AnyObject {
     var tableView: UITableView? { get set }
+    var delegate: CompaniesTableAdapterDelegate? { get set }
     func update(companies: [CompaniesViewModel])
+}
+
+protocol CompaniesTableAdapterDelegate: AnyObject {
+    func onItemSelect(id: UUID)
 }
 
 final class CompaniesTableAdapter: NSObject {
@@ -19,6 +24,7 @@ final class CompaniesTableAdapter: NSObject {
     }
     
     private var companies = [CompaniesViewModel]()
+    weak var delegate: CompaniesTableAdapterDelegate?
     weak var tableView: UITableView? {
         didSet {
             self.tableView?.delegate = self
@@ -41,6 +47,10 @@ extension CompaniesTableAdapter: ICompaniesTableAdapter {
 
 //MARK: UITableViewDelegate
 extension CompaniesTableAdapter: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.onItemSelect(id: self.companies[indexPath.row].id)
+    }
     
 }
 
