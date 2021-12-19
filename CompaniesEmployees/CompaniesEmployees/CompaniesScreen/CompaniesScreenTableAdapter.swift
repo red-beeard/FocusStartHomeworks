@@ -51,6 +51,7 @@ extension CompaniesScreenTableAdapter: ICompaniesScreenTableAdapter {
 extension CompaniesScreenTableAdapter: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         self.delegate?.onItemSelect(id: self.companies[indexPath.row].id)
     }
     
