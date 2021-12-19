@@ -28,6 +28,7 @@
 		818E472C276F4D630022A9C7 /* EmployeesScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E472B276F4D630022A9C7 /* EmployeesScreenViewController.swift */; };
 		818E472E276F4EFD0022A9C7 /* EmployeesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E472D276F4EFD0022A9C7 /* EmployeesScreenView.swift */; };
 		818E4730276F803A0022A9C7 /* CompaniesScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E472F276F803A0022A9C7 /* CompaniesScreenRouter.swift */; };
+		818E4734276F86C70022A9C7 /* EmployeesScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4733276F86C70022A9C7 /* EmployeesScreenRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		818E472B276F4D630022A9C7 /* EmployeesScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesScreenViewController.swift; sourceTree = "<group>"; };
 		818E472D276F4EFD0022A9C7 /* EmployeesScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesScreenView.swift; sourceTree = "<group>"; };
 		818E472F276F803A0022A9C7 /* CompaniesScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesScreenRouter.swift; sourceTree = "<group>"; };
+		818E4733276F86C70022A9C7 /* EmployeesScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesScreenRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				818E4729276F4CD80022A9C7 /* EmployeesScreenPresenter.swift */,
 				818E472B276F4D630022A9C7 /* EmployeesScreenViewController.swift */,
 				818E472D276F4EFD0022A9C7 /* EmployeesScreenView.swift */,
+				818E4733276F86C70022A9C7 /* EmployeesScreenRouter.swift */,
 			);
 			path = EmployeesScreen;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				818E472C276F4D630022A9C7 /* EmployeesScreenViewController.swift in Sources */,
 				818E4722276F38F50022A9C7 /* CompaniesScreenTableAdapter.swift in Sources */,
 				81148977276CF49700667D49 /* CompanyDTO.swift in Sources */,
+				818E4734276F86C70022A9C7 /* EmployeesScreenRouter.swift in Sources */,
 				81148944276CAAF700667D49 /* CompaniesScreenPresenter.swift in Sources */,
 				818E472A276F4CD80022A9C7 /* EmployeesScreenPresenter.swift in Sources */,
 				8114892C276CA19A00667D49 /* SceneDelegate.swift in Sources */,

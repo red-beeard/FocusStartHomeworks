@@ -8,7 +8,9 @@
 final class EmployeesScreenAssembly {
     static func build(company: CompanyDTO) -> IEmployeesScreenViewController {
         let dataManager = DataManager.shared
-        let presenter = EmployeesScreenPresenter(dataManager: dataManager)
+        let router = EmployeesScreenRouter()
+        
+        let presenter = EmployeesScreenPresenter(dataManager: dataManager, router: router)
         let controller = EmployeesScreenViewController(presenter: presenter)
         
         return controller

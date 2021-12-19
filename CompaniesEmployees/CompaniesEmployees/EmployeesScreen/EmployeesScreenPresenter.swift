@@ -12,11 +12,13 @@ protocol IEmployeesScreenPresenter {
 final class EmployeesScreenPresenter {
     
     private let dataManager: IDataManager
+    private let router: IEmployeesScreenRouter
     private weak var controller: IEmployeesScreenViewController?
     private weak var view: IEmployeesScreenView?
     
-    init(dataManager: IDataManager) {
+    init(dataManager: IDataManager, router: IEmployeesScreenRouter) {
         self.dataManager = dataManager
+        self.router = router
     }
     
 }
