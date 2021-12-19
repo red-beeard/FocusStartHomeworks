@@ -14,7 +14,7 @@ protocol ICompaniesViewController: UIViewController {
 final class CompaniesViewController: UIViewController {
     
     private let presenter: ICompaniesScreenPresenter
-    private let companyView: ICompaniesView = CompaniesView()
+    private let companiesView: ICompaniesView = CompaniesView()
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -27,13 +27,13 @@ final class CompaniesViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        self.presenter.loadView(controller: self, view: self.companyView)
+        self.presenter.loadView(controller: self, view: self.companiesView)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view = self.companyView
+        self.view = self.companiesView
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Компании"
     }
