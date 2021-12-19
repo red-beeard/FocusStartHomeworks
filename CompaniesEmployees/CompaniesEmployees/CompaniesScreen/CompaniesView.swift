@@ -21,7 +21,7 @@ final class CompaniesView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.configureView()
+        self.configuireView()
         self.configuireLayout()
     }
     
@@ -30,7 +30,7 @@ final class CompaniesView: UIView {
 // MARK: Configuire view
 extension CompaniesView {
     
-    private func configureView() {
+    private func configuireView() {
         self.backgroundColor = .systemBackground
         
         self.configuireTableView()
