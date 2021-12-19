@@ -7,20 +7,20 @@
 
 import Foundation
 
-protocol ICompanyListScreenPresenter {
-    func loadView(controller: ICompanyListViewController, view: ICompanyListView)
+protocol ICompaniesScreenPresenter {
+    func loadView(controller: ICompaniesViewController, view: ICompaniesView)
 }
 
-final class CompanyListScreenPresenter {
+final class CompaniesScreenPresenter {
     
     private let dataManager: IDataManager
-    private let tableAdapter: ICompanyListTableAdapter
-    private weak var controller: ICompanyListViewController?
-    private weak var view: ICompanyListView?
+    private let tableAdapter: ICompaniesTableAdapter
+    private weak var controller: ICompaniesViewController?
+    private weak var view: ICompaniesView?
     
     private var companies = [CompanyDTO]()
     
-    init(dataManager: IDataManager, tableAdapter: ICompanyListTableAdapter) {
+    init(dataManager: IDataManager, tableAdapter: ICompaniesTableAdapter) {
         self.dataManager = dataManager
         self.tableAdapter = tableAdapter
     }
@@ -31,7 +31,7 @@ final class CompanyListScreenPresenter {
             case .success(let companies):
                 DispatchQueue.main.async {
                     self.companies = companies
-                    let companiesViewModel = companies.map { CompanyListViewModel(company: $0) }
+                    let companiesViewModel = companies.map { CompaniesViewModel(company: $0) }
                     self.tableAdapter.update(companies: companiesViewModel)
                 }
             case .failure(let error):
@@ -45,9 +45,9 @@ final class CompanyListScreenPresenter {
     
 }
 
-extension CompanyListScreenPresenter: ICompanyListScreenPresenter {
+extension CompaniesScreenPresenter: ICompaniesScreenPresenter {
     
-    func loadView(controller: ICompanyListViewController, view: ICompanyListView) {
+    func loadView(controller: ICompaniesViewController, view: ICompaniesView) {
         self.controller = controller
         self.view = view
         self.tableAdapter.tableView = self.view?.getTableView()

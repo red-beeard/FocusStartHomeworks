@@ -7,20 +7,20 @@
 
 import UIKit
 
-protocol ICompanyListViewController: UIViewController {
+protocol ICompaniesViewController: UIViewController {
     func showAlert(title: String, message: String)
 }
 
-final class CompanyListViewController: UIViewController {
+final class CompaniesViewController: UIViewController {
     
-    private let presenter: ICompanyListScreenPresenter
-    private let companyView: ICompanyListView = CompanyListView()
+    private let presenter: ICompaniesScreenPresenter
+    private let companyView: ICompaniesView = CompaniesView()
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(presenter: ICompanyListScreenPresenter) {
+    init(presenter: ICompaniesScreenPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -40,7 +40,7 @@ final class CompanyListViewController: UIViewController {
 
 }
 
-extension CompanyListViewController: ICompanyListViewController {
+extension CompaniesViewController: ICompaniesViewController {
     
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

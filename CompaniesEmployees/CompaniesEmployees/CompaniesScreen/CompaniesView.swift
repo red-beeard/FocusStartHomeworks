@@ -7,13 +7,11 @@
 
 import UIKit
 
-protocol ICompanyListView: UIView {
-    
+protocol ICompaniesView: UIView {
     func getTableView() -> UITableView
-
 }
 
-final class CompanyListView: UIView {
+final class CompaniesView: UIView {
     
     private let tableView = UITableView()
     
@@ -30,7 +28,7 @@ final class CompanyListView: UIView {
 }
 
 // MARK: Configuire view
-extension CompanyListView {
+extension CompaniesView {
     
     private func configureView() {
         self.backgroundColor = .systemBackground
@@ -55,7 +53,7 @@ extension CompanyListView {
 }
 
 // MARK: Configuire layout view
-extension CompanyListView {
+extension CompaniesView {
     
     private func configuireLayout() {
         self.addSubview(self.tableView)
@@ -71,7 +69,7 @@ extension CompanyListView {
 }
     
 //MARK: ICompanyListView
-extension CompanyListView: ICompanyListView {
+extension CompaniesView: ICompaniesView {
     
     func getTableView() -> UITableView {
         return self.tableView

@@ -7,18 +7,18 @@
 
 import UIKit
 
-protocol ICompanyListTableAdapter: AnyObject {
+protocol ICompaniesTableAdapter: AnyObject {
     var tableView: UITableView? { get set }
-    func update(companies: [CompanyListViewModel])
+    func update(companies: [CompaniesViewModel])
 }
 
-final class CompanyListTableAdapter: NSObject {
+final class CompaniesTableAdapter: NSObject {
     
     private enum Constants {
         static let identifier = "cell"
     }
     
-    private var companies = [CompanyListViewModel]()
+    private var companies = [CompaniesViewModel]()
     weak var tableView: UITableView? {
         didSet {
             self.tableView?.delegate = self
@@ -29,9 +29,9 @@ final class CompanyListTableAdapter: NSObject {
     
 }
 
-extension CompanyListTableAdapter: ICompanyListTableAdapter {
+extension CompaniesTableAdapter: ICompaniesTableAdapter {
     
-    func update(companies: [CompanyListViewModel]) {
+    func update(companies: [CompaniesViewModel]) {
         self.companies = companies
         self.tableView?.reloadData()
     }
@@ -40,13 +40,13 @@ extension CompanyListTableAdapter: ICompanyListTableAdapter {
 
 
 //MARK: UITableViewDelegate
-extension CompanyListTableAdapter: UITableViewDelegate {
+extension CompaniesTableAdapter: UITableViewDelegate {
     
 }
 
 
 //MARK: UITableViewDataSource
-extension CompanyListTableAdapter: UITableViewDataSource {
+extension CompaniesTableAdapter: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.companies.count

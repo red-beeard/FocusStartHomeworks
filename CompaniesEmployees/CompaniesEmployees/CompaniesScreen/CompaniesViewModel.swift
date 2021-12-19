@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CompanyListViewModel {
+struct CompaniesViewModel {
     let name: String
     let id: UUID
     

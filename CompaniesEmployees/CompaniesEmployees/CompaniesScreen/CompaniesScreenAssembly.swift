@@ -7,13 +7,13 @@
 
 import UIKit
 
-final class CompanyListScreenAssembly {
+final class CompaniesScreenAssembly {
     
     static func build() -> UIViewController {
         let dataManager = DataManager()
-        let tableAdapter = CompanyListTableAdapter()
-        let presenter = CompanyListScreenPresenter(dataManager: dataManager, tableAdapter: tableAdapter)
-        let controller = CompanyListViewController(presenter: presenter)
+        let tableAdapter = CompaniesTableAdapter()
+        let presenter = CompaniesScreenPresenter(dataManager: dataManager, tableAdapter: tableAdapter)
+        let controller = CompaniesViewController(presenter: presenter)
         
         return UINavigationController(rootViewController: controller)
     }
