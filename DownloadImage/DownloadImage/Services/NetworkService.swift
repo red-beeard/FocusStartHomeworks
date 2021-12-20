@@ -70,6 +70,7 @@ extension NetworkService: URLSessionDownloadDelegate {
             let savedURL = documentsURL.appendingPathComponent(location.lastPathComponent)
             try FileManager.default.moveItem(at: location, to: savedURL)
             downloadTaskInfo?.url = savedURL
+            downloadTaskInfo?.totalBytesWritten = downloadTaskInfo?.totalBytesExpectedToWrite
             downloadTaskInfo?.downloadIsOver = true
             self.completionDownloadTaskInfoUpdate?(self.downloadTaskInfoList, false)
         } catch {
