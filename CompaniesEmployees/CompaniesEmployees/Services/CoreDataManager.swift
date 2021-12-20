@@ -51,7 +51,7 @@ extension CoreDataManager: ICoreDataManager {
     
     func getEmployees(from company: CompanyDTO) throws -> [EmployeeDTO] {
         let fetchRequest = Employee.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "company.id = %s", company.id.description)
+        fetchRequest.predicate = NSPredicate(format: "company.id = %@", company.id.description)
         
         let employees = try persistentContainer.viewContext.fetch(fetchRequest)
         return employees.compactMap { EmployeeDTO(employee: $0) }

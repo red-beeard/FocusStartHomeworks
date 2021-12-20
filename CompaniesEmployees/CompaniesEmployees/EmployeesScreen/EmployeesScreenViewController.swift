@@ -8,7 +8,8 @@
 import UIKit
 
 protocol IEmployeesScreenViewController: UIViewController {
-    
+    func setTitle(_ title: String)
+    func showAlert(title: String, message: String)
 }
 
 final class EmployeesScreenViewController: UIViewController {
@@ -40,5 +41,20 @@ final class EmployeesScreenViewController: UIViewController {
 }
 
 extension EmployeesScreenViewController: IEmployeesScreenViewController {
+    
+    func setTitle(_ title: String) {
+        self.title = title
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Ок", style: .default) { action in
+            self.dismiss(animated: true)
+        }
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true)
+    }
     
 }

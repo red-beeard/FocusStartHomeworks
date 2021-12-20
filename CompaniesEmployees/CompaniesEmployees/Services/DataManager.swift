@@ -9,6 +9,7 @@ import Foundation
 
 protocol IDataManager {
     func getCompanies(completion: @escaping (Result<[CompanyDTO], Error>) -> Void)
+    func getEmployees(from company: CompanyDTO, completion: @escaping (Result<[EmployeeDTO], Error>) -> Void) 
 }
 
 final class DataManager {
@@ -42,6 +43,28 @@ final class DataManager {
         }
     }
     
+    private func getEmployeesFromCoreData(from company: CompanyDTO, completion: @escaping (Result<[EmployeeDTO], Error>) -> Void) {
+        DispatchQueue.global(qos: .userInteractive).async {
+            do {
+                let companies = try self.coreDataManager.getEmployees(from: company)
+                completion(.success(companies))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    private func getEmployeesFromNetwork(from company: CompanyDTO, completion: @escaping (Result<[EmployeeDTO], Error>) -> Void) {
+        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: DispatchTime.now() + 5) {
+            do {
+                let companies = try self.networkService.getEmployees(from: company)
+                completion(.success(companies))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
+    
 }
 
 extension DataManager: IDataManager {
@@ -49,6 +72,11 @@ extension DataManager: IDataManager {
     func getCompanies(completion: @escaping (Result<[CompanyDTO], Error>) -> Void) {
         self.getCompaniesFromCoreData(completion: completion)
         self.getCompaniesFromNetwork(completion: completion)
+    }
+    
+    func getEmployees(from company: CompanyDTO, completion: @escaping (Result<[EmployeeDTO], Error>) -> Void) {
+        self.getEmployeesFromCoreData(from: company, completion: completion)
+        self.getEmployeesFromNetwork(from: company, completion: completion)
     }
     
 }

@@ -37,7 +37,7 @@ extension NetworkService: INetworkService {
     func getEmployees(from company: CompanyDTO) throws -> [EmployeeDTO] {
         if let path = Bundle.main.url(forResource: "\(company.id)", withExtension: "json") {
             let data = try Data(contentsOf: path)
-            self.printJsonData(data)
+//            self.printJsonData(data)
             
             return try JSONDecoder().decode([EmployeeDTO].self, from: data)
         }
