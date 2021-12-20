@@ -10,6 +10,11 @@ import Foundation
 struct CompanyDTO: Codable {
     let id: UUID
     let name: String
+    
+    init(company: Company) {
+        self.id = company.id
+        self.name = company.name
+    }
 }
 
 extension CompanyDTO: CustomStringConvertible {

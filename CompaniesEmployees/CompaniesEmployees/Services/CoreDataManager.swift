@@ -10,17 +10,12 @@ import CoreData
 protocol ICoreDataManager {
     
     func getAllCompanies() throws -> [CompanyDTO]
+    func getEmployees(from company: CompanyDTO) throws -> [EmployeeDTO]
     func addCompanies(_ companies: [CompanyDTO]) throws
     
 }
 
 final class CoreDataManager {
-    
-//    static let shared = CoreDataManager()
-//
-//    private init() {
-//
-//    }
 
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "CompaniesModel")
@@ -51,13 +46,15 @@ extension CoreDataManager: ICoreDataManager {
         let fetchRequest = Company.fetchRequest()
         let companies = try persistentContainer.viewContext.fetch(fetchRequest)
         
-        let result = companies.compactMap { company -> CompanyDTO? in
-            guard let name = company.name else { return nil }
-            guard let id = company.id else { return nil }
-            return CompanyDTO(id: id, name: name)
-        }
+        return companies.compactMap { CompanyDTO(company: $0) }
+    }
+    
+    func getEmployees(from company: CompanyDTO) throws -> [EmployeeDTO] {
+        let fetchRequest = Employee.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "company.id = %s", company.id.description)
         
-        return result
+        let employees = try persistentContainer.viewContext.fetch(fetchRequest)
+        return employees.compactMap { EmployeeDTO(employee: $0) }
     }
     
     func addCompanies(_ companies: [CompanyDTO]) throws {
@@ -65,7 +62,7 @@ extension CoreDataManager: ICoreDataManager {
         
         for companyDTO in companies {
             let company = Company(entity: entity, insertInto: persistentContainer.viewContext)
-            company.name = companyDTO.name
+            company.setValues(from: companyDTO)
         }
         
         try persistentContainer.viewContext.save()

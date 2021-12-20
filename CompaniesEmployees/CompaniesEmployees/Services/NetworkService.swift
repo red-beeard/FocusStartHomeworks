@@ -9,6 +9,7 @@ import Foundation
 
 protocol INetworkService {
     func getAllCompanies() throws -> [CompanyDTO]
+    func getEmployees(from company: CompanyDTO) throws -> [EmployeeDTO]
 }
 
 final class NetworkService {
@@ -29,6 +30,16 @@ extension NetworkService: INetworkService {
 //            self.printJsonData(data)
             
             return try JSONDecoder().decode([CompanyDTO].self, from: data)
+        }
+        return []
+    }
+    
+    func getEmployees(from company: CompanyDTO) throws -> [EmployeeDTO] {
+        if let path = Bundle.main.url(forResource: "\(company.id)", withExtension: "json") {
+            let data = try Data(contentsOf: path)
+            self.printJsonData(data)
+            
+            return try JSONDecoder().decode([EmployeeDTO].self, from: data)
         }
         return []
     }

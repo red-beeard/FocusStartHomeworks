@@ -16,7 +16,6 @@
 		81148944276CAAF700667D49 /* CompaniesScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148943276CAAF700667D49 /* CompaniesScreenPresenter.swift */; };
 		81148947276CAD0C00667D49 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148946276CAD0C00667D49 /* DataManager.swift */; };
 		81148949276CB01F00667D49 /* CompaniesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148948276CB01F00667D49 /* CompaniesScreenView.swift */; };
-		81148973276CC01300667D49 /* CompaniesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81148971276CC01300667D49 /* CompaniesModel.xcdatamodeld */; };
 		81148975276CC46500667D49 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148974276CC46500667D49 /* CoreDataManager.swift */; };
 		81148977276CF49700667D49 /* CompanyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148976276CF49600667D49 /* CompanyDTO.swift */; };
 		8114897A276E573400667D49 /* Companies.json in Resources */ = {isa = PBXBuildFile; fileRef = 81148979276E573400667D49 /* Companies.json */; };
@@ -29,6 +28,12 @@
 		818E472E276F4EFD0022A9C7 /* EmployeesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E472D276F4EFD0022A9C7 /* EmployeesScreenView.swift */; };
 		818E4730276F803A0022A9C7 /* CompaniesScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E472F276F803A0022A9C7 /* CompaniesScreenRouter.swift */; };
 		818E4734276F86C70022A9C7 /* EmployeesScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4733276F86C70022A9C7 /* EmployeesScreenRouter.swift */; };
+		818E4736276F88710022A9C7 /* EmployeeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E4735276F88710022A9C7 /* EmployeeDTO.swift */; };
+		81B38F27277093DB00FD6C48 /* CompaniesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81B38F25277093DB00FD6C48 /* CompaniesModel.xcdatamodeld */; };
+		81B38F2C2770976000FD6C48 /* Company+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B38F282770976000FD6C48 /* Company+CoreDataClass.swift */; };
+		81B38F2D2770976000FD6C48 /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B38F292770976000FD6C48 /* Company+CoreDataProperties.swift */; };
+		81B38F2E2770976000FD6C48 /* Employee+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B38F2A2770976000FD6C48 /* Employee+CoreDataClass.swift */; };
+		81B38F2F2770976000FD6C48 /* Employee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B38F2B2770976000FD6C48 /* Employee+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +48,6 @@
 		81148943276CAAF700667D49 /* CompaniesScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesScreenPresenter.swift; sourceTree = "<group>"; };
 		81148946276CAD0C00667D49 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		81148948276CB01F00667D49 /* CompaniesScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesScreenView.swift; sourceTree = "<group>"; };
-		81148972276CC01300667D49 /* CompaniesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CompaniesModel.xcdatamodel; sourceTree = "<group>"; };
 		81148974276CC46500667D49 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		81148976276CF49600667D49 /* CompanyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDTO.swift; sourceTree = "<group>"; };
 		81148979276E573400667D49 /* Companies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Companies.json; sourceTree = "<group>"; };
@@ -56,6 +60,13 @@
 		818E472D276F4EFD0022A9C7 /* EmployeesScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesScreenView.swift; sourceTree = "<group>"; };
 		818E472F276F803A0022A9C7 /* CompaniesScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesScreenRouter.swift; sourceTree = "<group>"; };
 		818E4733276F86C70022A9C7 /* EmployeesScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesScreenRouter.swift; sourceTree = "<group>"; };
+		818E4735276F88710022A9C7 /* EmployeeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDTO.swift; sourceTree = "<group>"; };
+		81B38F26277093DB00FD6C48 /* CompaniesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CompaniesModel.xcdatamodel; sourceTree = "<group>"; };
+		81B38F282770976000FD6C48 /* Company+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataClass.swift"; sourceTree = "<group>"; };
+		81B38F292770976000FD6C48 /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		81B38F2A2770976000FD6C48 /* Employee+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Employee+CoreDataClass.swift"; sourceTree = "<group>"; };
+		81B38F2B2770976000FD6C48 /* Employee+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Employee+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		81B38F302770C29100FD6C48 /* 7A8F7E43-0375-4D39-AD73-2403BFF24CDA.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "7A8F7E43-0375-4D39-AD73-2403BFF24CDA.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +164,13 @@
 		81148970276CBF6C00667D49 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				81148971276CC01300667D49 /* CompaniesModel.xcdatamodeld */,
+				81B38F282770976000FD6C48 /* Company+CoreDataClass.swift */,
+				81B38F292770976000FD6C48 /* Company+CoreDataProperties.swift */,
+				81B38F2A2770976000FD6C48 /* Employee+CoreDataClass.swift */,
+				81B38F2B2770976000FD6C48 /* Employee+CoreDataProperties.swift */,
+				81B38F25277093DB00FD6C48 /* CompaniesModel.xcdatamodeld */,
 				81148976276CF49600667D49 /* CompanyDTO.swift */,
+				818E4735276F88710022A9C7 /* EmployeeDTO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -163,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				81148979276E573400667D49 /* Companies.json */,
+				81B38F302770C29100FD6C48 /* 7A8F7E43-0375-4D39-AD73-2403BFF24CDA.json */,
 			);
 			path = JSONData;
 			sourceTree = "<group>";
@@ -253,21 +270,26 @@
 				8114898F276E59A000667D49 /* NetworkService.swift in Sources */,
 				8114892E276CA19A00667D49 /* CompaniesScreenViewController.swift in Sources */,
 				81148947276CAD0C00667D49 /* DataManager.swift in Sources */,
+				818E4736276F88710022A9C7 /* EmployeeDTO.swift in Sources */,
 				81148949276CB01F00667D49 /* CompaniesScreenView.swift in Sources */,
 				818E4730276F803A0022A9C7 /* CompaniesScreenRouter.swift in Sources */,
-				81148973276CC01300667D49 /* CompaniesModel.xcdatamodeld in Sources */,
 				818E472E276F4EFD0022A9C7 /* EmployeesScreenView.swift in Sources */,
 				81148942276CA97900667D49 /* CompaniesScreenAssembly.swift in Sources */,
 				8114892A276CA19A00667D49 /* AppDelegate.swift in Sources */,
 				818E4724276F39790022A9C7 /* CompaniesScreenViewModel.swift in Sources */,
+				81B38F2D2770976000FD6C48 /* Company+CoreDataProperties.swift in Sources */,
 				81148975276CC46500667D49 /* CoreDataManager.swift in Sources */,
+				81B38F27277093DB00FD6C48 /* CompaniesModel.xcdatamodeld in Sources */,
+				81B38F2F2770976000FD6C48 /* Employee+CoreDataProperties.swift in Sources */,
 				818E4728276F4C0D0022A9C7 /* EmployeesScreenAssembly.swift in Sources */,
 				818E472C276F4D630022A9C7 /* EmployeesScreenViewController.swift in Sources */,
+				81B38F2E2770976000FD6C48 /* Employee+CoreDataClass.swift in Sources */,
 				818E4722276F38F50022A9C7 /* CompaniesScreenTableAdapter.swift in Sources */,
 				81148977276CF49700667D49 /* CompanyDTO.swift in Sources */,
 				818E4734276F86C70022A9C7 /* EmployeesScreenRouter.swift in Sources */,
 				81148944276CAAF700667D49 /* CompaniesScreenPresenter.swift in Sources */,
 				818E472A276F4CD80022A9C7 /* EmployeesScreenPresenter.swift in Sources */,
+				81B38F2C2770976000FD6C48 /* Company+CoreDataClass.swift in Sources */,
 				8114892C276CA19A00667D49 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,12 +502,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		81148971276CC01300667D49 /* CompaniesModel.xcdatamodeld */ = {
+		81B38F25277093DB00FD6C48 /* CompaniesModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				81148972276CC01300667D49 /* CompaniesModel.xcdatamodel */,
+				81B38F26277093DB00FD6C48 /* CompaniesModel.xcdatamodel */,
 			);
-			currentVersion = 81148972276CC01300667D49 /* CompaniesModel.xcdatamodel */;
+			currentVersion = 81B38F26277093DB00FD6C48 /* CompaniesModel.xcdatamodel */;
 			path = CompaniesModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

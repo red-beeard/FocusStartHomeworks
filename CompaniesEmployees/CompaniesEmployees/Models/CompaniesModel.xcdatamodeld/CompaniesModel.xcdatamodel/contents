@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G224" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Company" representedClassName=".Company" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+    <entity name="Company" representedClassName="Company" syncable="YES">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="employee" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="company" inverseEntity="Employee"/>
+        <relationship name="employees" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="company" inverseEntity="Employee"/>
     </entity>
-    <entity name="Employee" representedClassName=".Employee" syncable="YES" codeGenerationType="class">
+    <entity name="Employee" representedClassName="Employee" syncable="YES">
         <attribute name="age" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="experience" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="company" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="employee" inverseEntity="Company"/>
+        <relationship name="company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="employees" inverseEntity="Company"/>
     </entity>
     <elements>
-        <element name="Company" positionX="-53.47027587890625" positionY="-94.93850708007812" width="128" height="88"/>
-        <element name="Employee" positionX="-54" positionY="0" width="128" height="103"/>
+        <element name="Company" positionX="-45" positionY="0" width="128" height="74"/>
+        <element name="Employee" positionX="-18" positionY="45" width="128" height="104"/>
     </elements>
 </model>
