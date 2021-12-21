@@ -68,4 +68,24 @@ extension CompaniesScreenPresenter: CompaniesScreenTableAdapterDelegate {
         self.router.showEmployees(company: company)
     }
     
+    func onItemDelete(id: UUID) {
+        guard let company = self.companies.first(where: { id == $0.id }) else { return }
+        self.dataManager.delete(company: company) { result in
+            switch result {
+            case .success(let company):
+                DispatchQueue.main.async {
+                    if let company = company {
+                        self.companies.removeAll { $0.id == company.id }
+                        self.tableAdapter.deleteRow(at: company.id)
+                    }
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.controller?.showAlert(title: "Ошибка😔", message: error.localizedDescription)
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
 }

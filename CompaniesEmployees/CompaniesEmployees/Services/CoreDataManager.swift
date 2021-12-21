@@ -53,6 +53,19 @@ extension CoreDataManager: ICoreDataManager {
         return employees.compactMap { EmployeeDTO(employee: $0) }
     }
     
+    func delete(company: CompanyDTO) throws -> CompanyDTO? {
+        let fetchRequest = Company.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id = %@", company.id.description)
+        
+        let companies = try persistentContainer.viewContext.fetch(fetchRequest)
+        if let company = companies.first {
+            persistentContainer.viewContext.delete(company)
+            self.saveContext()
+            return CompanyDTO(company: company)
+        }
+        return nil
+    }
+    
     func addCompanies(_ companies: [CompanyDTO]) throws {
         guard let entity = NSEntityDescription.entity(forEntityName: "Company", in: persistentContainer.viewContext) else { return }
         
@@ -61,7 +74,7 @@ extension CoreDataManager: ICoreDataManager {
             company.setValues(from: companyDTO)
         }
         
-        try persistentContainer.viewContext.save()
+        self.saveContext()
     }
     
 }

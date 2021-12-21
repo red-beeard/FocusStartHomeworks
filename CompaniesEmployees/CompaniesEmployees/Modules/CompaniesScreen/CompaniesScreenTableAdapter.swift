@@ -11,10 +11,12 @@ protocol ICompaniesScreenTableAdapter: AnyObject {
     var tableView: UITableView? { get set }
     var delegate: CompaniesScreenTableAdapterDelegate? { get set }
     func update(companies: [CompaniesScreenViewModel])
+    func deleteRow(at id: UUID)
 }
 
 protocol CompaniesScreenTableAdapterDelegate: AnyObject {
     func onItemSelect(id: UUID)
+    func onItemDelete(id: UUID)
 }
 
 final class CompaniesScreenTableAdapter: NSObject {
@@ -44,6 +46,15 @@ extension CompaniesScreenTableAdapter: ICompaniesScreenTableAdapter {
         self.tableView?.reloadData()
     }
     
+    func deleteRow(at id: UUID) {
+        let index = self.companies.firstIndex { $0.id == id }
+        if let index = index {
+            self.companies.remove(at: index)
+            let indexPath = IndexPath(row: index, section: 0)
+            self.tableView?.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
 }
 
 
@@ -53,6 +64,14 @@ extension CompaniesScreenTableAdapter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         self.delegate?.onItemSelect(id: self.companies[indexPath.row].id)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Удалить", handler: { (_, _, _) in
+            self.delegate?.onItemDelete(id: self.companies[indexPath.row].id)
+        })
+        deleteAction.backgroundColor = .systemRed
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
 }
