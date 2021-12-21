@@ -15,7 +15,7 @@ final class CompaniesScreenAssembly {
         let tableAdapter = CompaniesScreenTableAdapter()
         
         let presenter = CompaniesScreenPresenter(dataManager: dataManager, tableAdapter: tableAdapter, router: router)
-        let controller = CompaniesScreenViewController(presenter: presenter)
+        let controller = TableScreenViewController(presenter: presenter)
         router.controller = controller
         
         return UINavigationController(rootViewController: controller)

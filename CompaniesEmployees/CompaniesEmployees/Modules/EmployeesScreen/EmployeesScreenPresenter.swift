@@ -7,17 +7,13 @@
 
 import Foundation
 
-protocol IEmployeesScreenPresenter {
-    func loadView(controller: IEmployeesScreenViewController, view: IEmployeesScreenView)
-}
-
 final class EmployeesScreenPresenter {
     
     private let dataManager: IDataManager
     private let router: IEmployeesScreenRouter
     private var tableAdapter: IEmployeesScreenTableAdapter
-    private weak var controller: IEmployeesScreenViewController?
-    private weak var view: IEmployeesScreenView?
+    private weak var controller: ITableScreenViewController?
+    private weak var view: ITableScreenView?
     
     private let company: CompanyDTO
     private var employees = [EmployeeDTO]()
@@ -49,8 +45,8 @@ final class EmployeesScreenPresenter {
     
 }
 
-extension EmployeesScreenPresenter: IEmployeesScreenPresenter {
-    func loadView(controller: IEmployeesScreenViewController, view: IEmployeesScreenView) {
+extension EmployeesScreenPresenter: ITableScreenPresenter {
+    func loadView(controller: ITableScreenViewController, view: ITableScreenView) {
         self.controller = controller
         self.controller?.setTitle(company.name)
         self.view = view

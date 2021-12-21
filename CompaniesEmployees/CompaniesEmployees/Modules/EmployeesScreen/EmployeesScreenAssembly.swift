@@ -5,8 +5,10 @@
 //  Created by Red Beard on 19.12.2021.
 //
 
+import UIKit
+
 final class EmployeesScreenAssembly {
-    static func build(company: CompanyDTO) -> IEmployeesScreenViewController {
+    static func build(company: CompanyDTO) -> UIViewController {
         let dataManager = DataManager.shared
         let tableAdapter = EmployeesScreenTableAdapter()
         let router = EmployeesScreenRouter()
@@ -17,7 +19,7 @@ final class EmployeesScreenAssembly {
             tableAdapter: tableAdapter,
             router: router
         )
-        let controller = EmployeesScreenViewController(presenter: presenter)
+        let controller = TableScreenViewController(presenter: presenter)
         
         return controller
     }

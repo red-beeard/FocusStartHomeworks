@@ -7,17 +7,17 @@
 
 import Foundation
 
-protocol ICompaniesScreenPresenter {
-    func loadView(controller: ICompaniesScreenViewController, view: ICompaniesScreenView)
-}
-
 final class CompaniesScreenPresenter {
+    
+    private enum Constants {
+        static let viewTitle = "Компании"
+    }
     
     private let dataManager: IDataManager
     private let tableAdapter: ICompaniesScreenTableAdapter
     private let router: ICompaniesScreenRouter
-    private weak var controller: ICompaniesScreenViewController?
-    private weak var view: ICompaniesScreenView?
+    private weak var controller: ITableScreenViewController?
+    private weak var view: ITableScreenView?
     
     private var companies = [CompanyDTO]()
     
@@ -47,11 +47,12 @@ final class CompaniesScreenPresenter {
     
 }
 
-extension CompaniesScreenPresenter: ICompaniesScreenPresenter {
+extension CompaniesScreenPresenter: ITableScreenPresenter {
     
-    func loadView(controller: ICompaniesScreenViewController, view: ICompaniesScreenView) {
+    func loadView(controller: ITableScreenViewController, view: ITableScreenView) {
         self.controller = controller
         self.view = view
+        self.controller?.setTitle(Constants.viewTitle)
         self.tableAdapter.tableView = self.view?.getTableView()
         self.tableAdapter.delegate = self
         

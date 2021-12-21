@@ -1,46 +1,46 @@
 //
-//  EmployeesScreenViewController.swift
+//  TableScreenViewController.swift
 //  CompaniesEmployees
 //
-//  Created by Red Beard on 19.12.2021.
+//  Created by Red Beard on 21.12.2021.
 //
 
 import UIKit
 
-protocol IEmployeesScreenViewController: UIViewController {
+protocol ITableScreenViewController: UIViewController {
     func setTitle(_ title: String)
     func showAlert(title: String, message: String)
 }
 
-final class EmployeesScreenViewController: UIViewController {
+final class TableScreenViewController: UIViewController {
     
-    private let presenter: IEmployeesScreenPresenter
-    private var employeesView: IEmployeesScreenView = EmployeesScreenView()
+    private let presenter: ITableScreenPresenter
+    private var tableScreenView: ITableScreenView = TableScreenView()
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(presenter: IEmployeesScreenPresenter) {
+    init(presenter: ITableScreenPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
     override func loadView() {
         super.loadView()
-        self.presenter.loadView(controller: self, view: self.employeesView)
+        self.presenter.loadView(controller: self, view: self.tableScreenView)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view = self.employeesView
+        self.view = self.tableScreenView
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
 }
 
-extension EmployeesScreenViewController: IEmployeesScreenViewController {
+extension TableScreenViewController: ITableScreenViewController {
     
     func setTitle(_ title: String) {
         self.title = title
