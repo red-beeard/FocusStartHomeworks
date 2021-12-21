@@ -51,7 +51,36 @@ extension EmployeesScreenPresenter: ITableScreenPresenter {
         self.controller?.setTitle(company.name)
         self.view = view
         self.tableAdapter.tableView = self.view?.getTableView()
+        self.tableAdapter.delegate = self
         
         self.loadData()
     }
+}
+
+extension EmployeesScreenPresenter: EmployeesScreenTableAdapterDelegate {
+    
+    func onItemSelect(id: UUID) {
+        print(#function)
+    }
+    
+    func onItemDelete(id: UUID) {
+        guard let employee = self.employees.first(where: { id == $0.id }) else { return }
+        self.dataManager.delete(employee: employee, from: self.company) { result in
+            switch result {
+            case .success(let employee):
+                DispatchQueue.main.async {
+                    if let employee = employee {
+                        self.employees.removeAll { $0.id == employee.id }
+                        self.tableAdapter.deleteRow(at: employee.id)
+                    }
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.controller?.showAlert(title: "Ошибка😔", message: error.localizedDescription)
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
 }

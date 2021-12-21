@@ -11,12 +11,14 @@ protocol IDataManager {
     func getCompanies(completion: @escaping (Result<[CompanyDTO], Error>) -> Void)
     func getEmployees(from company: CompanyDTO, completion: @escaping (Result<[EmployeeDTO], Error>) -> Void)
     func delete(company: CompanyDTO, completion: @escaping (Result<CompanyDTO?, Error>) -> Void)
+    func delete(employee: EmployeeDTO, from company: CompanyDTO, completion: @escaping (Result<EmployeeDTO?, Error>) -> Void)
 }
 
 protocol IDataService {
     func getAllCompanies() throws -> [CompanyDTO]
     func getEmployees(from company: CompanyDTO) throws -> [EmployeeDTO]
     func delete(company: CompanyDTO) throws -> CompanyDTO?
+    func delete(employee: EmployeeDTO, from company: CompanyDTO) throws -> EmployeeDTO?
 }
 
 final class DataManager {
@@ -64,6 +66,18 @@ final class DataManager {
         }
     }
     
+    private func delete(employee: EmployeeDTO, from company: CompanyDTO, from service: IDataService, completion: @escaping (Result<EmployeeDTO?, Error>) -> Void) {
+        let deadline = DispatchTime.now() + (service is NetworkService ? 5 : 0)
+        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: deadline) {
+            do {
+                let company = try service.delete(employee: employee, from: company)
+                completion(.success(company))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
+    
 }
 
 extension DataManager: IDataManager {
@@ -81,6 +95,11 @@ extension DataManager: IDataManager {
     func delete(company: CompanyDTO, completion: @escaping (Result<CompanyDTO?, Error>) -> Void) {
         self.delete(company: company, from: self.coreDataManager, completion: completion)
         self.delete(company: company, from: self.networkService, completion: completion)
+    }
+    
+    func delete(employee: EmployeeDTO, from company: CompanyDTO, completion: @escaping (Result<EmployeeDTO?, Error>) -> Void) {
+        self.delete(employee: employee, from: company, from: self.coreDataManager, completion: completion)
+        self.delete(employee: employee, from: company, from: self.networkService, completion: completion)
     }
     
 }

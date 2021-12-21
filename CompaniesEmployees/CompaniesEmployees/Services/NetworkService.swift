@@ -58,4 +58,18 @@ extension NetworkService: INetworkService {
         return nil
     }
     
+    func delete(employee: EmployeeDTO, from company: CompanyDTO) throws -> EmployeeDTO? {
+        if let path = Bundle.main.url(forResource: "\(company.id)", withExtension: "json") {
+            let data = try Data(contentsOf: path)
+            
+            var employees = try JSONDecoder().decode([EmployeeDTO].self, from: data)
+            employees.removeAll { $0.id == employee.id }
+            let newEmployeesData = try JSONEncoder().encode(employees)
+            let jsonString = String(decoding: newEmployeesData, as: UTF8.self)
+            try jsonString.write(to: path, atomically: true, encoding: .utf8)
+            return employee
+        }
+        return nil
+    }
+    
 }

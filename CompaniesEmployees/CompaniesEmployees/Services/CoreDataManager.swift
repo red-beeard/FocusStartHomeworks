@@ -66,6 +66,19 @@ extension CoreDataManager: ICoreDataManager {
         return nil
     }
     
+    func delete(employee: EmployeeDTO, from company: CompanyDTO) throws -> EmployeeDTO? {
+        let fetchRequest = Employee.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id = %@", employee.id.description)
+        
+        let employees = try persistentContainer.viewContext.fetch(fetchRequest)
+        if let employee = employees.first {
+            persistentContainer.viewContext.delete(employee)
+            self.saveContext()
+            return EmployeeDTO(employee: employee)
+        }
+        return nil
+    }
+    
     func addCompanies(_ companies: [CompanyDTO]) throws {
         guard let entity = NSEntityDescription.entity(forEntityName: "Company", in: persistentContainer.viewContext) else { return }
         
