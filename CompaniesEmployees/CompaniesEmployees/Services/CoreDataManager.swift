@@ -7,12 +7,8 @@
 
 import CoreData
 
-protocol ICoreDataManager {
-    
-    func getAllCompanies() throws -> [CompanyDTO]
-    func getEmployees(from company: CompanyDTO) throws -> [EmployeeDTO]
+protocol ICoreDataManager: IDataService {
     func addCompanies(_ companies: [CompanyDTO]) throws
-    
 }
 
 final class CoreDataManager {

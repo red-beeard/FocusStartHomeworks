@@ -7,9 +7,9 @@
 
 import Foundation
 
-protocol INetworkService {
-    func getAllCompanies() throws -> [CompanyDTO]
-    func getEmployees(from company: CompanyDTO) throws -> [EmployeeDTO]
+protocol INetworkService: IDataService {
+//    func getAllCompanies() throws -> [CompanyDTO]
+//    func getEmployees(from company: CompanyDTO) throws -> [EmployeeDTO]
 }
 
 final class NetworkService {

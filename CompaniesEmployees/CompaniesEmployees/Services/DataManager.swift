@@ -12,19 +12,25 @@ protocol IDataManager {
     func getEmployees(from company: CompanyDTO, completion: @escaping (Result<[EmployeeDTO], Error>) -> Void) 
 }
 
+protocol IDataService {
+    func getAllCompanies() throws -> [CompanyDTO]
+    func getEmployees(from company: CompanyDTO) throws -> [EmployeeDTO]
+}
+
 final class DataManager {
     
     static let shared = DataManager()
     
     private init() { }
     
-    private let coreDataManager: ICoreDataManager = CoreDataManager()
-    private let networkService: INetworkService = NetworkService()
+    private let coreDataManager: IDataService = CoreDataManager()
+    private let networkService: IDataService = NetworkService()
     
-    private func getCompaniesFromCoreData(completion: @escaping (Result<[CompanyDTO], Error>) -> Void) {
-        DispatchQueue.global(qos: .userInteractive).async {
+    private func getCompanies(from service: IDataService, completion: @escaping (Result<[CompanyDTO], Error>) -> Void) {
+        let deadline = DispatchTime.now() + (service is NetworkService ? 5 : 0)
+        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: deadline) {
             do {
-                let companies = try self.coreDataManager.getAllCompanies()
+                let companies = try service.getAllCompanies()
                 completion(.success(companies))
             } catch {
                 completion(.failure(error))
@@ -32,33 +38,12 @@ final class DataManager {
         }
     }
     
-    private func getCompaniesFromNetwork(completion: @escaping (Result<[CompanyDTO], Error>) -> Void) {
-        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: DispatchTime.now() + 5) {
+    private func getEmployees(from service: IDataService, with company: CompanyDTO, completion: @escaping (Result<[EmployeeDTO], Error>) -> Void) {
+        let deadline = DispatchTime.now() + (service is NetworkService ? 5 : 0)
+        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: deadline) {
             do {
-                let companies = try self.networkService.getAllCompanies()
-                completion(.success(companies))
-            } catch {
-                completion(.failure(error))
-            }
-        }
-    }
-    
-    private func getEmployeesFromCoreData(from company: CompanyDTO, completion: @escaping (Result<[EmployeeDTO], Error>) -> Void) {
-        DispatchQueue.global(qos: .userInteractive).async {
-            do {
-                let companies = try self.coreDataManager.getEmployees(from: company)
-                completion(.success(companies))
-            } catch {
-                completion(.failure(error))
-            }
-        }
-    }
-    
-    private func getEmployeesFromNetwork(from company: CompanyDTO, completion: @escaping (Result<[EmployeeDTO], Error>) -> Void) {
-        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: DispatchTime.now() + 5) {
-            do {
-                let companies = try self.networkService.getEmployees(from: company)
-                completion(.success(companies))
+                let employees = try service.getEmployees(from: company)
+                completion(.success(employees))
             } catch {
                 completion(.failure(error))
             }
@@ -70,13 +55,13 @@ final class DataManager {
 extension DataManager: IDataManager {
     
     func getCompanies(completion: @escaping (Result<[CompanyDTO], Error>) -> Void) {
-        self.getCompaniesFromCoreData(completion: completion)
-        self.getCompaniesFromNetwork(completion: completion)
+        self.getCompanies(from: self.coreDataManager, completion: completion)
+        self.getCompanies(from: self.networkService, completion: completion)
     }
     
     func getEmployees(from company: CompanyDTO, completion: @escaping (Result<[EmployeeDTO], Error>) -> Void) {
-        self.getEmployeesFromCoreData(from: company, completion: completion)
-        self.getEmployeesFromNetwork(from: company, completion: completion)
+        self.getEmployees(from: self.coreDataManager, with: company, completion: completion)
+        self.getEmployees(from: self.networkService, with: company, completion: completion)
     }
     
 }
