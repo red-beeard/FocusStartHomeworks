@@ -8,11 +8,14 @@
 import UIKit
 
 protocol ITableScreenViewController: UIViewController {
+    var addButtonHandler: (() -> Void)? { get set }
     func setTitle(_ title: String)
     func showAlert(title: String, message: String)
 }
 
 final class TableScreenViewController: UIViewController {
+    
+    var addButtonHandler: (() -> Void)?
     
     private let presenter: ITableScreenPresenter
     private var tableScreenView: ITableScreenView = TableScreenView()
@@ -33,9 +36,21 @@ final class TableScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.configuireView()
+    }
+    
+    private func configuireView() {
         self.view = self.tableScreenView
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(self.addButtonTouched)
+        )
+    }
+    
+    @objc private func addButtonTouched() {
+        self.addButtonHandler?()
     }
 
 }
