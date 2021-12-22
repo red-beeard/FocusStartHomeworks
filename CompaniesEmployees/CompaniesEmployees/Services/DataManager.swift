@@ -63,6 +63,7 @@ extension DataManager: IDataManager {
                 sleep(5)
                 let networkEmployees = try self.networkService.getEmployees(from: company)
                 completion(.success(networkEmployees))
+                try self.coreDataManager.updateFromNetwork(from: company, employees: networkEmployees)
             } catch {
                 completion(.failure(error))
             }

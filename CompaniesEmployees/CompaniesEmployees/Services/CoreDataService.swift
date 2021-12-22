@@ -24,7 +24,7 @@ final class CoreDataService {
         return container
     }()
     
-    func saveContext() {
+    private func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -34,6 +34,16 @@ final class CoreDataService {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    private func get(company: CompanyDTO) throws -> Company? {
+        
+        let fetchRequest = Company.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id = %@", company.id.description)
+        
+        let companies = try persistentContainer.viewContext.fetch(fetchRequest)
+        return companies.first
+        
     }
 }
 
@@ -60,7 +70,15 @@ extension CoreDataService: ICoreDataService {
         
         let companies = try persistentContainer.viewContext.fetch(fetchRequest)
         if let companyForDelete = companies.first {
+            
+            let _ = companyForDelete.employees?.map {
+                if let employeesForDelete = $0 as? Employee {
+                    persistentContainer.viewContext.delete(employeesForDelete)
+                }
+            }
+            
             persistentContainer.viewContext.delete(companyForDelete)
+            
             self.saveContext()
             return company
         }
@@ -158,9 +176,12 @@ extension CoreDataService: ICoreDataService {
             }
         }
         
-        for newEmployee in newEmployees {
-            let newEmployeeEntity = Employee(entity: entity, insertInto: persistentContainer.viewContext)
-            newEmployeeEntity.setValues(from: newEmployee)
+        if let companyEntity = try self.get(company: company) {
+            for newEmployee in newEmployees {
+                let newEmployeeEntity = Employee(entity: entity, insertInto: persistentContainer.viewContext)
+                newEmployeeEntity.company = companyEntity
+                newEmployeeEntity.setValues(from: newEmployee)
+            }
         }
         
         self.saveContext()
