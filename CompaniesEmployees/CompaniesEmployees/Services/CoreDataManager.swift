@@ -7,10 +7,6 @@
 
 import CoreData
 
-protocol ICoreDataManager: IDataService {
-    func addCompanies(_ companies: [CompanyDTO]) throws
-}
-
 final class CoreDataManager {
 
     private lazy var persistentContainer: NSPersistentContainer = {
@@ -36,7 +32,7 @@ final class CoreDataManager {
     }
 }
 
-extension CoreDataManager: ICoreDataManager {
+extension CoreDataManager: IDataService {
     
     func getAllCompanies() throws -> [CompanyDTO] {
         let fetchRequest = Company.fetchRequest()
@@ -58,10 +54,10 @@ extension CoreDataManager: ICoreDataManager {
         fetchRequest.predicate = NSPredicate(format: "id = %@", company.id.description)
         
         let companies = try persistentContainer.viewContext.fetch(fetchRequest)
-        if let company = companies.first {
-            persistentContainer.viewContext.delete(company)
+        if let companyForDelete = companies.first {
+            persistentContainer.viewContext.delete(companyForDelete)
             self.saveContext()
-            return CompanyDTO(company: company)
+            return company
         }
         return nil
     }
@@ -71,21 +67,19 @@ extension CoreDataManager: ICoreDataManager {
         fetchRequest.predicate = NSPredicate(format: "id = %@", employee.id.description)
         
         let employees = try persistentContainer.viewContext.fetch(fetchRequest)
-        if let employee = employees.first {
-            persistentContainer.viewContext.delete(employee)
+        if let employeeForDelete = employees.first {
+            persistentContainer.viewContext.delete(employeeForDelete)
             self.saveContext()
-            return EmployeeDTO(employee: employee)
+            return employee
         }
         return nil
     }
     
-    func addCompanies(_ companies: [CompanyDTO]) throws {
+    func add(company: CompanyDTO) throws {
         guard let entity = NSEntityDescription.entity(forEntityName: "Company", in: persistentContainer.viewContext) else { return }
         
-        for companyDTO in companies {
-            let company = Company(entity: entity, insertInto: persistentContainer.viewContext)
-            company.setValues(from: companyDTO)
-        }
+        let newCompany = Company(entity: entity, insertInto: persistentContainer.viewContext)
+        newCompany.setValues(from: company)
         
         self.saveContext()
     }

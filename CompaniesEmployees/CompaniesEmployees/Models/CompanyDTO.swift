@@ -15,6 +15,11 @@ struct CompanyDTO: Codable {
         self.id = company.id
         self.name = company.name
     }
+    
+    init(name: String) {
+        self.name = name
+        self.id = UUID()
+    }
 }
 
 extension CompanyDTO: CustomStringConvertible {

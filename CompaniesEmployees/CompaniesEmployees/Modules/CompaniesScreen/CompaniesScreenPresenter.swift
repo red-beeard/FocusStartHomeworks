@@ -16,15 +16,24 @@ final class CompaniesScreenPresenter {
     private let dataManager: IDataManager
     private let tableAdapter: ICompaniesScreenTableAdapter
     private let router: ICompaniesScreenRouter
+    private let center: NotificationCenter
     private weak var controller: ITableScreenViewController?
     private weak var view: ITableScreenView?
     
     private var companies = [CompanyDTO]()
     
-    init(dataManager: IDataManager, tableAdapter: ICompaniesScreenTableAdapter, router: ICompaniesScreenRouter) {
+    init(dataManager: IDataManager, tableAdapter: ICompaniesScreenTableAdapter, router: ICompaniesScreenRouter, center: NotificationCenter) {
         self.dataManager = dataManager
         self.tableAdapter = tableAdapter
         self.router = router
+        self.center = center
+        self.center.addObserver(self, selector: #selector(reloadCompanies),
+                                name: Notification.Name.companyUpdateNotification,
+                                object: nil)
+    }
+
+    deinit {
+        self.center.removeObserver(self)
     }
     
     private func loadData() {
@@ -45,6 +54,16 @@ final class CompaniesScreenPresenter {
         }
     }
     
+    private func setHandlers() {
+        self.controller?.addButtonHandler = { [weak self] in
+            self?.router.addCompany()
+        }
+    }
+    
+    @objc func reloadCompanies() {
+        self.loadData()
+    }
+    
 }
 
 extension CompaniesScreenPresenter: ITableScreenPresenter {
@@ -57,6 +76,7 @@ extension CompaniesScreenPresenter: ITableScreenPresenter {
         self.tableAdapter.delegate = self
         
         self.loadData()
+        self.setHandlers()
     }
     
 }

@@ -28,6 +28,12 @@
 		819EF5822771D1840036EC87 /* TableScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF5812771D1840036EC87 /* TableScreenViewController.swift */; };
 		819EF5842771D1FA0036EC87 /* TableScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF5832771D1FA0036EC87 /* TableScreenView.swift */; };
 		819EF5862771D2C90036EC87 /* ITableScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF5852771D2C90036EC87 /* ITableScreenPresenter.swift */; };
+		819EF58A277237A80036EC87 /* AddCompanyScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF589277237A80036EC87 /* AddCompanyScreenViewController.swift */; };
+		819EF58C277237BF0036EC87 /* AddCompanyScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF58B277237BF0036EC87 /* AddCompanyScreenAssembly.swift */; };
+		819EF58E277237FD0036EC87 /* AddCompanyScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF58D277237FD0036EC87 /* AddCompanyScreenView.swift */; };
+		819EF590277238110036EC87 /* AddCompanyScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF58F277238110036EC87 /* AddCompanyScreenPresenter.swift */; };
+		819EF592277238230036EC87 /* AddCompanyScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF591277238230036EC87 /* AddCompanyScreenRouter.swift */; };
+		819EF59427723F1A0036EC87 /* TextFieldWithError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF59327723F1A0036EC87 /* TextFieldWithError.swift */; };
 		81B38F27277093DB00FD6C48 /* CompaniesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81B38F25277093DB00FD6C48 /* CompaniesModel.xcdatamodeld */; };
 		81B38F2C2770976000FD6C48 /* Company+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B38F282770976000FD6C48 /* Company+CoreDataClass.swift */; };
 		81B38F2D2770976000FD6C48 /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B38F292770976000FD6C48 /* Company+CoreDataProperties.swift */; };
@@ -64,6 +70,12 @@
 		819EF5812771D1840036EC87 /* TableScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableScreenViewController.swift; sourceTree = "<group>"; };
 		819EF5832771D1FA0036EC87 /* TableScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableScreenView.swift; sourceTree = "<group>"; };
 		819EF5852771D2C90036EC87 /* ITableScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITableScreenPresenter.swift; sourceTree = "<group>"; };
+		819EF589277237A80036EC87 /* AddCompanyScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyScreenViewController.swift; sourceTree = "<group>"; };
+		819EF58B277237BF0036EC87 /* AddCompanyScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyScreenAssembly.swift; sourceTree = "<group>"; };
+		819EF58D277237FD0036EC87 /* AddCompanyScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyScreenView.swift; sourceTree = "<group>"; };
+		819EF58F277238110036EC87 /* AddCompanyScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyScreenPresenter.swift; sourceTree = "<group>"; };
+		819EF591277238230036EC87 /* AddCompanyScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyScreenRouter.swift; sourceTree = "<group>"; };
+		819EF59327723F1A0036EC87 /* TextFieldWithError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithError.swift; sourceTree = "<group>"; };
 		81B38F26277093DB00FD6C48 /* CompaniesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CompaniesModel.xcdatamodel; sourceTree = "<group>"; };
 		81B38F282770976000FD6C48 /* Company+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataClass.swift"; sourceTree = "<group>"; };
 		81B38F292770976000FD6C48 /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -189,8 +201,10 @@
 		819EF5802771CF880036EC87 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				819EF59327723F1A0036EC87 /* TextFieldWithError.swift */,
 				819EF5872771D50E0036EC87 /* TableScreen */,
 				81148940276CA94600667D49 /* CompaniesScreen */,
+				819EF5882772377D0036EC87 /* AddCompanyScreen */,
 				818E4726276F4BBD0022A9C7 /* EmployeesScreen */,
 			);
 			path = Modules;
@@ -204,6 +218,18 @@
 				819EF5852771D2C90036EC87 /* ITableScreenPresenter.swift */,
 			);
 			path = TableScreen;
+			sourceTree = "<group>";
+		};
+		819EF5882772377D0036EC87 /* AddCompanyScreen */ = {
+			isa = PBXGroup;
+			children = (
+				819EF58B277237BF0036EC87 /* AddCompanyScreenAssembly.swift */,
+				819EF589277237A80036EC87 /* AddCompanyScreenViewController.swift */,
+				819EF58D277237FD0036EC87 /* AddCompanyScreenView.swift */,
+				819EF58F277238110036EC87 /* AddCompanyScreenPresenter.swift */,
+				819EF591277238230036EC87 /* AddCompanyScreenRouter.swift */,
+			);
+			path = AddCompanyScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +306,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819EF590277238110036EC87 /* AddCompanyScreenPresenter.swift in Sources */,
+				819EF58A277237A80036EC87 /* AddCompanyScreenViewController.swift in Sources */,
 				8114898F276E59A000667D49 /* NetworkService.swift in Sources */,
 				81148947276CAD0C00667D49 /* DataManager.swift in Sources */,
 				819EF5842771D1FA0036EC87 /* TableScreenView.swift in Sources */,
@@ -289,14 +317,17 @@
 				8114892A276CA19A00667D49 /* AppDelegate.swift in Sources */,
 				818E4724276F39790022A9C7 /* CompaniesScreenViewModel.swift in Sources */,
 				81B38F2D2770976000FD6C48 /* Company+CoreDataProperties.swift in Sources */,
+				819EF59427723F1A0036EC87 /* TextFieldWithError.swift in Sources */,
 				81148975276CC46500667D49 /* CoreDataManager.swift in Sources */,
 				819EF5822771D1840036EC87 /* TableScreenViewController.swift in Sources */,
 				81B38F27277093DB00FD6C48 /* CompaniesModel.xcdatamodeld in Sources */,
 				81B38F322770C71200FD6C48 /* EmployeesScreenTableAdapter.swift in Sources */,
 				81B38F2F2770976000FD6C48 /* Employee+CoreDataProperties.swift in Sources */,
 				818E4728276F4C0D0022A9C7 /* EmployeesScreenAssembly.swift in Sources */,
+				819EF58E277237FD0036EC87 /* AddCompanyScreenView.swift in Sources */,
 				81B38F2E2770976000FD6C48 /* Employee+CoreDataClass.swift in Sources */,
 				819EF5862771D2C90036EC87 /* ITableScreenPresenter.swift in Sources */,
+				819EF58C277237BF0036EC87 /* AddCompanyScreenAssembly.swift in Sources */,
 				818E4722276F38F50022A9C7 /* CompaniesScreenTableAdapter.swift in Sources */,
 				81148977276CF49700667D49 /* CompanyDTO.swift in Sources */,
 				818E4734276F86C70022A9C7 /* EmployeesScreenRouter.swift in Sources */,
@@ -304,6 +335,7 @@
 				81B38F342770C78F00FD6C48 /* EmployeesScreenViewModel.swift in Sources */,
 				818E472A276F4CD80022A9C7 /* EmployeesScreenPresenter.swift in Sources */,
 				81B38F2C2770976000FD6C48 /* Company+CoreDataClass.swift in Sources */,
+				819EF592277238230036EC87 /* AddCompanyScreenRouter.swift in Sources */,
 				8114892C276CA19A00667D49 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
