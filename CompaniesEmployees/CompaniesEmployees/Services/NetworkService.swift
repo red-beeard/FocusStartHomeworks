@@ -72,14 +72,18 @@ extension NetworkService: INetworkService {
         return nil
     }
     
-    func add(company: CompanyDTO) throws {
+    func add(companies: CompanyDTO...) throws {
         if let path = Bundle.main.url(forResource: "Companies", withExtension: "json") {
             let data = try Data(contentsOf: path)
             
-            var companies = try JSONDecoder().decode([CompanyDTO].self, from: data)
-            companies.append(company)
+            var savedCompanies = try JSONDecoder().decode([CompanyDTO].self, from: data)
+            for newCompany in companies {
+                if savedCompanies.contains(where: { $0.name == newCompany.name}) == false {
+                    savedCompanies.append(newCompany)
+                }
+            }
             
-            let newCompaniesData = try JSONEncoder().encode(companies)
+            let newCompaniesData = try JSONEncoder().encode(savedCompanies)
             let jsonString = String(decoding: newCompaniesData, as: UTF8.self)
             try jsonString.write(to: path, atomically: true, encoding: .utf8)
         }

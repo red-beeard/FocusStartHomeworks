@@ -75,11 +75,16 @@ extension CoreDataManager: IDataService {
         return nil
     }
     
-    func add(company: CompanyDTO) throws {
+    func add(companies: CompanyDTO...) throws {
         guard let entity = NSEntityDescription.entity(forEntityName: "Company", in: persistentContainer.viewContext) else { return }
         
-        let newCompany = Company(entity: entity, insertInto: persistentContainer.viewContext)
-        newCompany.setValues(from: company)
+        let savedCompanies = try self.getAllCompanies()
+        for newCompany in savedCompanies {
+            if savedCompanies.contains(where: { $0.name == newCompany.name}) == false {
+                let newCompanyEntity = Company(entity: entity, insertInto: persistentContainer.viewContext)
+                newCompanyEntity.setValues(from: newCompany)
+            }
+        }
         
         self.saveContext()
     }
