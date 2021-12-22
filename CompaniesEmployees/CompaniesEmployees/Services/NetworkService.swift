@@ -8,8 +8,8 @@
 import Foundation
 
 protocol INetworkService: IDataService {
-//    func getAllCompanies() throws -> [CompanyDTO]
-//    func getEmployees(from company: CompanyDTO) throws -> [EmployeeDTO]
+    //    func getAllCompanies() throws -> [CompanyDTO]
+    //    func getEmployees(from company: CompanyDTO) throws -> [EmployeeDTO]
 }
 
 final class NetworkService {
@@ -27,7 +27,7 @@ extension NetworkService: INetworkService {
     func getAllCompanies() throws -> [CompanyDTO] {
         if let path = Bundle.main.url(forResource: "Companies", withExtension: "json") {
             let data = try Data(contentsOf: path)
-//            self.printJsonData(data)
+            //            self.printJsonData(data)
             
             return try JSONDecoder().decode([CompanyDTO].self, from: data)
         }
@@ -37,7 +37,7 @@ extension NetworkService: INetworkService {
     func getEmployees(from company: CompanyDTO) throws -> [EmployeeDTO] {
         if let path = Bundle.main.url(forResource: "\(company.id)", withExtension: "json") {
             let data = try Data(contentsOf: path)
-//            self.printJsonData(data)
+            //            self.printJsonData(data)
             
             return try JSONDecoder().decode([EmployeeDTO].self, from: data)
         }
@@ -72,18 +72,46 @@ extension NetworkService: INetworkService {
         return nil
     }
     
-    func add(companies: CompanyDTO...) throws {
+    func add(company: CompanyDTO) throws {
         if let path = Bundle.main.url(forResource: "Companies", withExtension: "json") {
             let data = try Data(contentsOf: path)
             
             var savedCompanies = try JSONDecoder().decode([CompanyDTO].self, from: data)
-            for newCompany in companies {
-                if savedCompanies.contains(where: { $0.name == newCompany.name}) == false {
-                    savedCompanies.append(newCompany)
-                }
+            if savedCompanies.contains(where: { $0.name == company.name}) == false {
+                savedCompanies.append(company)
             }
             
             let newCompaniesData = try JSONEncoder().encode(savedCompanies)
+            let jsonString = String(decoding: newCompaniesData, as: UTF8.self)
+            try jsonString.write(to: path, atomically: true, encoding: .utf8)
+        }
+    }
+    
+    func add(to company: CompanyDTO, employee: EmployeeDTO) throws {
+        if let path = Bundle.main.url(forResource: "\(company.id)", withExtension: "json") {
+            let data = try Data(contentsOf: path)
+            
+            var savedEmployees = try JSONDecoder().decode([EmployeeDTO].self, from: data)
+            if savedEmployees.contains(where: { $0.id == employee.id}) == false {
+                savedEmployees.append(employee)
+            }
+            
+            let newCompaniesData = try JSONEncoder().encode(savedEmployees)
+            let jsonString = String(decoding: newCompaniesData, as: UTF8.self)
+            try jsonString.write(to: path, atomically: true, encoding: .utf8)
+        }
+    }
+    
+    func update(from company: CompanyDTO, employee: EmployeeDTO) throws {
+        if let path = Bundle.main.url(forResource: "\(company.id)", withExtension: "json") {
+            let data = try Data(contentsOf: path)
+            
+            var savedEmployees = try JSONDecoder().decode([EmployeeDTO].self, from: data)
+            if let index = savedEmployees.firstIndex(where: { $0.id == employee.id }) {
+                savedEmployees[index] = employee
+            }
+            
+            let newCompaniesData = try JSONEncoder().encode(savedEmployees)
             let jsonString = String(decoding: newCompaniesData, as: UTF8.self)
             try jsonString.write(to: path, atomically: true, encoding: .utf8)
         }

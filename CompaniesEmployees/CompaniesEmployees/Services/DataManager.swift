@@ -13,6 +13,8 @@ protocol IDataManager {
     func delete(company: CompanyDTO, completion: @escaping (Result<CompanyDTO?, Error>) -> Void)
     func delete(employee: EmployeeDTO, from company: CompanyDTO, completion: @escaping (Result<EmployeeDTO?, Error>) -> Void)
     func add(company: CompanyDTO, completion: @escaping (Result<Void, Error>) -> Void)
+    func add(employee: EmployeeDTO, to company: CompanyDTO, completion: @escaping (Result<Void, Error>) -> Void)
+    func update(employee: EmployeeDTO, from company: CompanyDTO, completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 protocol IDataService {
@@ -20,7 +22,9 @@ protocol IDataService {
     func getEmployees(from company: CompanyDTO) throws -> [EmployeeDTO]
     func delete(company: CompanyDTO) throws -> CompanyDTO?
     func delete(employee: EmployeeDTO, from company: CompanyDTO) throws -> EmployeeDTO?
-    func add(companies: CompanyDTO...) throws
+    func add(company: CompanyDTO) throws
+    func add(to company: CompanyDTO, employee: EmployeeDTO) throws
+    func update(from company: CompanyDTO, employee: EmployeeDTO) throws
 }
 
 final class DataManager {
@@ -29,7 +33,7 @@ final class DataManager {
     
     private init() { }
     
-    private let coreDataManager: IDataService = CoreDataManager()
+    private let coreDataManager: ICoreDataService = CoreDataService()
     private let networkService: IDataService = NetworkService()
     
 }
@@ -44,6 +48,7 @@ extension DataManager: IDataManager {
                 sleep(5)
                 let networkCompanies = try self.networkService.getAllCompanies()
                 completion(.success(networkCompanies))
+                try self.coreDataManager.updateFromNetwork(companies: networkCompanies)
             } catch {
                 completion(.failure(error))
             }
@@ -95,9 +100,35 @@ extension DataManager: IDataManager {
     func add(company: CompanyDTO, completion: @escaping (Result<Void, Error>) -> Void) {
         DispatchQueue.global(qos: .userInteractive).async {
             do {
-                try self.coreDataManager.add(companies: company)
+                try self.coreDataManager.add(company: company)
                 completion(.success(()))
-                try self.networkService.add(companies: company)
+                try self.networkService.add(company: company)
+                completion(.success(()))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func add(employee: EmployeeDTO, to company: CompanyDTO, completion: @escaping (Result<Void, Error>) -> Void) {
+        DispatchQueue.global(qos: .userInteractive).async {
+            do {
+                try self.coreDataManager.add(to: company, employee: employee)
+                completion(.success(()))
+                try self.networkService.add(to: company, employee: employee)
+                completion(.success(()))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func update(employee: EmployeeDTO, from company: CompanyDTO, completion: @escaping (Result<Void, Error>) -> Void) {
+        DispatchQueue.global(qos: .userInteractive).async {
+            do {
+                try self.coreDataManager.update(from: company, employee: employee)
+                completion(.success(()))
+                try self.networkService.update(from: company, employee: employee)
                 completion(.success(()))
             } catch {
                 completion(.failure(error))

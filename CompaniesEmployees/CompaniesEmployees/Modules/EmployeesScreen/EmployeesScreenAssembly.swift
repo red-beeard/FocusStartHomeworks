@@ -7,6 +7,10 @@
 
 import UIKit
 
+extension Notification.Name {
+    static let employeeUpdateNotification = Notification.Name("employeeUpdateNotification")
+}
+
 final class EmployeesScreenAssembly {
     static func build(company: CompanyDTO) -> UIViewController {
         let dataManager = DataManager.shared
@@ -17,9 +21,11 @@ final class EmployeesScreenAssembly {
             company: company,
             dataManager: dataManager,
             tableAdapter: tableAdapter,
-            router: router
+            router: router,
+            center: NotificationCenter.default
         )
         let controller = TableScreenViewController(presenter: presenter)
+        router.controller = controller
         
         return controller
     }

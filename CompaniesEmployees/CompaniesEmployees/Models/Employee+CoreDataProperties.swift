@@ -27,3 +27,20 @@ extension Employee {
 extension Employee : Identifiable {
 
 }
+
+extension Employee {
+    
+    func setValues(from employee: EmployeeDTO) {
+        self.id = employee.id
+        self.name = employee.name
+        self.age = Int16(employee.age)
+        
+        if let experience = employee.experience {
+            self.experience = NSNumber(integerLiteral: experience)
+        } else {
+            self.experience = nil
+        }
+        
+    }
+    
+}

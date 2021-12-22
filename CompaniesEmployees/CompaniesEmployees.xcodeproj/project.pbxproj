@@ -14,7 +14,7 @@
 		81148942276CA97900667D49 /* CompaniesScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148941276CA97900667D49 /* CompaniesScreenAssembly.swift */; };
 		81148944276CAAF700667D49 /* CompaniesScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148943276CAAF700667D49 /* CompaniesScreenPresenter.swift */; };
 		81148947276CAD0C00667D49 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148946276CAD0C00667D49 /* DataManager.swift */; };
-		81148975276CC46500667D49 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148974276CC46500667D49 /* CoreDataManager.swift */; };
+		81148975276CC46500667D49 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148974276CC46500667D49 /* CoreDataService.swift */; };
 		81148977276CF49700667D49 /* CompanyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81148976276CF49600667D49 /* CompanyDTO.swift */; };
 		8114897A276E573400667D49 /* Companies.json in Resources */ = {isa = PBXBuildFile; fileRef = 81148979276E573400667D49 /* Companies.json */; };
 		8114898F276E59A000667D49 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114898E276E59A000667D49 /* NetworkService.swift */; };
@@ -34,6 +34,12 @@
 		819EF590277238110036EC87 /* AddCompanyScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF58F277238110036EC87 /* AddCompanyScreenPresenter.swift */; };
 		819EF592277238230036EC87 /* AddCompanyScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF591277238230036EC87 /* AddCompanyScreenRouter.swift */; };
 		819EF59427723F1A0036EC87 /* TextFieldWithError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF59327723F1A0036EC87 /* TextFieldWithError.swift */; };
+		819EF59A277379880036EC87 /* EditEmployeeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF595277379870036EC87 /* EditEmployeeScreenPresenter.swift */; };
+		819EF59B277379880036EC87 /* EditEmployeeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF596277379870036EC87 /* EditEmployeeScreenView.swift */; };
+		819EF59C277379880036EC87 /* EditEmployeeScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF597277379870036EC87 /* EditEmployeeScreenAssembly.swift */; };
+		819EF59D277379880036EC87 /* EditEmployeeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF598277379870036EC87 /* EditEmployeeScreenViewController.swift */; };
+		819EF59E277379880036EC87 /* EditEmployeeScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF599277379880036EC87 /* EditEmployeeScreenRouter.swift */; };
+		819EF5A1277385A60036EC87 /* EditEmployeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819EF5A0277385A60036EC87 /* EditEmployeeViewModel.swift */; };
 		81B38F27277093DB00FD6C48 /* CompaniesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81B38F25277093DB00FD6C48 /* CompaniesModel.xcdatamodeld */; };
 		81B38F2C2770976000FD6C48 /* Company+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B38F282770976000FD6C48 /* Company+CoreDataClass.swift */; };
 		81B38F2D2770976000FD6C48 /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B38F292770976000FD6C48 /* Company+CoreDataProperties.swift */; };
@@ -56,7 +62,7 @@
 		81148941276CA97900667D49 /* CompaniesScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesScreenAssembly.swift; sourceTree = "<group>"; };
 		81148943276CAAF700667D49 /* CompaniesScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesScreenPresenter.swift; sourceTree = "<group>"; };
 		81148946276CAD0C00667D49 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		81148974276CC46500667D49 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		81148974276CC46500667D49 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		81148976276CF49600667D49 /* CompanyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDTO.swift; sourceTree = "<group>"; };
 		81148979276E573400667D49 /* Companies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Companies.json; sourceTree = "<group>"; };
 		8114898E276E59A000667D49 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -76,6 +82,12 @@
 		819EF58F277238110036EC87 /* AddCompanyScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyScreenPresenter.swift; sourceTree = "<group>"; };
 		819EF591277238230036EC87 /* AddCompanyScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompanyScreenRouter.swift; sourceTree = "<group>"; };
 		819EF59327723F1A0036EC87 /* TextFieldWithError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithError.swift; sourceTree = "<group>"; };
+		819EF595277379870036EC87 /* EditEmployeeScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditEmployeeScreenPresenter.swift; path = CompaniesEmployees/EditEmployeeScreen/EditEmployeeScreenPresenter.swift; sourceTree = SOURCE_ROOT; };
+		819EF596277379870036EC87 /* EditEmployeeScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditEmployeeScreenView.swift; path = CompaniesEmployees/EditEmployeeScreen/EditEmployeeScreenView.swift; sourceTree = SOURCE_ROOT; };
+		819EF597277379870036EC87 /* EditEmployeeScreenAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditEmployeeScreenAssembly.swift; path = CompaniesEmployees/EditEmployeeScreen/EditEmployeeScreenAssembly.swift; sourceTree = SOURCE_ROOT; };
+		819EF598277379870036EC87 /* EditEmployeeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditEmployeeScreenViewController.swift; path = CompaniesEmployees/EditEmployeeScreen/EditEmployeeScreenViewController.swift; sourceTree = SOURCE_ROOT; };
+		819EF599277379880036EC87 /* EditEmployeeScreenRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditEmployeeScreenRouter.swift; path = CompaniesEmployees/EditEmployeeScreen/EditEmployeeScreenRouter.swift; sourceTree = SOURCE_ROOT; };
+		819EF5A0277385A60036EC87 /* EditEmployeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEmployeeViewModel.swift; sourceTree = "<group>"; };
 		81B38F26277093DB00FD6C48 /* CompaniesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CompaniesModel.xcdatamodel; sourceTree = "<group>"; };
 		81B38F282770976000FD6C48 /* Company+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataClass.swift"; sourceTree = "<group>"; };
 		81B38F292770976000FD6C48 /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -155,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				81148946276CAD0C00667D49 /* DataManager.swift */,
-				81148974276CC46500667D49 /* CoreDataManager.swift */,
+				81148974276CC46500667D49 /* CoreDataService.swift */,
 				8114898E276E59A000667D49 /* NetworkService.swift */,
 			);
 			path = Services;
@@ -206,6 +218,7 @@
 				81148940276CA94600667D49 /* CompaniesScreen */,
 				819EF5882772377D0036EC87 /* AddCompanyScreen */,
 				818E4726276F4BBD0022A9C7 /* EmployeesScreen */,
+				819EF59F277379950036EC87 /* EditEmployeeScreen */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -230,6 +243,20 @@
 				819EF591277238230036EC87 /* AddCompanyScreenRouter.swift */,
 			);
 			path = AddCompanyScreen;
+			sourceTree = "<group>";
+		};
+		819EF59F277379950036EC87 /* EditEmployeeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				819EF597277379870036EC87 /* EditEmployeeScreenAssembly.swift */,
+				819EF595277379870036EC87 /* EditEmployeeScreenPresenter.swift */,
+				819EF599277379880036EC87 /* EditEmployeeScreenRouter.swift */,
+				819EF596277379870036EC87 /* EditEmployeeScreenView.swift */,
+				819EF598277379870036EC87 /* EditEmployeeScreenViewController.swift */,
+				819EF5A0277385A60036EC87 /* EditEmployeeViewModel.swift */,
+			);
+			name = EditEmployeeScreen;
+			path = ../EditEmployeeScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,8 +333,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819EF59E277379880036EC87 /* EditEmployeeScreenRouter.swift in Sources */,
 				819EF590277238110036EC87 /* AddCompanyScreenPresenter.swift in Sources */,
 				819EF58A277237A80036EC87 /* AddCompanyScreenViewController.swift in Sources */,
+				819EF59D277379880036EC87 /* EditEmployeeScreenViewController.swift in Sources */,
+				819EF59B277379880036EC87 /* EditEmployeeScreenView.swift in Sources */,
 				8114898F276E59A000667D49 /* NetworkService.swift in Sources */,
 				81148947276CAD0C00667D49 /* DataManager.swift in Sources */,
 				819EF5842771D1FA0036EC87 /* TableScreenView.swift in Sources */,
@@ -318,14 +348,17 @@
 				818E4724276F39790022A9C7 /* CompaniesScreenViewModel.swift in Sources */,
 				81B38F2D2770976000FD6C48 /* Company+CoreDataProperties.swift in Sources */,
 				819EF59427723F1A0036EC87 /* TextFieldWithError.swift in Sources */,
-				81148975276CC46500667D49 /* CoreDataManager.swift in Sources */,
+				81148975276CC46500667D49 /* CoreDataService.swift in Sources */,
 				819EF5822771D1840036EC87 /* TableScreenViewController.swift in Sources */,
+				819EF59A277379880036EC87 /* EditEmployeeScreenPresenter.swift in Sources */,
+				819EF59C277379880036EC87 /* EditEmployeeScreenAssembly.swift in Sources */,
 				81B38F27277093DB00FD6C48 /* CompaniesModel.xcdatamodeld in Sources */,
 				81B38F322770C71200FD6C48 /* EmployeesScreenTableAdapter.swift in Sources */,
 				81B38F2F2770976000FD6C48 /* Employee+CoreDataProperties.swift in Sources */,
 				818E4728276F4C0D0022A9C7 /* EmployeesScreenAssembly.swift in Sources */,
 				819EF58E277237FD0036EC87 /* AddCompanyScreenView.swift in Sources */,
 				81B38F2E2770976000FD6C48 /* Employee+CoreDataClass.swift in Sources */,
+				819EF5A1277385A60036EC87 /* EditEmployeeViewModel.swift in Sources */,
 				819EF5862771D2C90036EC87 /* ITableScreenPresenter.swift in Sources */,
 				819EF58C277237BF0036EC87 /* AddCompanyScreenAssembly.swift in Sources */,
 				818E4722276F38F50022A9C7 /* CompaniesScreenTableAdapter.swift in Sources */,

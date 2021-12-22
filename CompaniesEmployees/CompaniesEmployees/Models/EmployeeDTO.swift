@@ -34,6 +34,26 @@ struct EmployeeDTO: Codable {
         self.experience = experience
     }
     
+    init?(id: UUID? = nil, name: String?, age: String?, experience: String?) {
+        if let id = id {
+            self.id = id
+        } else {
+            self.id = UUID()
+        }
+        
+        guard let name = name else { return nil }
+        self.name = name
+        
+        guard let ageString = age, let age = Int(ageString) else { return nil }
+        self.age = age
+        
+        guard let experienceString = experience, let experience = Int(experienceString) else {
+            self.experience = nil
+            return
+        }
+        self.experience = experience
+    }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(UUID.self, forKey: .id)
