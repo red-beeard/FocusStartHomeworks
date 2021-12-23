@@ -70,13 +70,6 @@ extension CoreDataService: ICoreDataService {
         
         let companies = try persistentContainer.viewContext.fetch(fetchRequest)
         if let companyForDelete = companies.first {
-            
-            let _ = companyForDelete.employees?.map {
-                if let employeesForDelete = $0 as? Employee {
-                    persistentContainer.viewContext.delete(employeesForDelete)
-                }
-            }
-            
             persistentContainer.viewContext.delete(companyForDelete)
             
             self.saveContext()
